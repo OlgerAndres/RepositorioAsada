@@ -9,25 +9,24 @@ namespace Logica
 {
     public interface IServiciosUsuarios
     {
-        bool iniciarSession(string usuario, string clave);
+        bool iniciarSession(string UsuarioNombre, string clave, out Usuario usuario);
         string encriptarClave(string clave);
+        List<Usuario> listar();
+        Usuario encontrarPorId(int Id);
+        void agregar(string UsuarioNombre, string Clave);
+        void actualizar(int Id, string UsuarioNombre, string Clave);
+        void borrar(int Id);
     }
 
-    public class AccionesUsuarios : IServiciosUsuarios
+    public class AccionesUsuarios : AccionesEntidades, IServiciosUsuarios
     {
-        private ASADAEntidades contexto;
 
-        public AccionesUsuarios()
-        {
-            this.contexto = new ASADAEntidades();
-        }
-
-        public bool iniciarSession(string usuarioNombre, string clave)
+        public bool iniciarSession(string UsuarioNombre, string clave, out Usuario usuario)
         {
             string encriptada = this.encriptarClave(clave);
-            Usuario usuario = this.contexto
+            usuario = this.contexto
                 .Usuarios
-                .FirstOrDefault(u => u.UsuarioNombre.Equals(usuarioNombre) && u.Clave.Equals(encriptada));
+                .FirstOrDefault(u => u.UsuarioNombre.Equals(UsuarioNombre) && u.Clave.Equals(encriptada));
             return usuario != null;
         }
 
@@ -41,6 +40,43 @@ namespace Logica
                 strConstructor.Append(datos[i].ToString("x2"));
             }
             return strConstructor.ToString();
+        }
+
+        public List<Usuario> listar()
+        {
+            return this.contexto.Usuarios.ToList();
+        }
+
+        public Usuario encontrarPorId(int Id)
+        {
+            return this.contexto.Usuarios.Where(u => u.Id == Id).FirstOrDefault();
+        }
+
+        public void agregar(string UsuarioNombre, string Clave)
+        {
+            this.contexto.Usuarios.Add(new Usuario
+            {
+                UsuarioNombre = UsuarioNombre,
+                Clave = Clave
+            });
+            this.contexto.SaveChanges();
+        }
+
+        public void actualizar(int Id, string UsuarioNombre, string Clave)
+        {
+            Usuario usuario = this.encontrarPorId(Id);
+            usuario.UsuarioNombre = UsuarioNombre;
+            if (!usuario.Clave.Equals(Clave))
+            {
+                usuario.Clave = this.encriptarClave(Clave);
+            }
+            this.contexto.SaveChanges();
+        }
+
+        public void borrar(int Id)
+        {
+            this.contexto.Usuarios.Remove(this.encontrarPorId(Id));
+            this.contexto.SaveChanges();
         }
     }
 }

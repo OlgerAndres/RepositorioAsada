@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Logica;
+using Datos;
 
 namespace Pruebas
 {
@@ -20,7 +21,8 @@ namespace Pruebas
         public void iniciarSession()
         {
             //
-            if (this.usuarios.iniciarSession("kbolivar", "secreto"))
+            Usuario usuario = null;
+            if (this.usuarios.iniciarSession("kbolivar", "secreto", out usuario))
             {
                 Console.WriteLine("Session abierta!");
             }
