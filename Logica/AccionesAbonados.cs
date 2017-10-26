@@ -16,7 +16,7 @@ namespace Logica
         void borrar(int Id);
     }
 
-    public class AccionesAbonado : AccionesEntidades, IServiciosAbonados
+    public class AccionesAbonados : AccionesEntidades, IServiciosAbonados
     {
 
         public List<Abonado> listar()
