@@ -30,6 +30,14 @@ namespace Pruebas
             {
                 Console.WriteLine("Session fallida.");
             }
+            if (usuario != null)
+            {
+                Console.WriteLine("Entidad de Usuario cargado.");
+            }
+            else 
+            {
+                Console.WriteLine("Entidad de Usuario NO cargada.");
+            }
         }
 
         public void encriptarClave()
