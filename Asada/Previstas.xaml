@@ -1,0 +1,22 @@
+﻿<Window x:Class="Asada.Previstas"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Previstas" Height="468" Width="840">
+    <Grid>
+        <Label Content="Abonado" HorizontalAlignment="Left" Margin="10,27,0,0" VerticalAlignment="Top"/>
+        <Label Content="Tarifa" HorizontalAlignment="Left" Margin="10,88,0,0" VerticalAlignment="Top"/>
+        <Label Content="Sector" HorizontalAlignment="Left" Margin="10,144,0,0" VerticalAlignment="Top"/>
+        <Label Content="Dirección" HorizontalAlignment="Left" Margin="11,212,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cmbAbonado" HorizontalAlignment="Left" Margin="96,27,0,0" VerticalAlignment="Top" Width="143"/>
+        <ComboBox x:Name="cmbTarifa" HorizontalAlignment="Left" Margin="96,88,0,0" VerticalAlignment="Top" Width="143"/>
+        <ComboBox x:Name="cmbSector" HorizontalAlignment="Left" Margin="96,148,0,0" VerticalAlignment="Top" Width="143"/>
+        <TextBox x:Name="txtDireccion" HorizontalAlignment="Left" Height="94" Margin="96,216,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="309"/>
+        <Label Content="Folio real" HorizontalAlignment="Left" Margin="13,342,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtFolio" HorizontalAlignment="Left" Height="23" Margin="96,342,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143"/>
+        <Button x:Name="btnAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="532,286,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btnModificar" Content="Modificar" HorizontalAlignment="Left" Margin="532,361,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="656,286,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btnSalir" Content="Salir" HorizontalAlignment="Left" Margin="656,361,0,0" VerticalAlignment="Top" Width="75"/>
+
+    </Grid>
+</Window>
