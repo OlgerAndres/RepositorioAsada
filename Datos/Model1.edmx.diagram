@@ -5,14 +5,14 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="f2853a6a207f43e2823d6a7aa4463297" Name="Diagram1">
-        <EntityTypeShape EntityType="ASADAModel.Abonado" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="ASADAModel.Prevista" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="ASADAModel.Sectore" Width="1.5" PointX="5.875" PointY="2.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ASADAModel.Tarifa" Width="1.5" PointX="1.875" PointY="4.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ASADAModel.Usuario" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <AssociationConnector Association="ASADAModel.FK_Previstas_Abonados" ManuallyRouted="false" />
-        <AssociationConnector Association="ASADAModel.FK_Previstas_Sectores" ManuallyRouted="false" />
-        <AssociationConnector Association="ASADAModel.FK_Previstas_Tarifas" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ASADAModel.Abonado" Width="1.5" PointX="0.75" PointY="1" />
+        <EntityTypeShape EntityType="ASADAModel.Prevista" Width="1.5" PointX="3" PointY="1.25" />
+        <EntityTypeShape EntityType="ASADAModel.Sector" Width="1.5" PointX="5.75" PointY="3.875" />
+        <EntityTypeShape EntityType="ASADAModel.Tarifa" Width="1.5" PointX="0.75" PointY="5.25" />
+        <EntityTypeShape EntityType="ASADAModel.Usuario" Width="1.5" PointX="5.75" PointY="0.75" />
+        <AssociationConnector Association="ASADAModel.FK_Previstas_Abonados" />
+        <AssociationConnector Association="ASADAModel.FK_Previstas_Sectores" />
+        <AssociationConnector Association="ASADAModel.FK_Previstas_Tarifas" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

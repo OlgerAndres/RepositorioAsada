@@ -57,7 +57,7 @@ namespace Pruebas
             string UsuarioNombre = "keboca";
             this.usuarios.agregar(UsuarioNombre, "secreto");
             this.Id = new ASADAEntidades().Usuarios
-                .Where(u => u.UsuarioNombre == UsuarioNombre)
+                .Where(u => u.Nombre == UsuarioNombre)
                 .FirstOrDefault()
                 .Id;
             Console.WriteLine("Nuevo usuario creado con ID: " + Id);
@@ -68,14 +68,14 @@ namespace Pruebas
             List<Usuario> lista = this.usuarios.listar();
             foreach (Usuario usuario in lista)
             {
-                Console.WriteLine(usuario.UsuarioNombre);
+                Console.WriteLine(usuario.Nombre);
             }
         }
     
         public void encontrarPorId()
         {
             Usuario usuario = this.usuarios.encontrarPorId(this.Id);
-            Console.WriteLine("Usuario encontrado: " + usuario.UsuarioNombre);
+            Console.WriteLine("Usuario encontrado: " + usuario.Nombre);
         }
 
         public void actualizar()

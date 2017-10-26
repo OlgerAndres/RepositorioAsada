@@ -12,10 +12,10 @@ namespace Datos
     using System;
     using System.Collections.Generic;
     
-    public partial class Sectore
+    public partial class Sector
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Sectore()
+        public Sector()
         {
             this.Previstas = new HashSet<Prevista>();
         }

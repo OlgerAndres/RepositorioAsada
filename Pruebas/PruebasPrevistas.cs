@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Logica;
 using Datos;
+using System.Data.Entity.Infrastructure;
 
 namespace Pruebas
 {
@@ -16,17 +17,29 @@ namespace Pruebas
         private ASADAEntidades contexto = new ASADAEntidades();
         private Abonado Abonado;
         private Tarifa Tarifa;
-        private Sectore Sector;
+        private Sector Sector;
 
         public void ejecutar()
         {
-            this.Abonado = new Abonado { Nombre = "AbonadoY" };
+            this.Abonado = new Abonado { 
+                Nombre = "AbonadoY",
+                PrimerApellido = "Apellido1",
+                SegundoApellido = "Apellido2",
+                Cedula = "CedulaY",
+                Telefono = "TelefonoY",
+                Direccion = "DireccionY",
+                NumeroAbonado = "NumeroAbonadoY",
+                Afiliado = true
+            };
             this.contexto.Abonados.Add(this.Abonado);
 
-            this.Tarifa = new Tarifa { Descripcion = "Descripcion Tarifa Y" };
+            this.Tarifa = new Tarifa {
+                Descripcion = "Descripcion Tarifa Y" ,
+                Precio = 0
+            };
             this.contexto.Tarifas.Add(this.Tarifa);
             
-            this.Sector = new Sectore { Descripcion = "Descripcion Sector Y" };
+            this.Sector = new Sector { Descripcion = "Descripcion Sector Y" };
             this.contexto.Sectores.Add(this.Sector);
 
             this.contexto.SaveChanges();
@@ -36,6 +49,21 @@ namespace Pruebas
             this.encontrarPorId();
             this.actualizar();
             this.borrar();
+
+            this.contexto.Abonados.Remove(this.Abonado);
+            this.contexto.Tarifas.Remove(this.Tarifa);
+            this.contexto.Sectores.Remove(this.Sector);
+
+            try
+            {
+                this.contexto.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                // Update the values of the entity that failed to save from the store 
+                ex.Entries.Single().Reload();
+                this.contexto.SaveChanges();
+            } 
         }
 
         public void agregar()
@@ -67,7 +95,7 @@ namespace Pruebas
 
         public void actualizar()
         {
-            this.previstas.actualizar(this.Id, 1, 1, 1, "NuevaDireccion", "NuevoFolioReal");
+            this.previstas.actualizar(this.Id, this.Abonado.Id, this.Tarifa.Id, this.Sector.Id, "NuevaDireccion", "NuevoFolioReal");
             Console.WriteLine("Prevista actualizada.");
         }
 
@@ -75,11 +103,6 @@ namespace Pruebas
         {
             this.previstas.borrar(this.Id);
             Console.WriteLine("Prevista eliminada.");
-
-            this.contexto.Abonados.Remove(this.Abonado);
-            this.contexto.Tarifas.Remove(this.Tarifa);
-            this.contexto.Sectores.Remove(this.Sector);
-            this.contexto.SaveChanges();
         }
     }
 }

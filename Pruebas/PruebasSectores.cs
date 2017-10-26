@@ -35,8 +35,8 @@ namespace Pruebas
 
         private void listar()
         {
-            List<Sectore> lista = this.sectores.listar();
-            foreach (Sectore sector in lista)
+            List<Sector> lista = this.sectores.listar();
+            foreach (Sector sector in lista)
             {
                 Console.WriteLine(sector.Descripcion);
             }
@@ -44,7 +44,7 @@ namespace Pruebas
 
         private void encontrarPorId()
         {
-            Sectore sector = this.sectores.encontrarPorId(this.Id);
+            Sector sector = this.sectores.encontrarPorId(this.Id);
             Console.WriteLine("Sector encontrado: " + sector.Descripcion);
         }
 

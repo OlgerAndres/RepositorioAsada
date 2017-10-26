@@ -27,7 +27,7 @@ namespace Datos
     
         public virtual DbSet<Abonado> Abonados { get; set; }
         public virtual DbSet<Prevista> Previstas { get; set; }
-        public virtual DbSet<Sectore> Sectores { get; set; }
+        public virtual DbSet<Sector> Sectores { get; set; }
         public virtual DbSet<Tarifa> Tarifas { get; set; }
         public virtual DbSet<Usuario> Usuarios { get; set; }
     }

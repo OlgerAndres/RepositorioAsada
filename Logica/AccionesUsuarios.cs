@@ -26,7 +26,7 @@ namespace Logica
             string encriptada = this.encriptarClave(clave);
             usuario = this.contexto
                 .Usuarios
-                .FirstOrDefault(u => u.UsuarioNombre.Equals(UsuarioNombre) && u.Clave.Equals(encriptada));
+                .FirstOrDefault(u => u.Nombre.Equals(UsuarioNombre) && u.Clave.Equals(encriptada));
             return usuario != null;
         }
 
@@ -56,7 +56,7 @@ namespace Logica
         {
             this.contexto.Usuarios.Add(new Usuario
             {
-                UsuarioNombre = UsuarioNombre,
+                Nombre = UsuarioNombre,
                 Clave = Clave
             });
             this.contexto.SaveChanges();
@@ -65,7 +65,7 @@ namespace Logica
         public void actualizar(int Id, string UsuarioNombre, string Clave)
         {
             Usuario usuario = this.encontrarPorId(Id);
-            usuario.UsuarioNombre = UsuarioNombre;
+            usuario.Nombre = UsuarioNombre;
             if (!usuario.Clave.Equals(Clave))
             {
                 usuario.Clave = this.encriptarClave(Clave);
