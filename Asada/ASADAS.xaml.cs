@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,6 +29,15 @@ namespace Asada
         public ASADAS()
         {
             InitializeComponent();
+        }
+
+        public void OnWindowClosing(object sender, CancelEventArgs e)
+        {
+            this.abonados.Close();
+            this.previstas.Close();
+            this.sectores.Close();
+            this.tarifas.Close();
+            this.usuarios.Close();
         }
 
         private void btnUsuarios_Click(object sender, RoutedEventArgs e)

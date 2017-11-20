@@ -25,16 +25,23 @@ namespace Asada
         public Usuarios()
         {
             InitializeComponent();
+            this.cargarUsuarios();
+        }
+
+        private void cargarUsuarios()
+        {
+            this.dgUsuarios.ItemsSource = this.usuarios.listar();
         }
 
         private void btnAgregar_Click(object sender, RoutedEventArgs e)
         {
             this.usuarios.agregar(this.txtUsuario.Text, this.txtClave.Password);
+            this.cargarUsuarios();
         }
 
         private void btnSalir_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            this.Hide();
         }
     }
 }
