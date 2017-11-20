@@ -19,9 +19,40 @@ namespace Asada
     /// </summary>
     public partial class ASADAS : Window
     {
+        private Abonados abonados = new Abonados();
+        private Previstas previstas = new Previstas();
+        private Sectores sectores = new Sectores();
+        private Tarifas tarifas = new Tarifas();
+        private Usuarios usuarios = new Usuarios();
+
         public ASADAS()
         {
             InitializeComponent();
+        }
+
+        private void btnUsuarios_Click(object sender, RoutedEventArgs e)
+        {
+            this.usuarios.Show();
+        }
+
+        private void btnAbonados_Click(object sender, RoutedEventArgs e)
+        {
+            this.abonados.Show();
+        }
+
+        private void btnPrevistas_Click(object sender, RoutedEventArgs e)
+        {
+            this.previstas.Show();
+        }
+
+        private void btnTarifas_Click(object sender, RoutedEventArgs e)
+        {
+            this.tarifas.Show();
+        }
+
+        private void btnSectores_Click(object sender, RoutedEventArgs e)
+        {
+            this.sectores.Show();
         }
     }
 }
