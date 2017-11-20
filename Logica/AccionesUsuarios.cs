@@ -57,7 +57,7 @@ namespace Logica
             this.contexto.Usuarios.Add(new Usuario
             {
                 Nombre = UsuarioNombre,
-                Clave = Clave
+                Clave = this.encriptarClave(Clave)
             });
             this.contexto.SaveChanges();
         }

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Logica;
 
 namespace Asada
 {
@@ -19,9 +20,21 @@ namespace Asada
     /// </summary>
     public partial class Usuarios : Window
     {
+        private IServiciosUsuarios usuarios = new AccionesUsuarios();
+
         public Usuarios()
         {
             InitializeComponent();
+        }
+
+        private void btnAgregar_Click(object sender, RoutedEventArgs e)
+        {
+            this.usuarios.agregar(this.txtUsuario.Text, this.txtClave.Password);
+        }
+
+        private void btnSalir_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
