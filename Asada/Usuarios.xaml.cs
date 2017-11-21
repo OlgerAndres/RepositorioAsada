@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Logica;
+using Datos;
 
 namespace Asada
 {
@@ -31,6 +32,21 @@ namespace Asada
         private void cargarUsuarios()
         {
             this.dgUsuarios.ItemsSource = this.usuarios.listar();
+        }
+
+        private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            Usuario usuario = this.dgUsuarios.CurrentItem as Usuario;
+            this.usuarios.actualizar(usuario.Id, usuario.Nombre, usuario.Clave);
+            this.cargarUsuarios();
+        }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+               Usuario usuario = this.dgUsuarios.SelectedItem as Usuario;
+               this.usuarios.borrar(usuario.Id);
+               MessageBox.Show("Usuario eliminado");
+               this.cargarUsuarios();
         }
 
         private void btnAgregar_Click(object sender, RoutedEventArgs e)
