@@ -79,18 +79,39 @@ namespace Asada
             cargarAbonados();
         }
 
-        private void dgAbonados_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            //txtPrimerApellido.Text = Convert.ToString(dgAbonados.CurrentRow.Cells["Primer apellido"].Value);
-            //txtSegundoApellido.Text = Convert.ToString(dgAbonados.CurrentRow.Cells["Segundo apellido"].Value);
-          
-
-               }
+      
 
         private void btnSalir_Click_1(object sender, RoutedEventArgs e)
         {
 
             this.Hide();
+        }
+        private void setAbonadosObj(Abonado objInformacion) {
+            this.txtNombre.Text = objInformacion.Nombre;
+            this.txtPrimerApellido.Text = objInformacion.PrimerApellido;
+            this.txtSegundoApellido.Text = objInformacion.SegundoApellido;
+            this.txtCedula.Text = Convert.ToString(objInformacion.Cedula);
+            this.txtTelefono.Text = Convert.ToString(objInformacion.Telefono);
+            this.txtCelular.Text = Convert.ToString(objInformacion.Celular);
+            txtDireccion.Text = objInformacion.Direccion;
+            txtCorreo.Text = objInformacion.Correo;
+            txtNumeroAbonado.Text = Convert.ToString(objInformacion.NumeroAbonado);
+            chbAfiliado.IsChecked = Convert.ToBoolean(objInformacion.Afiliado);
+         
+
+        }
+        private void dgAbonados_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (dgAbonados.SelectedIndex != -1)
+            {
+
+                Abonado objAbonadosSelect = this.dgAbonados.SelectedItem as Abonado;
+                setAbonadosObj(objAbonadosSelect);
+            }
+
+            else {
+                MessageBox.Show("Selecciona el abonado que deseas mostrar");
+            }
         }
 
 
