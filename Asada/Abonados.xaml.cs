@@ -100,6 +100,7 @@ namespace Asada
          
 
         }
+
         private void dgAbonados_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (dgAbonados.SelectedIndex != -1)
