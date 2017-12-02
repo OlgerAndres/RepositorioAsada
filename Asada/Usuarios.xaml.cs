@@ -59,5 +59,35 @@ namespace Asada
         {
             this.Hide();
         }
+
+
+        private void setUsuarioObj(Usuario objInformacion)
+        {
+            this.txtUsuario.Text = objInformacion.Nombre;
+          //  this.txtClave. = objInformacion.Clave;
+
+
+
+        }
+
+        private void dgUsuarios_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (dgUsuarios.SelectedIndex != -1)
+            {
+
+                Usuario objUsuarioSelect = this.dgUsuarios.SelectedItem as Usuario;
+                setUsuarioObj(objUsuarioSelect);
+                    
+                   
+            }
+
+            else
+            {
+                MessageBox.Show("Selecciona el abonado que deseas mostrar");
+            }
+        }
+
+
+
     }
 }
