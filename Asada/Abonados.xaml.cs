@@ -42,24 +42,15 @@ namespace Asada
 
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
-            Abonado abonado = this.dgAbonados.SelectedItem as Abonado;
-            this.abonados.borrar(abonado.Id);
-            MessageBox.Show("Usuario eliminado");
-            this.cargarAbonados();
+           
         }
 
         private void btnModificar_Click(object sender, RoutedEventArgs e)
         {
-            Abonado abonado = this.dgAbonados.CurrentItem as Abonado;
-            this.abonados.actualizar(abonado.Id,abonado.Nombre,abonado.PrimerApellido,abonado.SegundoApellido,abonado.Cedula,abonado.Telefono,abonado.Celular,abonado.Direccion,abonado.Correo,abonado.NumeroAbonado,abonado.Afiliado);
-            this.cargarAbonados();
-            this.limpiar();
+         
         }
 
-        private void btnSalir_Click(object sender, RoutedEventArgs e)
-        {
-            this.Hide();
-        }
+    
         private void limpiar()
         {
             txtNombre.Clear();
@@ -75,17 +66,13 @@ namespace Asada
 
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
-           
             cargarAbonados();
+          
         }
 
       
 
-        private void btnSalir_Click_1(object sender, RoutedEventArgs e)
-        {
-
-            this.Hide();
-        }
+    
         private void setAbonadosObj(Abonado objInformacion) {
             this.txtNombre.Text = objInformacion.Nombre;
             this.txtPrimerApellido.Text = objInformacion.PrimerApellido;
@@ -97,23 +84,52 @@ namespace Asada
             txtCorreo.Text = objInformacion.Correo;
             txtNumeroAbonado.Text = Convert.ToString(objInformacion.NumeroAbonado);
             chbAfiliado.IsChecked = Convert.ToBoolean(objInformacion.Afiliado);
+            
          
 
         }
+      
+
+        private void btnSalir_Click(object sender, RoutedEventArgs e)
+        {
+            limpiar();
+            Hide();
+        }
+
         private void dgAbonados_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (dgAbonados.SelectedIndex != -1)
+if (dgAbonados.SelectedIndex != -1)
             {
 
                 Abonado objAbonadosSelect = this.dgAbonados.SelectedItem as Abonado;
                 setAbonadosObj(objAbonadosSelect);
+
             }
 
             else {
                 MessageBox.Show("Selecciona el abonado que deseas mostrar");
+            
             }
         }
 
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+          Abonado abonado = this.dgAbonados.SelectedItem as Abonado;
+            this.abonados.borrar(abonado.Id);
+            MessageBox.Show("Usuario eliminado");
+            this.cargarAbonados();
+        }
+
+        private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            Abonado abonado = this.dgAbonados.CurrentItem as Abonado;
+            this.abonados.actualizar(abonado.Id, abonado.Nombre, abonado.PrimerApellido, abonado.SegundoApellido, abonado.Cedula, abonado.Telefono, abonado.Celular, abonado.Direccion, abonado.Correo, abonado.NumeroAbonado, abonado.Afiliado);
+            this.cargarAbonados();
+            this.limpiar();
+        }
+        }
+
+
 
     }
-}
+
