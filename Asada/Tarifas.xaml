@@ -8,7 +8,7 @@
         <TextBox x:Name="txtPrecio" HorizontalAlignment="Left" Height="23" Margin="132,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="btnAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="30,158,0,0" VerticalAlignment="Top" Width="75" Click="btnAgregar_Click"/>
         <Button x:Name="btnModificar" Content="Modificar" HorizontalAlignment="Left" Margin="159,158,0,0" VerticalAlignment="Top" Width="75" Click="btnModificar_Click"/>
-        <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="291,158,0,0" VerticalAlignment="Top" Width="75" />
+        <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="291,158,0,0" VerticalAlignment="Top" Width="75" Click="btnEliminar_Click" />
         <Button x:Name="btnSalir" Content="Salir" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="420,158,0,0" Click="btnSalir_Click"/>
         <ComboBox x:Name="cmbTipo" HorizontalAlignment="Left" Margin="132,28,0,0" VerticalAlignment="Top" Width="120">
             <ComboBoxItem Content="Comercial"/>
