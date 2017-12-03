@@ -44,20 +44,40 @@ namespace Asada
             this.cmbAbonado.SelectedValuePath = "Id";
         }
 
-        private void cargarSectores() { 
+        private void cargarSectores() {
+
+            this.cmbSector.DataContext = this.sector.listar();
+            this.cmbSector.DisplayMemberPath = "Descripcion";
+            this.cmbSector.SelectedValuePath = "Id";
+
         }
 
-        private void cargarTarifas() { 
-        
+        private void cargarTarifas() {
+
+            this.cmbTarifa.DataContext = this.tarifa.listar();
+            this.cmbTarifa.DisplayMemberPath = "Precio";
+            this.cmbTarifa.SelectedValuePath = "Id";
+
         }
 
         private void btnAgregar_Click(object sender, RoutedEventArgs e)
         {
 
+            //this.prevista.agregar(this.cmbAbonado.SelectedValuePath, this.cmbTarifa.SelectedValuePath, this.cmbSector.SelectedValuePath, this.txtDireccion.Text, this.txtFolio.Text);
+            this.cargarAbonados();
+            this.cargarPrevistas();
+            this.cargarSectores();
+            this.cargarTarifas();
+
+
+
+            
+
         }
 
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
+
 
         }
 
@@ -74,6 +94,9 @@ namespace Asada
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
             cargarAbonados();
+            cargarPrevistas();
+            cargarSectores();
+            cargarTarifas();
         }
     }
 }

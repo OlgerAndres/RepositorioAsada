@@ -88,7 +88,7 @@ namespace Asada
          
 
         }
-<<<<<<< HEAD
+
       
 
         private void btnSalir_Click(object sender, RoutedEventArgs e)
@@ -96,12 +96,11 @@ namespace Asada
             limpiar();
             Hide();
         }
-=======
->>>>>>> master
+
 
         private void dgAbonados_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-if (dgAbonados.SelectedIndex != -1)
+            if (dgAbonados.SelectedIndex != -1)
             {
 
                 Abonado objAbonadosSelect = this.dgAbonados.SelectedItem as Abonado;
