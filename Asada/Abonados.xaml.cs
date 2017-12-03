@@ -62,10 +62,11 @@ namespace Asada
           
         }
 
-      
 
-    
-        private void setAbonadosObj(Abonado objInformacion) {
+
+
+        private void setAbonadosObj(Abonado objInformacion)
+        {
             this.txtNombre.Text = objInformacion.Nombre;
             this.txtPrimerApellido.Text = objInformacion.PrimerApellido;
             this.txtSegundoApellido.Text = objInformacion.SegundoApellido;
@@ -76,17 +77,8 @@ namespace Asada
             txtCorreo.Text = objInformacion.Correo;
             txtNumeroAbonado.Text = Convert.ToString(objInformacion.NumeroAbonado);
             chbAfiliado.IsChecked = Convert.ToBoolean(objInformacion.Afiliado);
-            
-         
-
-<<<<<<< HEAD
-        }      
-=======
         }
-
-      
->>>>>>> master
-
+           
         private void btnSalir_Click(object sender, RoutedEventArgs e)
         {
             limpiar();
