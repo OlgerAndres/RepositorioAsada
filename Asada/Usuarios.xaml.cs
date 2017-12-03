@@ -26,7 +26,7 @@ namespace Asada
         public Usuarios()
         {
             InitializeComponent();
-            this.cargarUsuarios();
+           
         }
 
         private void cargarUsuarios()
@@ -57,7 +57,11 @@ namespace Asada
 
         private void btnSalir_Click(object sender, RoutedEventArgs e)
         {
-            this.Hide();
+
+            ASADAS asada = new ASADAS();
+           asada.Show();
+
+
         }
 
 
@@ -83,8 +87,13 @@ namespace Asada
 
             else
             {
-                MessageBox.Show("Selecciona el abonado que deseas mostrar");
+                MessageBox.Show("Selecciona el usuario que deseas mostrar");
             }
+        }
+
+        private void Grid_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.cargarUsuarios();
         }
 
 

@@ -5,7 +5,7 @@
        
         WindowState="Maximized">
 
-    <Grid>
+    <Grid Loaded="Grid_Loaded">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="160*"/>
             <ColumnDefinition Width="31*"/>

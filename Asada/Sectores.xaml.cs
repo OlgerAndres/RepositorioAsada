@@ -39,7 +39,42 @@ namespace Asada
             txtSector.Clear();
         }
 
-        private void btnActualizar_Click(object sender, RoutedEventArgs e)
+        private void setSectoresObj(Sector objInformacion)
+        {
+            this.txtSector.Text = objInformacion.Descripcion;
+  
+        }     
+
+      
+        private void btnSalir_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void Grid_Loaded(object sender, RoutedEventArgs e)
+        {
+            cargarSectores();
+        }
+
+     
+        private void DgSectores_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (DgSectores.SelectedIndex != -1)
+            {
+
+                Sector objSectorSelect = this.DgSectores.SelectedItem as Sector;
+                setSectoresObj(objSectorSelect);
+                    
+                   
+            }
+
+            else
+            {
+                MessageBox.Show("Selecciona el sector que deseas mostrar");
+            }
+        }
+
+        private void btnModificar_Click(object sender, RoutedEventArgs e)
         {
             Sector sector = this.DgSectores.CurrentItem as Sector;
             this.sector.actualizar(sector.Id, sector.Descripcion);
@@ -54,15 +89,6 @@ namespace Asada
             MessageBox.Show("Sector eliminado");
             this.cargarSectores();
         }
-
-        private void btnSalir_Click(object sender, RoutedEventArgs e)
-        {
-            this.Hide();
-        }
-
-        private void Grid_Loaded(object sender, RoutedEventArgs e)
-        {
-            cargarSectores();
         }
     }
-}
+

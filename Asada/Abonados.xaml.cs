@@ -35,20 +35,12 @@ namespace Asada
 
         private void btnAgregar_Click(object sender, RoutedEventArgs e)
         {
-            this.abonados.agregar(this.txtNombre.Text,this.txtPrimerApellido.Text,this.txtSegundoApellido.Text,this.txtCedula.Text,this.txtTelefono.Text,this.txtCelular.Text,this.txtDireccion.Text,this.txtCorreo.Text,this.txtNumeroAbonado.Text,this.chbAfiliado.IsEnabled);
+            this.abonados.agregar(this.txtNombre.Text,this.txtPrimerApellido.Text,this.txtSegundoApellido.Text,this.txtCedula.Text,this.txtTelefono.Text,this.txtCelular.Text,this.txtDireccion.Text,this.txtCorreo.Text,this.txtNumeroAbonado.Text,this.chbAfiliado.IsChecked.Value);
             this.cargarAbonados();
             this.limpiar();
         }
 
-        private void btnEliminar_Click(object sender, RoutedEventArgs e)
-        {
-           
-        }
-
-        private void btnModificar_Click(object sender, RoutedEventArgs e)
-        {
-         
-        }
+      
 
     
         private void limpiar()
@@ -112,20 +104,23 @@ if (dgAbonados.SelectedIndex != -1)
             }
         }
 
-        private void btnDelete_Click(object sender, RoutedEventArgs e)
-        {
-          Abonado abonado = this.dgAbonados.SelectedItem as Abonado;
-            this.abonados.borrar(abonado.Id);
-            MessageBox.Show("Usuario eliminado");
-            this.cargarAbonados();
-        }
+     
 
-        private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        private void btnModificar_Click(object sender, RoutedEventArgs e)
         {
-            Abonado abonado = this.dgAbonados.CurrentItem as Abonado;
+
+   Abonado abonado = this.dgAbonados.CurrentItem as Abonado;
             this.abonados.actualizar(abonado.Id, abonado.Nombre, abonado.PrimerApellido, abonado.SegundoApellido, abonado.Cedula, abonado.Telefono, abonado.Celular, abonado.Direccion, abonado.Correo, abonado.NumeroAbonado, abonado.Afiliado);
             this.cargarAbonados();
             this.limpiar();
+        }
+
+        private void btnEliminar_Click(object sender, RoutedEventArgs e)
+        {
+   Abonado abonado = this.dgAbonados.SelectedItem as Abonado;
+            this.abonados.borrar(abonado.Id);
+            MessageBox.Show("Usuario eliminado");
+            this.cargarAbonados();
         }
         }
 
