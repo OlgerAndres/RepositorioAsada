@@ -46,16 +46,30 @@ namespace Asada
 
         private void cargarSectores() {
 
+<<<<<<< HEAD
             this.cmbSector.DisplayMemberPath = "Descripcion";
             this.cmbSector.SelectedValuePath = "Id";
             this.cmbSector.ItemsSource = this.sector.listar();
+=======
+            this.cmbSector.DataContext = this.sector.listar();
+            this.cmbSector.DisplayMemberPath = "Descripcion";
+            this.cmbSector.SelectedValuePath = "Id";
+>>>>>>> master
 
         }
 
         private void cargarTarifas() {
+<<<<<<< HEAD
             this.cmbTarifa.DisplayMemberPath = "Descripcion";
             this.cmbTarifa.SelectedValuePath = "Id";
             this.cmbTarifa.ItemsSource = this.tarifa.listar();
+=======
+
+            this.cmbTarifa.DataContext = this.tarifa.listar();
+            this.cmbTarifa.DisplayMemberPath = "Precio";
+            this.cmbTarifa.SelectedValuePath = "Id";
+
+>>>>>>> master
         }
 
         private void btnAgregar_Click(object sender, RoutedEventArgs e)
@@ -64,14 +78,29 @@ namespace Asada
             this.cargarAbonados();
             this.limpiar();
 
+            //this.prevista.agregar(this.cmbAbonado.SelectedValuePath, this.cmbTarifa.SelectedValuePath, this.cmbSector.SelectedValuePath, this.txtDireccion.Text, this.txtFolio.Text);
+            this.cargarAbonados();
+            this.cargarPrevistas();
+            this.cargarSectores();
+            this.cargarTarifas();
+
+
+
+            
+
         }
 
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
+<<<<<<< HEAD
             Prevista prevista = this.DgPrevistas.SelectedItem as Prevista;
             this.prevista.borrar(prevista.Id);
             MessageBox.Show("Prevista eliminada");
             this.cargarPrevistas();
+=======
+
+
+>>>>>>> master
         }
 
         private void btnModificar_Click(object sender, RoutedEventArgs e)
@@ -90,6 +119,7 @@ namespace Asada
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
             cargarAbonados();
+<<<<<<< HEAD
             cargarSectores();
             cargarTarifas();
 
@@ -110,6 +140,11 @@ namespace Asada
             this.txtDireccion.Text = objInformacion.Direccion;
             this.txtFolio.Text = objInformacion.FolioReal;
          
+=======
+            cargarPrevistas();
+            cargarSectores();
+            cargarTarifas();
+>>>>>>> master
         }
 
         private void dgAbonados_SelectionChanged(object sender, SelectionChangedEventArgs e)
