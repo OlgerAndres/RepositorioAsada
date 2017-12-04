@@ -1,9 +1,7 @@
 ﻿<Window x:Class="Asada.Usuarios"  
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Usuarios" Height="448" Width="840"
-       
-        WindowState="Maximized">
+        Title="Usuarios" Height="448" Width="840">
 
     <Grid Loaded="Grid_Loaded">
         <Grid.ColumnDefinitions>

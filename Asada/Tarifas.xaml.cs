@@ -21,67 +21,66 @@ namespace Asada
     /// </summary>
     public partial class Tarifas : Window
     {
-        private IServiciosTarifas tarifa = new AccionesTarifas();
+        private IServiciosTarifas tarifas = new AccionesTarifas();
+        private Tarifa tarifaActual = null;
 
         public Tarifas()
         {
             InitializeComponent();
-        }
-
-        private void cargarPrevistas()
-        {
-            this.DgTarifas.SelectedItem = this.tarifa.listar();
+            this.cargarTarifas();
         }
 
         private void cargarTarifas()
         {
-
-            this.cmbTipo.DisplayMemberPath = "Descripcion";
-            this.cmbTipo.SelectedValuePath = "Id";
-            this.cmbTipo.ItemsSource = this.tarifa.listar();
+            this.DgTarifas.ItemsSource = this.tarifas.listar(); 
         }
 
-        private void DgSectores_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void limpiarCampos()
         {
+            this.txtDescripcion.Clear();
+            this.txtPrecio.Clear();
+        }
 
+        private void habilitarCampos(bool bandera)
+        {
+            this.DgTarifas.IsEnabled = bandera;
+            this.btnAgregar.IsEnabled = bandera;
+            this.btnModificar.IsEnabled = !bandera;
+            this.btnEliminar.IsEnabled = !bandera;
         }
 
         private void btnAgregar_Click(object sender, RoutedEventArgs e)
         {
-            //this.tarifa.agregar(Convert.ToInt32(this.cmbTipo.SelectedValue),Convert.ToDecimal(txtPrecio.Text).ToString);
+            this.tarifas.agregar(this.txtDescripcion.Text, decimal.Parse(this.txtPrecio.Text));
+            MessageBox.Show("Tarifa agregada");
             this.cargarTarifas();
-            this.limpiar();
+            this.limpiarCampos();
         }
 
         private void btnModificar_Click(object sender, RoutedEventArgs e)
-        {
-
+        {   
+            this.tarifas.actualizar(this.tarifaActual.Id, this.txtDescripcion.Text, decimal.Parse(this.txtPrecio.Text));
+            MessageBox.Show("Tarifa actualizada");
+            this.cargarTarifas();
+            this.limpiarCampos();
+            this.habilitarCampos(true);
         }
 
-
-        private void btnSalir_Click(object sender, RoutedEventArgs e)
+        private void DgTarifas_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-
+            this.tarifaActual = this.DgTarifas.CurrentItem as Tarifa;
+            this.txtDescripcion.Text = this.tarifaActual.Descripcion;
+            this.txtPrecio.Text = this.tarifaActual.Precio.ToString();
+            this.habilitarCampos(false);
         }
 
-        private void Grid_Loaded(object sender, RoutedEventArgs e)
+        private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
-
+            this.tarifas.borrar(this.tarifaActual.Id);
+            MessageBox.Show("Tarifa eliminada");
+            this.cargarTarifas();
+            this.limpiarCampos();
+            this.habilitarCampos(true);
         }
-
-        private void limpiar()
-        {
-            txtPrecio.Clear();
-         
-        }
-
-        private void setTarifaObj(Tarifa objInformacion)
-        {
-            this.cmbTipo.SelectedValue = Convert.ToString(objInformacion.Descripcion);
-            
-            this.txtPrecio.Text = Convert.ToString(objInformacion.Precio);
-
-        }
-
     }
 }
