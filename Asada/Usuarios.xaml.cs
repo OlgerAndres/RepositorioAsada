@@ -22,11 +22,12 @@ namespace Asada
     public partial class Usuarios : Window
     {
         private IServiciosUsuarios usuarios = new AccionesUsuarios();
+        private string claveVisible = null;
 
         public Usuarios()
         {
             InitializeComponent();
-           
+            this.cargarUsuarios();
         }
 
         private void cargarUsuarios()
@@ -37,7 +38,9 @@ namespace Asada
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
             Usuario usuario = this.dgUsuarios.CurrentItem as Usuario;
-            this.usuarios.actualizar(usuario.Id, usuario.Nombre, usuario.Clave);
+            string clave = (string.IsNullOrEmpty(this.claveVisible)) ? usuario.Clave : this.claveVisible;
+            this.usuarios.actualizar(usuario.Id, usuario.Nombre, clave);
+            MessageBox.Show("Usuario actualizado");
             this.cargarUsuarios();
         }
 
@@ -51,52 +54,39 @@ namespace Asada
 
         private void btnAgregar_Click(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrEmpty(this.txtUsuario.Text) || string.IsNullOrEmpty(this.txtClave.Password))
+            {
+                MessageBox.Show("Nombre y clave son requeridos.");
+                return;
+            }
             this.usuarios.agregar(this.txtUsuario.Text, this.txtClave.Password);
+            MessageBox.Show("Usuario agragado");
             this.cargarUsuarios();
         }
 
-        private void btnSalir_Click(object sender, RoutedEventArgs e)
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-
-            ASADAS asada = new ASADAS();
-           asada.Show();
-
-
+            e.Cancel = true;
+            this.Hide();
         }
 
-
-        private void setUsuarioObj(Usuario objInformacion)
+        private void ClaveVisible_LostFocus(object sender, RoutedEventArgs e)
         {
-            this.txtUsuario.Text = objInformacion.Nombre;
-          //  this.txtClave. = objInformacion.Clave;
+            this.claveVisible = ((PasswordBox)sender).Password;
+            if (string.IsNullOrEmpty(this.claveVisible))
+            {
+                ((PasswordBox)sender).Password = "**************";
+            }
+        }
 
-
-
+        private void ClaveVisible_GotFocus(object sender, RoutedEventArgs e)
+        {
+            ((PasswordBox)sender).Password = string.Empty;
         }
 
         private void dgUsuarios_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (dgUsuarios.SelectedIndex != -1)
-            {
-
-                Usuario objUsuarioSelect = this.dgUsuarios.SelectedItem as Usuario;
-                setUsuarioObj(objUsuarioSelect);
-                    
-                   
-            }
-
-            else
-            {
-                MessageBox.Show("Selecciona el usuario que deseas mostrar");
-            }
+            this.claveVisible = string.Empty;
         }
-
-        private void Grid_Loaded(object sender, RoutedEventArgs e)
-        {
-            this.cargarUsuarios();
-        }
-
-
-
     }
 }

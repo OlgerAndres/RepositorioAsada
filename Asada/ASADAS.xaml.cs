@@ -33,11 +33,7 @@ namespace Asada
 
         public void OnWindowClosing(object sender, CancelEventArgs e)
         {
-            this.abonados.Close();
-            this.previstas.Close();
-            this.sectores.Close();
-            this.tarifas.Close();
-            this.usuarios.Close();
+            App.Current.Shutdown();
         }
 
         private void btnUsuarios_Click(object sender, RoutedEventArgs e)

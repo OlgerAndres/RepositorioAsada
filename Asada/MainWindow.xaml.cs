@@ -31,24 +31,17 @@ namespace Asada
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            //try
-            //{
-                Usuario usuario = null;
-                if (this.usuarios.iniciarSession(this.txtUsuario.Text, this.txtClave.Password, out usuario))
-                {
-                    ASADAS asadas = new ASADAS();
-                    asadas.Show();
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("No se pudo iniciar sesion [Verifique usuario/clave]");
-                }
+            Usuario usuario = null;
+            if (this.usuarios.iniciarSession(this.txtUsuario.Text, this.txtClave.Password, out usuario))
+            {
+                ASADAS asadas = new ASADAS();
+                asadas.Show();
+                this.Close();
             }
-        //    catch (Exception ) {
-        //        MessageBox.Show("Error en iniciar sesión", "Error",MessageBoxButton.OK, MessageBoxImage.Error);
-        //    }
-
-        //}
+            else
+            {
+                MessageBox.Show("No se pudo iniciar sesion [Verifique usuario/clave]");
+            }
+        }
     }
 }

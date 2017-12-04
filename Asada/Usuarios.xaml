@@ -1,31 +1,31 @@
 ﻿<Window x:Class="Asada.Usuarios"  
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Usuarios" Height="448" Width="840">
-
-    <Grid Loaded="Grid_Loaded">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="160*"/>
-            <ColumnDefinition Width="31*"/>
-            <ColumnDefinition Width="225*"/>
-        </Grid.ColumnDefinitions>
+        Title="Usuarios" Height="448" Width="840" ResizeMode="NoResize" Closing="Window_Closing">
+    <Grid>
         <Label Content="Usuario" HorizontalAlignment="Left" Margin="10,33,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.529,0.549"/>
-        <Label Content="Clave" HorizontalAlignment="Left" Margin="294,33,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.89,-0.819" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="txtUsuario" HorizontalAlignment="Left" Height="23" Margin="84,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtUsuario" HorizontalAlignment="Left" Height="23" Margin="320,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Clave" HorizontalAlignment="Left" Margin="246,35,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.89,-0.819"/>
         <PasswordBox x:Name="txtClave" HorizontalAlignment="Left" Height="19" Margin="35.915,40,0,0" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <Button x:Name="btnAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="484,37,0,0" VerticalAlignment="Top" Width="75" Click="btnAgregar_Click" RenderTransformOrigin="-1.293,3.955"/>
         <DataGrid CanUserAddRows="false" x:Name="dgUsuarios"  AutoGenerateColumns="False" 
                   HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top"
-                  Height="305" Width="785" SelectionMode="Single" Grid.ColumnSpan="3" SelectionChanged="dgUsuarios_SelectionChanged">
-
+                  Height="305" Width="785" SelectionMode="Single" SelectionUnit="FullRow" SelectionChanged="dgUsuarios_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Path=Id}" IsReadOnly="True" Header="Id" Width="100"/>
                 <DataGridTextColumn Binding="{Binding Path=Nombre, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" Header="Nombre" Width="200" />
-                <DataGridTextColumn Binding="{Binding Path=Clave, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"  Header="Clave" Width="200" />
+                <DataGridTextColumn Visibility="Hidden" Binding="{Binding Path=Clave, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"  Header="Clave" Width="200" />
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="Actualizar" x:Name="btnUpdate"
-                                Click="btnUpdate_Click"></Button>
+                            <PasswordBox x:Name="ClaveVisible" Password="**************" GotFocus="ClaveVisible_GotFocus" LostFocus="ClaveVisible_LostFocus" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Actualizar" x:Name="btnUpdate" Click="btnUpdate_Click"></Button>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -39,7 +39,5 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="btnAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="157,37,0,0" VerticalAlignment="Top" Width="75" Click="btnAgregar_Click" RenderTransformOrigin="-1.293,3.955" Grid.Column="2"/>
-        <Button x:Name="btnSalir" Content="Salir" HorizontalAlignment="Left" Margin="308,37,0,0" VerticalAlignment="Top" Width="75" Click="btnSalir_Click" Grid.Column="2"/>
-    </Grid>
+      </Grid>
 </Window>

@@ -51,6 +51,11 @@ namespace Asada
 
         private void btnAgregar_Click(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrEmpty(this.txtDescripcion.Text) || string.IsNullOrEmpty(this.txtPrecio.Text))
+            {
+                MessageBox.Show("Tarifa y precio son requeridos.");
+                return;
+            }
             this.tarifas.agregar(this.txtDescripcion.Text, decimal.Parse(this.txtPrecio.Text));
             MessageBox.Show("Tarifa agregada");
             this.cargarTarifas();
@@ -81,6 +86,12 @@ namespace Asada
             this.cargarTarifas();
             this.limpiarCampos();
             this.habilitarCampos(true);
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = true;
+            this.Hide();
         }
     }
 }
