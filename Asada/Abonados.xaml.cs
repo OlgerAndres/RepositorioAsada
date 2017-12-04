@@ -35,14 +35,11 @@ namespace Asada
 
         private void btnAgregar_Click(object sender, RoutedEventArgs e)
         {
-            this.abonados.agregar(this.txtNombre.Text,this.txtPrimerApellido.Text,this.txtSegundoApellido.Text,this.txtCedula.Text,this.txtTelefono.Text,this.txtCelular.Text,this.txtDireccion.Text,this.txtCorreo.Text,this.txtNumeroAbonado.Text,this.chbAfiliado.IsChecked.Value);
+            this.abonados.agregar(this.txtNombre.Text, this.txtPrimerApellido.Text, this.txtSegundoApellido.Text, this.txtCedula.Text, this.txtTelefono.Text, this.txtCelular.Text, this.txtDireccion.Text, this.txtCorreo.Text, this.txtNumeroAbonado.Text, this.chbAfiliado.IsChecked.Value);
             this.cargarAbonados();
             this.limpiar();
         }
 
-      
-
-    
         private void limpiar()
         {
             txtNombre.Clear();
@@ -59,11 +56,7 @@ namespace Asada
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
             cargarAbonados();
-          
         }
-
-
-
 
         private void setAbonadosObj(Abonado objInformacion)
         {
@@ -78,7 +71,7 @@ namespace Asada
             txtNumeroAbonado.Text = Convert.ToString(objInformacion.NumeroAbonado);
             chbAfiliado.IsChecked = Convert.ToBoolean(objInformacion.Afiliado);
         }
-           
+
         private void btnSalir_Click(object sender, RoutedEventArgs e)
         {
             limpiar();
@@ -90,24 +83,18 @@ namespace Asada
         {
             if (dgAbonados.SelectedIndex != -1)
             {
-
                 Abonado objAbonadosSelect = this.dgAbonados.SelectedItem as Abonado;
                 setAbonadosObj(objAbonadosSelect);
-
             }
-
-            else {
+            else
+            {
                 MessageBox.Show("Selecciona el abonado que deseas mostrar");
-            
             }
         }
 
-     
-
         private void btnModificar_Click(object sender, RoutedEventArgs e)
         {
-
-   Abonado abonado = this.dgAbonados.CurrentItem as Abonado;
+            Abonado abonado = this.dgAbonados.CurrentItem as Abonado;
             this.abonados.actualizar(abonado.Id, abonado.Nombre, abonado.PrimerApellido, abonado.SegundoApellido, abonado.Cedula, abonado.Telefono, abonado.Celular, abonado.Direccion, abonado.Correo, abonado.NumeroAbonado, abonado.Afiliado);
             this.cargarAbonados();
             this.limpiar();
@@ -115,14 +102,17 @@ namespace Asada
 
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
-   Abonado abonado = this.dgAbonados.SelectedItem as Abonado;
+            Abonado abonado = this.dgAbonados.SelectedItem as Abonado;
             this.abonados.borrar(abonado.Id);
             MessageBox.Show("Usuario eliminado");
             this.cargarAbonados();
         }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = true;
+            this.Hide();
         }
-
-
-
     }
+}
 

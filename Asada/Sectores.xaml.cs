@@ -21,7 +21,8 @@ namespace Asada
     /// </summary>
     public partial class Sectores : Window
     {
-        private IServiciosSectores sector = new AccionesSectores();
+        private IServiciosSectores sectores = new AccionesSectores();
+
         public Sectores()
         {
             InitializeComponent();
@@ -29,45 +30,35 @@ namespace Asada
 
         private void cargarSectores()
         {
-            this.DgSectores.ItemsSource = sector.listar();
+            this.DgSectores.ItemsSource = this.sectores.listar();
         }
 
         private void btnAgregar_Click(object sender, RoutedEventArgs e)
         {
-            this.sector.agregar(this.txtSector.Text);
+            if (string.IsNullOrEmpty(this.txtSector.Text))
+            {
+                MessageBox.Show("Sector es requerido.");
+                return;
+            }
+            this.sectores.agregar(this.txtSector.Text);
+            MessageBox.Show("Sector agregado");
             this.cargarSectores();
-            txtSector.Clear();
-        }
-
-        private void setSectoresObj(Sector objInformacion)
-        {
-            this.txtSector.Text = objInformacion.Descripcion;
-  
-        }     
-
-      
-        private void btnSalir_Click(object sender, RoutedEventArgs e)
-        {
-            this.Hide();
+            this.txtSector.Clear();
         }
 
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
-            cargarSectores();
+            this.cargarSectores();
         }
 
-     
         private void DgSectores_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (DgSectores.SelectedIndex != -1)
             {
 
-                Sector objSectorSelect = this.DgSectores.SelectedItem as Sector;
-                setSectoresObj(objSectorSelect);
-                    
-                   
+                Sector sector = this.DgSectores.SelectedItem as Sector;
+                this.txtSector.Text = sector.Descripcion;
             }
-
             else
             {
                 MessageBox.Show("Selecciona el sector que deseas mostrar");
@@ -77,18 +68,25 @@ namespace Asada
         private void btnModificar_Click(object sender, RoutedEventArgs e)
         {
             Sector sector = this.DgSectores.CurrentItem as Sector;
-            this.sector.actualizar(sector.Id, sector.Descripcion);
+            this.sectores.actualizar(sector.Id, this.txtSector.Text);
+            MessageBox.Show("Sector actualizado");
             this.cargarSectores();
-            txtSector.Clear();
+            this.txtSector.Clear();
         }
 
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
             Sector sector = this.DgSectores.SelectedItem as Sector;
-            this.sector.borrar(sector.Id);
+            this.sectores.borrar(sector.Id);
             MessageBox.Show("Sector eliminado");
             this.cargarSectores();
         }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = true;
+            this.Hide();
         }
     }
+}
 

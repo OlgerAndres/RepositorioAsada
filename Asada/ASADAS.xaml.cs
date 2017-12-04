@@ -44,7 +44,6 @@ namespace Asada
         private void btnAbonados_Click(object sender, RoutedEventArgs e)
         {
             this.abonados.Show();
-      
         }
 
         private void btnPrevistas_Click(object sender, RoutedEventArgs e)
