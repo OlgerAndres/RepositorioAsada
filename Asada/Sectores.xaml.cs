@@ -22,15 +22,29 @@ namespace Asada
     public partial class Sectores : Window
     {
         private IServiciosSectores sectores = new AccionesSectores();
+        private Sector actualSector = null;
 
         public Sectores()
         {
             InitializeComponent();
+            this.cargarSectores();
         }
 
         private void cargarSectores()
         {
             this.DgSectores.ItemsSource = this.sectores.listar();
+        }
+
+        private void habilitarCampos(bool bandera)
+        {
+            this.DgSectores.IsEnabled = bandera;
+            this.btnAgregar.IsEnabled = bandera;
+            this.btnModificar.IsEnabled = !bandera;
+            this.btnEliminar.IsEnabled = !bandera;
+        }
+
+        private void limpiarCampos() {
+            this.txtSector.Clear();
         }
 
         private void btnAgregar_Click(object sender, RoutedEventArgs e)
@@ -46,46 +60,38 @@ namespace Asada
             this.txtSector.Clear();
         }
 
-        private void Grid_Loaded(object sender, RoutedEventArgs e)
-        {
-            this.cargarSectores();
-        }
-
-        private void DgSectores_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (DgSectores.SelectedIndex != -1)
-            {
-
-                Sector sector = this.DgSectores.SelectedItem as Sector;
-                this.txtSector.Text = sector.Descripcion;
-            }
-            else
-            {
-                MessageBox.Show("Selecciona el sector que deseas mostrar");
-            }
-        }
-
+       
         private void btnModificar_Click(object sender, RoutedEventArgs e)
         {
-            Sector sector = this.DgSectores.CurrentItem as Sector;
-            this.sectores.actualizar(sector.Id, this.txtSector.Text);
+            this.sectores.actualizar(this.actualSector.Id, this.txtSector.Text);
             MessageBox.Show("Sector actualizado");
             this.cargarSectores();
-            this.txtSector.Clear();
+            this.limpiarCampos();
+            this.habilitarCampos(true);
         }
 
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
-            Sector sector = this.DgSectores.SelectedItem as Sector;
-            this.sectores.borrar(sector.Id);
+            this.sectores.borrar(this.actualSector.Id);
             MessageBox.Show("Sector eliminado");
             this.cargarSectores();
+            this.limpiarCampos();
+            this.habilitarCampos(true);
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             e.Cancel = true;
+            this.limpiarCampos();
+            this.habilitarCampos(true);
             this.Hide();
+        }
+
+        private void DgSectores_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            this.actualSector = this.DgSectores.CurrentItem as Sector;
+            this.txtSector.Text = this.actualSector.Descripcion;
+            this.habilitarCampos(false);
         }
     }
 }

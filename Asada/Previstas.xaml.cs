@@ -35,10 +35,11 @@ namespace Asada
             this.cargarAbonados();
             this.cargarSectores();
             this.cargarTarifas();
+          
         }
 
         private void cargarPrevistas() {
-            this.DgPrevistas.SelectedItem = this.prevista.listar();
+            this.DgPrevistas.ItemsSource = this.prevista.listar();
         }
 
         private void habilitarCampos(bool bandera)
@@ -106,7 +107,10 @@ namespace Asada
         {
             txtDireccion.Clear();
             txtFolio.Clear();
+            
+
         }
+
 
    
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
