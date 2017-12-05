@@ -97,9 +97,10 @@ namespace Asada
         {
             this.prevista.actualizar(this.actualPrevista.Id,Convert.ToInt32(cmbAbonado.SelectedValue),Convert.ToInt32(cmbTarifa.SelectedValue),Convert.ToInt32(cmbSector.SelectedValue),this.txtDireccion.Text,this.txtFolio.Text);
             MessageBox.Show("Prevista actualizada");
-            this.cargarAbonados();
+            this.cargarPrevistas();
             this.limpiarCampos();
             this.habilitarCampos(true);
+          
         }
 
       
@@ -115,10 +116,13 @@ namespace Asada
    
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            e.Cancel = true;
-            this.limpiarCampos();
-            this.habilitarCampos(true);
-            this.Hide();
+                 e.Cancel = true;
+                this.limpiarCampos();
+                this.habilitarCampos(true);
+                this.Hide();
+            
+            
+            
         }
 
         private void DgPrevistas_MouseDoubleClick(object sender, MouseButtonEventArgs e)
