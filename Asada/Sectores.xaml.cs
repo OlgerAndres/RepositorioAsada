@@ -49,34 +49,50 @@ namespace Asada
 
         private void btnAgregar_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(this.txtSector.Text))
+            try
             {
-                MessageBox.Show("Sector es requerido.");
-                return;
+                if (string.IsNullOrEmpty(this.txtSector.Text))
+                {
+                    MessageBox.Show("Sector es requerido.");
+                    return;
+                }
+                this.sectores.agregar(this.txtSector.Text);
+                MessageBox.Show("Sector agregado");
+                this.cargarSectores();
+                this.txtSector.Clear();
+
+            }catch(Exception){
+                MessageBox.Show("Error,intentelo de nuevo", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            this.sectores.agregar(this.txtSector.Text);
-            MessageBox.Show("Sector agregado");
-            this.cargarSectores();
-            this.txtSector.Clear();
         }
 
        
         private void btnModificar_Click(object sender, RoutedEventArgs e)
         {
-            this.sectores.actualizar(this.actualSector.Id, this.txtSector.Text);
-            MessageBox.Show("Sector actualizado");
-            this.cargarSectores();
-            this.limpiarCampos();
-            this.habilitarCampos(true);
+            try
+            {
+                this.sectores.actualizar(this.actualSector.Id, this.txtSector.Text);
+                MessageBox.Show("Sector actualizado");
+                this.cargarSectores();
+                this.limpiarCampos();
+                this.habilitarCampos(true);
+            }catch(Exception){
+                MessageBox.Show("Error,intentelo de nuevo", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
-            this.sectores.borrar(this.actualSector.Id);
-            MessageBox.Show("Sector eliminado");
-            this.cargarSectores();
-            this.limpiarCampos();
-            this.habilitarCampos(true);
+            try
+            {
+                this.sectores.borrar(this.actualSector.Id);
+                MessageBox.Show("Sector eliminado");
+                this.cargarSectores();
+                this.limpiarCampos();
+                this.habilitarCampos(true);
+            }catch(Exception){
+                MessageBox.Show("Error,intentelo de nuevo", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -89,9 +105,14 @@ namespace Asada
 
         private void DgSectores_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            this.actualSector = this.DgSectores.CurrentItem as Sector;
-            this.txtSector.Text = this.actualSector.Descripcion;
-            this.habilitarCampos(false);
+            try
+            {
+                this.actualSector = this.DgSectores.CurrentItem as Sector;
+                this.txtSector.Text = this.actualSector.Descripcion;
+                this.habilitarCampos(false);
+            }catch(Exception){
+                MessageBox.Show("Error,intentelo de nuevo", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

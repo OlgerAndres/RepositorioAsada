@@ -37,31 +37,47 @@ namespace Asada
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
-            Usuario usuario = this.dgUsuarios.CurrentItem as Usuario;
-            string clave = (string.IsNullOrEmpty(this.claveVisible)) ? usuario.Clave : this.claveVisible;
-            this.usuarios.actualizar(usuario.Id, usuario.Nombre, clave);
-            MessageBox.Show("Usuario actualizado");
-            this.cargarUsuarios();
+            try
+            {
+                Usuario usuario = this.dgUsuarios.CurrentItem as Usuario;
+                string clave = (string.IsNullOrEmpty(this.claveVisible)) ? usuario.Clave : this.claveVisible;
+                this.usuarios.actualizar(usuario.Id, usuario.Nombre, clave);
+                MessageBox.Show("Usuario actualizado");
+                this.cargarUsuarios();
+            }catch(Exception){
+                MessageBox.Show("Error,intentelo de nuevo", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-               Usuario usuario = this.dgUsuarios.SelectedItem as Usuario;
-               this.usuarios.borrar(usuario.Id);
-               MessageBox.Show("Usuario eliminado");
-               this.cargarUsuarios();
+            try
+            {
+                Usuario usuario = this.dgUsuarios.SelectedItem as Usuario;
+                this.usuarios.borrar(usuario.Id);
+                MessageBox.Show("Usuario eliminado");
+                this.cargarUsuarios();
+            }catch(Exception){
+                MessageBox.Show("Error,intentelo de nuevo", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void btnAgregar_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(this.txtUsuario.Text) || string.IsNullOrEmpty(this.txtClave.Password))
+            try
             {
-                MessageBox.Show("Nombre y clave son requeridos.");
-                return;
+                if (string.IsNullOrEmpty(this.txtUsuario.Text) || string.IsNullOrEmpty(this.txtClave.Password))
+                {
+                    MessageBox.Show("Nombre y clave son requeridos.");
+                    return;
+                }
+                this.usuarios.agregar(this.txtUsuario.Text, this.txtClave.Password);
+                MessageBox.Show("Usuario agragado");
+                this.cargarUsuarios();
+
+            }catch(Exception){
+                MessageBox.Show("Error,intentelo de nuevo", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            this.usuarios.agregar(this.txtUsuario.Text, this.txtClave.Password);
-            MessageBox.Show("Usuario agragado");
-            this.cargarUsuarios();
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)

@@ -45,14 +45,19 @@ namespace Asada
 
         private void btnAgregar_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(this.txtNombre.Text) || string.IsNullOrEmpty(this.txtPrimerApellido.Text) || string.IsNullOrEmpty(txtCedula.Text) || string.IsNullOrEmpty(txtTelefono.Text) || string.IsNullOrEmpty(txtCelular.Text) || string.IsNullOrEmpty(txtDireccion.Text) || string.IsNullOrEmpty(txtCorreo.Text) || string.IsNullOrEmpty(txtNumeroAbonado.Text))
+            try
             {
-                MessageBox.Show("Campos vacios");
-                return;
+                if (string.IsNullOrEmpty(this.txtNombre.Text) || string.IsNullOrEmpty(this.txtPrimerApellido.Text) || string.IsNullOrEmpty(txtCedula.Text) || string.IsNullOrEmpty(txtTelefono.Text) || string.IsNullOrEmpty(txtCelular.Text) || string.IsNullOrEmpty(txtDireccion.Text) || string.IsNullOrEmpty(txtCorreo.Text) || string.IsNullOrEmpty(txtNumeroAbonado.Text))
+                {
+                    MessageBox.Show("Campos vacios");
+                    return;
+                }
+                this.abonados.agregar(this.txtNombre.Text, this.txtPrimerApellido.Text, this.txtSegundoApellido.Text, this.txtCedula.Text, this.txtTelefono.Text, this.txtCelular.Text, this.txtDireccion.Text, this.txtCorreo.Text, this.txtNumeroAbonado.Text, this.chbAfiliado.IsChecked.Value);
+                this.cargarAbonados();
+                this.limpiarCampos();
+            }catch(Exception){
+                MessageBox.Show("Error,intentelo de nuevo","ERROR",MessageBoxButton.OK,MessageBoxImage.Error); 
             }
-            this.abonados.agregar(this.txtNombre.Text, this.txtPrimerApellido.Text, this.txtSegundoApellido.Text, this.txtCedula.Text, this.txtTelefono.Text, this.txtCelular.Text, this.txtDireccion.Text, this.txtCorreo.Text, this.txtNumeroAbonado.Text, this.chbAfiliado.IsChecked.Value);
-            this.cargarAbonados();
-            this.limpiarCampos();
         }
 
         private void limpiarCampos()
@@ -72,20 +77,33 @@ namespace Asada
         
         private void btnModificar_Click(object sender, RoutedEventArgs e)
         {
-            this.abonados.actualizar(this.abonadoActual.Id, this.txtNombre.Text, this.txtPrimerApellido.Text, this.txtSegundoApellido.Text, this.txtCedula.Text, this.txtTelefono.Text, this.txtCelular.Text, this.txtDireccion.Text, this.txtCorreo.Text, this.txtNumeroAbonado.Text, this.chbAfiliado.IsChecked.Value);
-            MessageBox.Show("Abonado actualizado");
-            this.cargarAbonados();
-            this.limpiarCampos();
-            this.habilitarCampos(true);
+            try
+            {
+                this.abonados.actualizar(this.abonadoActual.Id, this.txtNombre.Text, this.txtPrimerApellido.Text, this.txtSegundoApellido.Text, this.txtCedula.Text, this.txtTelefono.Text, this.txtCelular.Text, this.txtDireccion.Text, this.txtCorreo.Text, this.txtNumeroAbonado.Text, this.chbAfiliado.IsChecked.Value);
+                MessageBox.Show("Abonado actualizado");
+                this.cargarAbonados();
+                this.limpiarCampos();
+                this.habilitarCampos(true);
+
+            }catch(Exception){
+                MessageBox.Show("Error,intentelo de nuevo", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error); 
+            }
         }
 
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
-            this.abonados.borrar(this.abonadoActual.Id);
-            MessageBox.Show("Abonado eliminado");
-            this.cargarAbonados();
-            this.limpiarCampos();
-            this.habilitarCampos(true);
+            try
+            {
+
+                this.abonados.borrar(this.abonadoActual.Id);
+                MessageBox.Show("Abonado eliminado");
+                this.cargarAbonados();
+                this.limpiarCampos();
+                this.habilitarCampos(true);
+
+            }catch(Exception){
+                MessageBox.Show("Error,intentelo de nuevo", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error); 
+            }
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -98,19 +116,24 @@ namespace Asada
 
         private void dgAbonados_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            this.abonadoActual = this.dgAbonados.CurrentItem as Abonado;
-            this.txtNombre.Text = this.abonadoActual.Nombre;
-            this.txtPrimerApellido.Text = this.abonadoActual.PrimerApellido;
-            this.txtSegundoApellido.Text = this.abonadoActual.SegundoApellido;
-            this.txtCedula.Text = this.abonadoActual.Cedula;
-            this.txtTelefono.Text = this.abonadoActual.Telefono;
-            this.txtCelular.Text = this.abonadoActual.Celular;
-            this.txtDireccion.Text = this.abonadoActual.Direccion;
-            this.txtCorreo.Text = this.abonadoActual.Correo;
-            this.txtNumeroAbonado.Text = this.abonadoActual.NumeroAbonado;
-            this.chbAfiliado.IsChecked = this.abonadoActual.Afiliado;
-            this.habilitarCampos(false);
+            try
+            {
+                this.abonadoActual = this.dgAbonados.CurrentItem as Abonado;
+                this.txtNombre.Text = this.abonadoActual.Nombre;
+                this.txtPrimerApellido.Text = this.abonadoActual.PrimerApellido;
+                this.txtSegundoApellido.Text = this.abonadoActual.SegundoApellido;
+                this.txtCedula.Text = this.abonadoActual.Cedula;
+                this.txtTelefono.Text = this.abonadoActual.Telefono;
+                this.txtCelular.Text = this.abonadoActual.Celular;
+                this.txtDireccion.Text = this.abonadoActual.Direccion;
+                this.txtCorreo.Text = this.abonadoActual.Correo;
+                this.txtNumeroAbonado.Text = this.abonadoActual.NumeroAbonado;
+                this.chbAfiliado.IsChecked = this.abonadoActual.Afiliado;
+                this.habilitarCampos(false);
 
+            }catch(Exception){
+                MessageBox.Show("Error,intentelo de nuevo", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error); 
+            }
         }
     }
 }

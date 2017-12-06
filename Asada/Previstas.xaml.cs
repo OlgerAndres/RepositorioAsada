@@ -52,55 +52,73 @@ namespace Asada
 
         private void cargarAbonados()
         {
+            this.cmbAbonado.ItemsSource = this.abonado.listar();
             this.cmbAbonado.DisplayMemberPath ="Nombre";
             this.cmbAbonado.SelectedValuePath = "Id";
-            this.cmbAbonado.ItemsSource = this.abonado.listar();
+            
         }
 
         private void cargarSectores() {
+
+            this.cmbSector.ItemsSource = this.sector.listar();
             this.cmbSector.DisplayMemberPath = "Descripcion";
             this.cmbSector.SelectedValuePath = "Id";
-            this.cmbSector.ItemsSource = this.sector.listar();
+        
 
         }
 
         private void cargarTarifas() {
+            this.cmbTarifa.ItemsSource = this.tarifa.listar();
             this.cmbTarifa.DisplayMemberPath = "Descripcion";
             this.cmbTarifa.SelectedValuePath = "Id";
-            this.cmbTarifa.ItemsSource = this.tarifa.listar();   
+              
         }
 
         private void btnAgregar_Click(object sender, RoutedEventArgs e)
         {
-            if ( string.IsNullOrEmpty(this.txtDireccion.Text) || string.IsNullOrEmpty(this.txtFolio.Text))
+            try
             {
-                MessageBox.Show("Campos vacios");
-                return;
-            } 
-            this.prevista.agregar(Convert.ToInt32(cmbAbonado.SelectedValue),Convert.ToInt32(cmbTarifa.SelectedValue),Convert.ToInt32(cmbSector.SelectedValue),this.txtDireccion.Text,this.txtFolio.Text);
-            MessageBox.Show("Prevista agregada");
-            this.cargarPrevistas();
-            this.limpiarCampos();
-         
+                if (string.IsNullOrEmpty(this.txtDireccion.Text) || string.IsNullOrEmpty(this.txtFolio.Text))
+                {
+                    MessageBox.Show("Campos vacios");
+                    return;
+                }
+                this.prevista.agregar(Convert.ToInt32(this.cmbAbonado.SelectedValue), Convert.ToInt32(this.cmbTarifa.SelectedValue), Convert.ToInt32(this.cmbSector.SelectedValue), this.txtDireccion.Text, this.txtFolio.Text);
+                MessageBox.Show("Prevista agregada");
+                this.cargarPrevistas();
+                this.limpiarCampos();
+            }
+            catch (Exception) {
+                MessageBox.Show("Error,intentelo de nuevo", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
-            this.prevista.borrar(this.actualPrevista.Id);
-            MessageBox.Show("Prevista eliminada");
-            this.cargarPrevistas();
-            this.limpiarCampos();
-            this.habilitarCampos(true);
+            try
+            {
+                this.prevista.borrar(this.actualPrevista.Id);
+                MessageBox.Show("Prevista eliminada");
+                this.cargarPrevistas();
+                this.limpiarCampos();
+                this.habilitarCampos(true);
+            }catch(Exception){
+                MessageBox.Show("Error,intentelo de nuevo", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void btnModificar_Click(object sender, RoutedEventArgs e)
         {
-            this.prevista.actualizar(this.actualPrevista.Id,Convert.ToInt32(cmbAbonado.SelectedValue),Convert.ToInt32(cmbTarifa.SelectedValue),Convert.ToInt32(cmbSector.SelectedValue),this.txtDireccion.Text,this.txtFolio.Text);
-            MessageBox.Show("Prevista actualizada");
-            this.cargarPrevistas();
-            this.limpiarCampos();
-            this.habilitarCampos(true);
-          
+            try
+            {
+                this.prevista.actualizar(this.actualPrevista.Id, Convert.ToInt32(cmbAbonado.SelectedValue), Convert.ToInt32(cmbTarifa.SelectedValue), Convert.ToInt32(cmbSector.SelectedValue), this.txtDireccion.Text, this.txtFolio.Text);
+                MessageBox.Show("Prevista actualizada");
+                this.cargarPrevistas();
+                this.limpiarCampos();
+                this.habilitarCampos(true);
+            }catch(Exception){
+                MessageBox.Show("Error,intentelo de nuevo", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
       
@@ -112,8 +130,6 @@ namespace Asada
 
         }
 
-
-   
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
                  e.Cancel = true;
@@ -127,13 +143,19 @@ namespace Asada
 
         private void DgPrevistas_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            this.actualPrevista = this.DgPrevistas.CurrentItem as Prevista;
-            this.cmbAbonado.SelectedValue = Convert.ToInt32(this.actualPrevista.IdAbonado);
-            this.cmbTarifa.SelectedValue = Convert.ToInt32(this.actualPrevista.IdTarifa);
-            this.cmbSector.SelectedValue = Convert.ToInt32(this.actualPrevista.IdSector);
-            this.txtDireccion.Text = this.actualPrevista.Direccion;
-            this.txtFolio.Text = this.actualPrevista.FolioReal;
-            this.habilitarCampos(false);
+            try
+            {
+                this.actualPrevista = this.DgPrevistas.CurrentItem as Prevista;
+                this.cmbAbonado.SelectedValue = Convert.ToInt32(this.actualPrevista.IdAbonado);
+                this.cmbTarifa.SelectedValue = Convert.ToInt32(this.actualPrevista.IdTarifa);
+                this.cmbSector.SelectedValue = Convert.ToInt32(this.actualPrevista.IdSector);
+                this.txtDireccion.Text = this.actualPrevista.Direccion;
+                this.txtFolio.Text = this.actualPrevista.FolioReal;
+                this.habilitarCampos(false);
+            }
+            catch (Exception) {
+                MessageBox.Show("Error,intentelo de nuevo", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

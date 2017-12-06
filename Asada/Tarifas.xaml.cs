@@ -51,41 +51,62 @@ namespace Asada
 
         private void btnAgregar_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(this.txtDescripcion.Text) || string.IsNullOrEmpty(this.txtPrecio.Text))
+            try
             {
-                MessageBox.Show("Tarifa y precio son requeridos.");
-                return;
+                if (string.IsNullOrEmpty(this.txtDescripcion.Text) || string.IsNullOrEmpty(this.txtPrecio.Text))
+                {
+                    MessageBox.Show("Tarifa y precio son requeridos.");
+                    return;
+                }
+                this.tarifas.agregar(this.txtDescripcion.Text, decimal.Parse(this.txtPrecio.Text));
+                MessageBox.Show("Tarifa agregada");
+                this.cargarTarifas();
+                this.limpiarCampos();
+
+            }catch(Exception){
+                MessageBox.Show("Error,intentelo de nuevo", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            this.tarifas.agregar(this.txtDescripcion.Text, decimal.Parse(this.txtPrecio.Text));
-            MessageBox.Show("Tarifa agregada");
-            this.cargarTarifas();
-            this.limpiarCampos();
         }
 
         private void btnModificar_Click(object sender, RoutedEventArgs e)
-        {   
-            this.tarifas.actualizar(this.tarifaActual.Id, this.txtDescripcion.Text, decimal.Parse(this.txtPrecio.Text));
-            MessageBox.Show("Tarifa actualizada");
-            this.cargarTarifas();
-            this.limpiarCampos();
-            this.habilitarCampos(true);
+        {
+            try
+            {
+                this.tarifas.actualizar(this.tarifaActual.Id, this.txtDescripcion.Text, decimal.Parse(this.txtPrecio.Text));
+                MessageBox.Show("Tarifa actualizada");
+                this.cargarTarifas();
+                this.limpiarCampos();
+                this.habilitarCampos(true);
+            }catch(Exception){
+             MessageBox.Show("Error,intentelo de nuevo", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void DgTarifas_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            this.tarifaActual = this.DgTarifas.CurrentItem as Tarifa;
-            this.txtDescripcion.Text = this.tarifaActual.Descripcion;
-            this.txtPrecio.Text = this.tarifaActual.Precio.ToString();
-            this.habilitarCampos(false);
+            try
+            {
+                this.tarifaActual = this.DgTarifas.CurrentItem as Tarifa;
+                this.txtDescripcion.Text = this.tarifaActual.Descripcion;
+                this.txtPrecio.Text = this.tarifaActual.Precio.ToString();
+                this.habilitarCampos(false);
+            }catch(Exception){
+                MessageBox.Show("Error,intentelo de nuevo", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
-            this.tarifas.borrar(this.tarifaActual.Id);
-            MessageBox.Show("Tarifa eliminada");
-            this.cargarTarifas();
-            this.limpiarCampos();
-            this.habilitarCampos(true);
+            try
+            {
+                this.tarifas.borrar(this.tarifaActual.Id);
+                MessageBox.Show("Tarifa eliminada");
+                this.cargarTarifas();
+                this.limpiarCampos();
+                this.habilitarCampos(true);
+            }catch(Exception){
+              MessageBox.Show("Error,intentelo de nuevo", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)

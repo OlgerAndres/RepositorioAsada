@@ -1,7 +1,7 @@
 ﻿<Window x:Class="Asada.Sectores"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Sectores" Height="454.105" Width="625.523" ResizeMode="NoResize" Closing="Window_Closing" >
+        Title="Sectores" Height="341.105" Width="597.523" ResizeMode="NoResize" Closing="Window_Closing" >
     <Grid>
         <Label Content="Nombre del sector" HorizontalAlignment="Left" Margin="22,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-7.851,0.759"/>
         <TextBox x:Name="txtSector" HorizontalAlignment="Left" Height="23" Margin="152,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145"/>
@@ -9,8 +9,8 @@
         <Button x:Name="btnModificar" Content="Modificar" HorizontalAlignment="Left" Margin="418,14,0,0" VerticalAlignment="Top" Width="75" Click="btnModificar_Click"/>
         <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="509,14,0,0" VerticalAlignment="Top" Width="75" Click="btnEliminar_Click"/>
         <DataGrid CanUserAddRows="false" x:Name="DgSectores"  AutoGenerateColumns="False" 
-        	HorizontalAlignment="Left" Margin="22,72,0,0" VerticalAlignment="Top"
-        	Height="331" Width="562" SelectionMode="Single" MouseDoubleClick="DgSectores_MouseDoubleClick" >
+        	HorizontalAlignment="Left" Margin="152,92,0,0" VerticalAlignment="Top"
+        	Height="194" Width="292" SelectionMode="Single" MouseDoubleClick="DgSectores_MouseDoubleClick" >
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Id}" IsReadOnly="True" Header="Id" Width="100"/>
                 <DataGridTextColumn Binding="{Binding Descripcion, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" Header="Sector" Width="200" />

@@ -13,9 +13,9 @@
         <TextBox x:Name="txtDireccion" HorizontalAlignment="Left" Height="94" Margin="96,216,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="309"/>
         <Label Content="Folio real" HorizontalAlignment="Left" Margin="13,342,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtFolio" HorizontalAlignment="Left" Height="23" Margin="96,342,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143"/>
-        <Button x:Name="btnAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="532,286,0,0" VerticalAlignment="Top" Width="75" Click="btnAgregar_Click"/>
-        <Button x:Name="btnModificar" Content="Modificar" HorizontalAlignment="Left" Margin="532,361,0,0" VerticalAlignment="Top" Width="75" Click="btnModificar_Click"/>
-        <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="656,286,0,0" VerticalAlignment="Top" Width="75" Click="btnEliminar_Click"/>
+        <Button x:Name="btnAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="444,348,0,0" VerticalAlignment="Top" Width="75" Click="btnAgregar_Click"/>
+        <Button x:Name="btnModificar" Content="Modificar" HorizontalAlignment="Left" Margin="571,348,0,0" VerticalAlignment="Top" Width="75" Click="btnModificar_Click"/>
+        <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="682,348,0,0" VerticalAlignment="Top" Width="75" Click="btnEliminar_Click"/>
 
         <DataGrid CanUserAddRows="false" x:Name="DgPrevistas"  AutoGenerateColumns="False" 
         	HorizontalAlignment="Left" Margin="35,420,0,0" VerticalAlignment="Top"
@@ -39,6 +39,8 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
+        <Label x:Name="lblCantidad" Content="Label" HorizontalAlignment="Left" Margin="506,199,0,0" VerticalAlignment="Top" Width="123"/>
+        <Label x:Name="lblCuenta" Content="Label" HorizontalAlignment="Left" Margin="506,247,0,0" VerticalAlignment="Top" Width="123"/>
 
     </Grid>
 </Window>
