@@ -36,7 +36,7 @@ namespace Logica
                 IdTarifa = IdTarifa,
                 IdSector = IdSector,
                 Direccion = Direccion,
-                FolioReal = FolioReal
+                FolioReal = FolioReal,
             });
             this.contexto.SaveChanges();
         }

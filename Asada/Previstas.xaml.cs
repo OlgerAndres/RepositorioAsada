@@ -58,7 +58,7 @@ namespace Asada
         private void cargarAbonados()
         {
             this.cmbAbonado.ItemsSource = this.abonado.listar();
-            this.cmbAbonado.DisplayMemberPath ="Nombre";
+            this.cmbAbonado.DisplayMemberPath ="NumeroAbonado";
             this.cmbAbonado.SelectedValuePath = "Id";
             
         }
@@ -88,13 +88,15 @@ namespace Asada
                     MessageBox.Show("Campos vacios");
                     return;
                 }
-                this.prevista.agregar(Convert.ToInt32(this.cmbAbonado.SelectedValue), Convert.ToInt32(this.cmbTarifa.SelectedValue), Convert.ToInt32(this.cmbSector.SelectedValue), this.txtDireccion.Text, this.txtFolio.Text);
+                this.prevista.agregar(Convert.ToInt32(this.cmbAbonado.SelectedValue), Convert.ToInt32(this.cmbTarifa.SelectedValue), Convert.ToInt32(this.cmbSector.SelectedValue),this.txtDireccion.Text,this.txtFolio.Text);
                 MessageBox.Show("Prevista agregada");
                 this.cargarPrevistas();
                 this.limpiarCampos();
             }
-            catch (Exception) {
-                MessageBox.Show("Error,intentelo de nuevo", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+            catch (Exception ex) {
+               
+                MessageBox.Show(ex.GetBaseException().Message,"Detalle tecnico");
+                //MessageBox.Show("Error,intentelo de nuevo", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
