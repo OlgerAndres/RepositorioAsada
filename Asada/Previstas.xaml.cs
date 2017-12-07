@@ -39,7 +39,12 @@ namespace Asada
         }
 
         private void cargarPrevistas() {
-            this.DgPrevistas.ItemsSource = this.prevista.listar();
+            this.DgPrevistas.SelectedItem = this.prevista.listar();
+
+ 
+
+
+
         }
 
         private void habilitarCampos(bool bandera)
@@ -92,6 +97,11 @@ namespace Asada
                 MessageBox.Show("Error,intentelo de nuevo", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+
+
+
+
 
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
@@ -157,6 +167,13 @@ namespace Asada
                 MessageBox.Show("Error,intentelo de nuevo", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+=======
+
+
+
+
+
+>>>>>>> Stashed changes
     }
 }
 
