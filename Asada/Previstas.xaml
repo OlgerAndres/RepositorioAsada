@@ -16,8 +16,6 @@
         <Button x:Name="btnAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="532,286,0,0" VerticalAlignment="Top" Width="75" Click="btnAgregar_Click"/>
         <Button x:Name="btnModificar" Content="Modificar" HorizontalAlignment="Left" Margin="532,361,0,0" VerticalAlignment="Top" Width="75" Click="btnModificar_Click"/>
         <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="656,286,0,0" VerticalAlignment="Top" Width="75" Click="btnEliminar_Click"/>
-<<<<<<< Updated upstream
-
         <DataGrid CanUserAddRows="false" x:Name="DgPrevistas"  AutoGenerateColumns="False" 
         	HorizontalAlignment="Left" Margin="35,420,0,0" VerticalAlignment="Top"
         	Height="200" Width="696" SelectionMode="Single"  MouseDoubleClick="DgPrevistas_MouseDoubleClick">
@@ -28,46 +26,9 @@
                 <DataGridTextColumn Binding="{Binding IdSector, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"  Header="Sector" Width="110" />
                 <DataGridTextColumn Binding="{Binding Direccion, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"  Header="Dirección" Width="100" />
                 <DataGridTextColumn Binding="{Binding FolioReal, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"  Header="Folio real" Width="100" />
-                <DataGridTemplateColumn>
-=======
-        <Button x:Name="btnSalir" Content="Salir" HorizontalAlignment="Left" Margin="656,361,0,0" VerticalAlignment="Top" Width="75" Click="btnSalir_Click"/>
-        <DataGrid CanUserAddRows="false" x:Name="DgPrevistas" AutoGenerateColumns="False"  
-                  HorizontalAlignment="Left" Margin="30,422,0,0" VerticalAlignment="Top" Height="202" Width="749" SelectionMode="Single" Grid.ColumnSpan="3">
-
-            
-            
-            <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding Path=Id}" IsReadOnly="True" Header="Id" Width="50"/>
-                <DataGridTextColumn Binding="{Binding Path=IdAbonado, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" Header="Abonado" Width="200" />
-                <DataGridTextColumn Binding="{Binding Path=IdTarifa, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"  Header="Tarifa" Width="100" />
-                <DataGridTextColumn Binding="{Binding Path=IdSector, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" Header="Sector" Width="100" />
-                <DataGridTextColumn Binding="{Binding Path=Direccion, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"  Header="Direccion" Width="200" />
-                <DataGridTextColumn Binding="{Binding Path=FolioReal, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" Header="Folio Real" Width="200" />
-
-
-
-
-                <!--<DataGridTemplateColumn>
->>>>>>> Stashed changes
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate/>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>-->
-                <!--<DataGridTemplateColumn>
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate/>
-                    </DataGridTemplateColumn.CellTemplate>
-<<<<<<< Updated upstream
-                </DataGridTemplateColumn>
             </DataGrid.Columns>
-=======
-                </DataGridTemplateColumn>-->
-            </DataGrid.Columns>
-            
->>>>>>> Stashed changes
         </DataGrid>
-        <Label x:Name="lblCantidad" Content="Label" HorizontalAlignment="Left" Margin="506,199,0,0" VerticalAlignment="Top" Width="123"/>
-        <Label x:Name="lblCuenta" Content="Label" HorizontalAlignment="Left" Margin="506,247,0,0" VerticalAlignment="Top" Width="123"/>
-
+        <Label x:Name="lblCantidad" Content="Cantidad Previstas" HorizontalAlignment="Left" Margin="506,199,0,0" VerticalAlignment="Top" Width="123"/>
+        <Label x:Name="lblCuenta" Content="" HorizontalAlignment="Left" Margin="506,247,0,0" VerticalAlignment="Top" Width="123"/>
     </Grid>
 </Window>

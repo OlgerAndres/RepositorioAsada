@@ -169,13 +169,7 @@ namespace Asada
                 MessageBox.Show("Error,intentelo de nuevo", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-=======
 
-
-
-
-
->>>>>>> Stashed changes
     }
 }
 
