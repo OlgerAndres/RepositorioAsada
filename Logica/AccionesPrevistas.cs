@@ -14,6 +14,7 @@ namespace Logica
         void agregar(int IdAbonado, int IdTarifa, int IdSector, string Direccion, string FolioReal);
         void actualizar(int Id, int IdAbonado, int IdTarifa, int IdSector, string Direccion, string FolioReal);
         void borrar(int Id);
+        int cantidadPrevistasPorIdAbonado(int IdAbonado);
     }
 
     public class AccionesPrevistas : AccionesEntidades, IServiciosPrevistas
@@ -56,6 +57,12 @@ namespace Logica
         {
             this.contexto.Previstas.Remove(this.encontrarPorId(Id));
             this.contexto.SaveChanges();
+        }
+
+
+        public int cantidadPrevistasPorIdAbonado(int IdAbonado)
+        {
+            return this.contexto.Previstas.Where(p => p.IdAbonado == IdAbonado).Count();
         }
     }
 }

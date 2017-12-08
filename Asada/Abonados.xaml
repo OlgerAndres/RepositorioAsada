@@ -16,6 +16,8 @@
         <Label Content="Celular" HorizontalAlignment="Left" Margin="10,283,0,0" VerticalAlignment="Top"/>
         <Label Content="Correo electrónico" HorizontalAlignment="Left" Margin="379,36,0,0" VerticalAlignment="Top"/>
         <Label Content="Número de abonado" HorizontalAlignment="Left" Margin="379,93,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblCantidad" Content="Cantidad Previstas" HorizontalAlignment="Left" Margin="731,36,0,0" VerticalAlignment="Top" Width="123"/>
+        <Label x:Name="lblCantidadValor" Content="" HorizontalAlignment="Left" Margin="889,36,0,0" VerticalAlignment="Top" Width="123"/>
         <TextBox   HorizontalAlignment="Left" Height="23" Margin="136,283,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="txtNumeroAbonado" HorizontalAlignment="Left" Height="23" Margin="505,96,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="138"/>
         <TextBox x:Name="txtCelular" HorizontalAlignment="Left" Height="23" Margin="136,283,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="136"/>

@@ -28,7 +28,5 @@
                 <DataGridTextColumn Binding="{Binding FolioReal, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"  Header="Folio real" Width="100" />
             </DataGrid.Columns>
         </DataGrid>
-        <Label x:Name="lblCantidad" Content="Cantidad Previstas" HorizontalAlignment="Left" Margin="506,199,0,0" VerticalAlignment="Top" Width="123"/>
-        <Label x:Name="lblCuenta" Content="" HorizontalAlignment="Left" Margin="506,247,0,0" VerticalAlignment="Top" Width="123"/>
     </Grid>
 </Window>

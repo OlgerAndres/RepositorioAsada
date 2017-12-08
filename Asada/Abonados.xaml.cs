@@ -116,24 +116,23 @@ namespace Asada
 
         private void dgAbonados_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            try
+            this.abonadoActual = this.dgAbonados.CurrentItem as Abonado;
+            if (null == this.abonadoActual)
             {
-                this.abonadoActual = this.dgAbonados.CurrentItem as Abonado;
-                this.txtNombre.Text = this.abonadoActual.Nombre;
-                this.txtPrimerApellido.Text = this.abonadoActual.PrimerApellido;
-                this.txtSegundoApellido.Text = this.abonadoActual.SegundoApellido;
-                this.txtCedula.Text = this.abonadoActual.Cedula;
-                this.txtTelefono.Text = this.abonadoActual.Telefono;
-                this.txtCelular.Text = this.abonadoActual.Celular;
-                this.txtDireccion.Text = this.abonadoActual.Direccion;
-                this.txtCorreo.Text = this.abonadoActual.Correo;
-                this.txtNumeroAbonado.Text = this.abonadoActual.NumeroAbonado;
-                this.chbAfiliado.IsChecked = this.abonadoActual.Afiliado;
-                this.habilitarCampos(false);
-
-            }catch(Exception){
-                MessageBox.Show("Error,intentelo de nuevo", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error); 
+                return;
             }
+            this.txtNombre.Text = this.abonadoActual.Nombre;
+            this.txtPrimerApellido.Text = this.abonadoActual.PrimerApellido;
+            this.txtSegundoApellido.Text = this.abonadoActual.SegundoApellido;
+            this.txtCedula.Text = this.abonadoActual.Cedula;
+            this.txtTelefono.Text = this.abonadoActual.Telefono;
+            this.txtCelular.Text = this.abonadoActual.Celular;
+            this.txtDireccion.Text = this.abonadoActual.Direccion;
+            this.txtCorreo.Text = this.abonadoActual.Correo;
+            this.txtNumeroAbonado.Text = this.abonadoActual.NumeroAbonado;
+            this.chbAfiliado.IsChecked = this.abonadoActual.Afiliado;
+            this.lblCantidadValor.Content = (new AccionesPrevistas()).cantidadPrevistasPorIdAbonado(this.abonadoActual.Id);
+            this.habilitarCampos(false);
         }
     }
 }

@@ -21,10 +21,10 @@ namespace Asada
     /// </summary>
     public partial class Previstas : Window
     {
-        private IServiciosPrevistas prevista = new AccionesPrevistas();
-        private IServiciosAbonados abonado = new AccionesAbonados();
-        private IServiciosSectores sector = new AccionesSectores();
-        private IServiciosTarifas tarifa = new AccionesTarifas();
+        private IServiciosPrevistas previstas = new AccionesPrevistas();
+        private IServiciosAbonados abonados = new AccionesAbonados();
+        private IServiciosSectores sectores = new AccionesSectores();
+        private IServiciosTarifas tarifas = new AccionesTarifas();
         private Prevista actualPrevista=null;
 
 
@@ -39,12 +39,7 @@ namespace Asada
         }
 
         private void cargarPrevistas() {
-            this.DgPrevistas.ItemsSource = this.prevista.listar();
-
- 
-
-
-
+            this.DgPrevistas.ItemsSource = this.previstas.listar();
         }
 
         private void habilitarCampos(bool bandera)
@@ -57,7 +52,7 @@ namespace Asada
 
         private void cargarAbonados()
         {
-            this.cmbAbonado.ItemsSource = this.abonado.listar();
+            this.cmbAbonado.ItemsSource = this.abonados.listar();
             this.cmbAbonado.DisplayMemberPath ="NumeroAbonado";
             this.cmbAbonado.SelectedValuePath = "Id";
             
@@ -65,7 +60,7 @@ namespace Asada
 
         private void cargarSectores() {
 
-            this.cmbSector.ItemsSource = this.sector.listar();
+            this.cmbSector.ItemsSource = this.sectores.listar();
             this.cmbSector.DisplayMemberPath = "Descripcion";
             this.cmbSector.SelectedValuePath = "Id";
         
@@ -73,7 +68,7 @@ namespace Asada
         }
 
         private void cargarTarifas() {
-            this.cmbTarifa.ItemsSource = this.tarifa.listar();
+            this.cmbTarifa.ItemsSource = this.tarifas.listar();
             this.cmbTarifa.DisplayMemberPath = "Descripcion";
             this.cmbTarifa.SelectedValuePath = "Id";
               
@@ -88,7 +83,7 @@ namespace Asada
                     MessageBox.Show("Campos vacios");
                     return;
                 }
-                this.prevista.agregar(Convert.ToInt32(this.cmbAbonado.SelectedValue), Convert.ToInt32(this.cmbTarifa.SelectedValue), Convert.ToInt32(this.cmbSector.SelectedValue),this.txtDireccion.Text,this.txtFolio.Text);
+                this.previstas.agregar(Convert.ToInt32(this.cmbAbonado.SelectedValue), Convert.ToInt32(this.cmbTarifa.SelectedValue), Convert.ToInt32(this.cmbSector.SelectedValue),this.txtDireccion.Text,this.txtFolio.Text);
                 MessageBox.Show("Prevista agregada");
                 this.cargarPrevistas();
                 this.limpiarCampos();
@@ -109,7 +104,7 @@ namespace Asada
         {
             try
             {
-                this.prevista.borrar(this.actualPrevista.Id);
+                this.previstas.borrar(this.actualPrevista.Id);
                 MessageBox.Show("Prevista eliminada");
                 this.cargarPrevistas();
                 this.limpiarCampos();
@@ -123,7 +118,7 @@ namespace Asada
         {
             try
             {
-                this.prevista.actualizar(this.actualPrevista.Id, Convert.ToInt32(cmbAbonado.SelectedValue), Convert.ToInt32(cmbTarifa.SelectedValue), Convert.ToInt32(cmbSector.SelectedValue), this.txtDireccion.Text, this.txtFolio.Text);
+                this.previstas.actualizar(this.actualPrevista.Id, Convert.ToInt32(cmbAbonado.SelectedValue), Convert.ToInt32(cmbTarifa.SelectedValue), Convert.ToInt32(cmbSector.SelectedValue), this.txtDireccion.Text, this.txtFolio.Text);
                 MessageBox.Show("Prevista actualizada");
                 this.cargarPrevistas();
                 this.limpiarCampos();
@@ -155,19 +150,13 @@ namespace Asada
 
         private void DgPrevistas_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            try
-            {
-                this.actualPrevista = this.DgPrevistas.CurrentItem as Prevista;
-                this.cmbAbonado.SelectedValue = Convert.ToInt32(this.actualPrevista.IdAbonado);
-                this.cmbTarifa.SelectedValue = Convert.ToInt32(this.actualPrevista.IdTarifa);
-                this.cmbSector.SelectedValue = Convert.ToInt32(this.actualPrevista.IdSector);
-                this.txtDireccion.Text = this.actualPrevista.Direccion;
-                this.txtFolio.Text = this.actualPrevista.FolioReal;
-                this.habilitarCampos(false);
-            }
-            catch (Exception) {
-                MessageBox.Show("Error,intentelo de nuevo", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            this.actualPrevista = this.DgPrevistas.CurrentItem as Prevista;
+            this.cmbAbonado.SelectedValue = Convert.ToInt32(this.actualPrevista.IdAbonado);
+            this.cmbTarifa.SelectedValue = Convert.ToInt32(this.actualPrevista.IdTarifa);
+            this.cmbSector.SelectedValue = Convert.ToInt32(this.actualPrevista.IdSector);
+            this.txtDireccion.Text = this.actualPrevista.Direccion;
+            this.txtFolio.Text = this.actualPrevista.FolioReal;
+            this.habilitarCampos(false);
         }
 
     }
