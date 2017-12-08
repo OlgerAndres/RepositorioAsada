@@ -93,7 +93,7 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Previstas">
-              <PropertyRef Name="IdSector" />
+              <PropertyRef Name="IdTarifa" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -122,23 +122,23 @@
       <Schema Namespace="ASADAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="ASADAEntidades" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Abonados" EntityType="ASADAModel.Abonado" />
-          <EntitySet Name="Previstas" EntityType="ASADAModel.Prevista" />
           <EntitySet Name="Sectores" EntityType="ASADAModel.Sector" />
           <EntitySet Name="Tarifas" EntityType="ASADAModel.Tarifa" />
           <EntitySet Name="Usuarios" EntityType="ASADAModel.Usuario" />
+          <EntitySet Name="Previstas" EntityType="ASADAModel.Prevista" />
           <AssociationSet Name="FK_Previstas_Abonados" Association="ASADAModel.FK_Previstas_Abonados">
             <End Role="Abonado" EntitySet="Abonados" />
             <End Role="Prevista" EntitySet="Previstas" />
           </AssociationSet>
           <AssociationSet Name="FK_Previstas_Sectores" Association="ASADAModel.FK_Previstas_Sectores">
-            <End Role="Sectore" EntitySet="Sectores" />
+            <End Role="Sector" EntitySet="Sectores" />
             <End Role="Prevista" EntitySet="Previstas" />
           </AssociationSet>
           <AssociationSet Name="FK_Previstas_Tarifas" Association="ASADAModel.FK_Previstas_Tarifas">
             <End Role="Tarifa" EntitySet="Tarifas" />
             <End Role="Prevista" EntitySet="Previstas" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <EntityType Name="Abonado">
           <Key>
             <PropertyRef Name="Id" />
@@ -156,27 +156,13 @@
           <Property Name="Afiliado" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Previstas" Relationship="ASADAModel.FK_Previstas_Abonados" FromRole="Abonado" ToRole="Prevista" />
         </EntityType>
-        <EntityType Name="Prevista">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdAbonado" Type="Int32" Nullable="false" />
-          <Property Name="IdTarifa" Type="Int32" Nullable="false" />
-          <Property Name="IdSector" Type="Int32" Nullable="false" />
-          <Property Name="Direccion" Type="String" Nullable="false" MaxLength="225" FixedLength="false" Unicode="true" />
-          <Property Name="FolioReal" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Abonado" Relationship="ASADAModel.FK_Previstas_Abonados" FromRole="Prevista" ToRole="Abonado" />
-          <NavigationProperty Name="Sectore" Relationship="ASADAModel.FK_Previstas_Sectores" FromRole="Prevista" ToRole="Sectore" />
-          <NavigationProperty Name="Tarifa" Relationship="ASADAModel.FK_Previstas_Tarifas" FromRole="Prevista" ToRole="Tarifa" />
-        </EntityType>
         <EntityType Name="Sector">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Previstas" Relationship="ASADAModel.FK_Previstas_Sectores" FromRole="Sectore" ToRole="Prevista" />
+          <NavigationProperty Name="Previstas" Relationship="ASADAModel.FK_Previstas_Sectores" FromRole="Sector" ToRole="Prevista" />
         </EntityType>
         <EntityType Name="Tarifa">
           <Key>
@@ -195,6 +181,20 @@
           <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Clave" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="Prevista">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdAbonado" Type="Int32" Nullable="false" />
+          <Property Name="IdTarifa" Type="Int32" Nullable="false" />
+          <Property Name="IdSector" Type="Int32" Nullable="false" />
+          <Property Name="Direccion" Type="String" Nullable="false" MaxLength="225" FixedLength="false" Unicode="true" />
+          <Property Name="FolioReal" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Abonado" Relationship="ASADAModel.FK_Previstas_Abonados" FromRole="Prevista" ToRole="Abonado" />
+          <NavigationProperty Name="Sectore" Relationship="ASADAModel.FK_Previstas_Sectores" FromRole="Prevista" ToRole="Sector" />
+          <NavigationProperty Name="Tarifa" Relationship="ASADAModel.FK_Previstas_Tarifas" FromRole="Prevista" ToRole="Tarifa" />
+        </EntityType>
         <Association Name="FK_Previstas_Abonados">
           <End Type="ASADAModel.Abonado" Role="Abonado" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -210,12 +210,12 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Previstas_Sectores">
-          <End Type="ASADAModel.Sector" Role="Sectore" Multiplicity="1">
+          <End Type="ASADAModel.Sector" Role="Sector" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
           <End Type="ASADAModel.Prevista" Role="Prevista" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Sectore">
+            <Principal Role="Sector">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Prevista">
@@ -233,11 +233,11 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Prevista">
-              <PropertyRef Name="IdSector" />
+              <PropertyRef Name="IdTarifa" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -256,18 +256,6 @@
                 <ScalarProperty Name="SegundoApellido" ColumnName="SegundoApellido" />
                 <ScalarProperty Name="PrimerApellido" ColumnName="PrimerApellido" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Previstas">
-            <EntityTypeMapping TypeName="ASADAModel.Prevista">
-              <MappingFragment StoreEntitySet="Previstas">
-                <ScalarProperty Name="FolioReal" ColumnName="FolioReal" />
-                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
-                <ScalarProperty Name="IdSector" ColumnName="IdSector" />
-                <ScalarProperty Name="IdTarifa" ColumnName="IdTarifa" />
-                <ScalarProperty Name="IdAbonado" ColumnName="IdAbonado" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -294,6 +282,18 @@
               <MappingFragment StoreEntitySet="Usuarios">
                 <ScalarProperty Name="Clave" ColumnName="Clave" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Previstas">
+            <EntityTypeMapping TypeName="ASADAModel.Prevista">
+              <MappingFragment StoreEntitySet="Previstas">
+                <ScalarProperty Name="FolioReal" ColumnName="FolioReal" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="IdSector" ColumnName="IdSector" />
+                <ScalarProperty Name="IdTarifa" ColumnName="IdTarifa" />
+                <ScalarProperty Name="IdAbonado" ColumnName="IdAbonado" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -39,7 +39,7 @@ namespace Asada
         }
 
         private void cargarPrevistas() {
-            this.DgPrevistas.SelectedItem = this.prevista.listar();
+            this.DgPrevistas.ItemsSource = this.prevista.listar();
 
  
 
@@ -95,8 +95,8 @@ namespace Asada
             }
             catch (Exception ex) {
                
-                MessageBox.Show(ex.GetBaseException().Message,"Detalle tecnico");
-                //MessageBox.Show("Error,intentelo de nuevo", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+               
+                MessageBox.Show("Error,intentelo de nuevo. (" + ex.GetBaseException().Message + ")", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -138,7 +138,7 @@ namespace Asada
         {
             txtDireccion.Clear();
             txtFolio.Clear();
-            
+            this.cmbAbonado.SelectedIndex = -1;
 
         }
 
