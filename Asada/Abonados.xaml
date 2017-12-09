@@ -26,8 +26,8 @@
         <Label Content="Afiliado" HorizontalAlignment="Left" Margin="379,146,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="chbAfiliado" Content="Afiliado" HorizontalAlignment="Left" Margin="440,152,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btnAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="379,256,0,0" VerticalAlignment="Top" Width="75" Click="btnAgregar_Click"/>
-        <DataGrid CanUserAddRows="false" x:Name="dgAbonados"  AutoGenerateColumns="False" 
-        	HorizontalAlignment="Left" Margin="10,442,0,0" VerticalAlignment="Top"
+        <DataGrid CanUserAddRows="false" x:Name="dgAbonados"  AutoGenerateColumns="False" IsReadOnly="True"
+        	HorizontalAlignment="Left" Margin="10,442,0,0" VerticalAlignment="Top" SelectionUnit="FullRow"
         	Height="316" Width="1138" SelectionMode="Single"  Grid.ColumnSpan="2" MouseDoubleClick="dgAbonados_MouseDoubleClick">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Id}" IsReadOnly="True" Header="Id" Width="100"/>

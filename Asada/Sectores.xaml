@@ -7,15 +7,15 @@
         <TextBox x:Name="txtSector" HorizontalAlignment="Left" Height="23" Margin="152,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145"/>
         <Button x:Name="btnAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="354,16,0,0" VerticalAlignment="Top" Width="75" Click="btnAgregar_Click"/>
         <Button x:Name="btnModificar" Content="Modificar" HorizontalAlignment="Left" Margin="480,16,0,0" VerticalAlignment="Top" Width="75" Click="btnModificar_Click"/>
-        <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="480,94,0,0" VerticalAlignment="Top" Width="75" Click="btnEliminar_Click"/>
-        <DataGrid CanUserAddRows="false" x:Name="DgSectores"  AutoGenerateColumns="False" 
-        	HorizontalAlignment="Left" Margin="10,73,0,0" VerticalAlignment="Top"
-        	Height="194" Width="292" SelectionMode="Single" MouseDoubleClick="DgSectores_MouseDoubleClick" >
+        <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="480,68,0,0" VerticalAlignment="Top" Width="75" Click="btnEliminar_Click"/>
+        <DataGrid CanUserAddRows="false" x:Name="DgSectores"  AutoGenerateColumns="False" IsReadOnly="True"
+        	HorizontalAlignment="Left" Margin="10,109,0,0" VerticalAlignment="Top" SelectionUnit="FullRow"
+        	Height="194" Width="419" SelectionMode="Single" MouseDoubleClick="DgSectores_MouseDoubleClick" >
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Id}" IsReadOnly="True" Header="Id" Width="100"/>
                 <DataGridTextColumn Binding="{Binding Descripcion, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" Header="Sector" Width="200" />
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="354,94,0,0" VerticalAlignment="Top" Width="75" Click="btnCancelar_Click"/>
+        <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="354,68,0,0" VerticalAlignment="Top" Width="75" Click="btnCancelar_Click"/>
     </Grid>
 </Window>

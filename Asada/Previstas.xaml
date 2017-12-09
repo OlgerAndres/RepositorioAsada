@@ -16,8 +16,8 @@
         <Button x:Name="btnAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="532,286,0,0" VerticalAlignment="Top" Width="75" Click="btnAgregar_Click"/>
         <Button x:Name="btnModificar" Content="Modificar" HorizontalAlignment="Left" Margin="532,361,0,0" VerticalAlignment="Top" Width="75" Click="btnModificar_Click"/>
         <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="656,286,0,0" VerticalAlignment="Top" Width="75" Click="btnEliminar_Click"/>
-        <DataGrid CanUserAddRows="false" x:Name="DgPrevistas"  AutoGenerateColumns="False" 
-        	HorizontalAlignment="Left" Margin="35,420,0,0" VerticalAlignment="Top"
+        <DataGrid CanUserAddRows="false" x:Name="DgPrevistas"  AutoGenerateColumns="False" IsReadOnly="True"
+        	HorizontalAlignment="Left" Margin="35,420,0,0" VerticalAlignment="Top" SelectionUnit="FullRow"
         	Height="200" Width="696" SelectionMode="Single"  MouseDoubleClick="DgPrevistas_MouseDoubleClick">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Id}" IsReadOnly="True" Header="Id" Width="100"/>
