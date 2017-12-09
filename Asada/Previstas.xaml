@@ -1,7 +1,7 @@
 ﻿<Window x:Class="Asada.Previstas"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Previstas" Height="676" Width="809" Closing="Window_Closing" ResizeMode="NoResize">
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" IsVisibleChanged="Window_IsVisibleChanged"
+        Title="Previstas" Height="676" Width="725" Closing="Window_Closing" ResizeMode="NoResize">
     <Grid>
         <Label Content="Abonado" HorizontalAlignment="Left" Margin="10,27,0,0" VerticalAlignment="Top"/>
         <Label Content="Tarifa" HorizontalAlignment="Left" Margin="10,88,0,0" VerticalAlignment="Top"/>
@@ -13,12 +13,12 @@
         <TextBox x:Name="txtDireccion" HorizontalAlignment="Left" Height="94" Margin="96,216,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="309"/>
         <Label Content="Folio real" HorizontalAlignment="Left" Margin="13,342,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtFolio" HorizontalAlignment="Left" Height="23" Margin="96,342,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143"/>
-        <Button x:Name="btnAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="532,286,0,0" VerticalAlignment="Top" Width="75" Click="btnAgregar_Click"/>
-        <Button x:Name="btnModificar" Content="Modificar" HorizontalAlignment="Left" Margin="532,361,0,0" VerticalAlignment="Top" Width="75" Click="btnModificar_Click"/>
-        <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="656,286,0,0" VerticalAlignment="Top" Width="75" Click="btnEliminar_Click"/>
+        <Button x:Name="btnAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="310,346,0,0" VerticalAlignment="Top" Width="75" Click="btnAgregar_Click"/>
+        <Button IsEnabled="False" x:Name="btnModificar" Content="Modificar" HorizontalAlignment="Left" Margin="406,346,0,0" VerticalAlignment="Top" Width="75" Click="btnModificar_Click"/>
+        <Button IsEnabled="False" x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="509,346,0,0" VerticalAlignment="Top" Width="75" Click="btnEliminar_Click"/>
         <DataGrid CanUserAddRows="false" x:Name="DgPrevistas"  AutoGenerateColumns="False" IsReadOnly="True"
         	HorizontalAlignment="Left" Margin="35,420,0,0" VerticalAlignment="Top" SelectionUnit="FullRow"
-        	Height="200" Width="696" SelectionMode="Single"  MouseDoubleClick="DgPrevistas_MouseDoubleClick">
+        	Height="200" Width="654" SelectionMode="Single"  MouseDoubleClick="DgPrevistas_MouseDoubleClick">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Id}" IsReadOnly="True" Header="Id" Width="100"/>
                 <DataGridTextColumn Binding="{Binding IdAbonado, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" Header="Abonado" Width="100" />
@@ -28,6 +28,6 @@
                 <DataGridTextColumn Binding="{Binding FolioReal, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"  Header="Folio real" Width="100" />
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="656,361,0,0" VerticalAlignment="Top" Width="75" Click="btnCancelar_Click"/>
+        <Button Visibility="Hidden" x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="600,346,0,0" VerticalAlignment="Top" Width="75" Click="btnCancelar_Click"/>
     </Grid>
 </Window>

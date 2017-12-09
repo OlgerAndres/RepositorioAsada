@@ -27,7 +27,6 @@ namespace Asada
         public Tarifas()
         {
             InitializeComponent();
-            this.cargarTarifas();
         }
 
         private void cargarTarifas()
@@ -47,6 +46,10 @@ namespace Asada
             this.btnAgregar.IsEnabled = bandera;
             this.btnModificar.IsEnabled = !bandera;
             this.btnEliminar.IsEnabled = !bandera;
+
+            this.btnCancelar.Visibility = (bandera) ?
+                System.Windows.Visibility.Hidden :
+                System.Windows.Visibility.Visible;
         }
 
         private void btnAgregar_Click(object sender, RoutedEventArgs e)
@@ -123,6 +126,19 @@ namespace Asada
             this.habilitarCampos(true);
             limpiarCampos();
            
+        }
+
+        private void prepararFormulario()
+        {
+            this.cargarTarifas();
+        }
+
+        private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (this.IsVisible)
+            {
+                this.prepararFormulario();
+            }
         }
     }
 }

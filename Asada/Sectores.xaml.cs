@@ -27,7 +27,6 @@ namespace Asada
         public Sectores()
         {
             InitializeComponent();
-            this.cargarSectores();
         }
 
         private void cargarSectores()
@@ -41,6 +40,10 @@ namespace Asada
             this.btnAgregar.IsEnabled = bandera;
             this.btnModificar.IsEnabled = !bandera;
             this.btnEliminar.IsEnabled = !bandera;
+
+            this.btnCancelar.Visibility = (bandera) ?
+                System.Windows.Visibility.Hidden :
+                System.Windows.Visibility.Visible;
         }
 
         private void limpiarCampos() {
@@ -68,7 +71,6 @@ namespace Asada
             }
         }
 
-       
         private void btnModificar_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -125,6 +127,19 @@ namespace Asada
         {
             this.habilitarCampos(true);
             limpiarCampos();
+        }
+
+        private void prepararFormulario()
+        {
+            this.cargarSectores();
+        }
+
+        private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (this.IsVisible)
+            {
+                this.prepararFormulario();
+            }
         }
     }
 }

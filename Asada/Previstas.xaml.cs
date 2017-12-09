@@ -27,15 +27,9 @@ namespace Asada
         private IServiciosTarifas tarifas = new AccionesTarifas();
         private Prevista actualPrevista=null;
 
-
         public Previstas()
         {
             InitializeComponent();
-            this.cargarPrevistas();
-            this.cargarAbonados();
-            this.cargarSectores();
-            this.cargarTarifas();
-          
         }
 
         private void cargarPrevistas() {
@@ -48,6 +42,10 @@ namespace Asada
             this.btnAgregar.IsEnabled = bandera;
             this.btnModificar.IsEnabled = !bandera;
             this.btnEliminar.IsEnabled = !bandera;
+
+            this.btnCancelar.Visibility = (bandera) ?
+                System.Windows.Visibility.Hidden :
+                System.Windows.Visibility.Visible;
         }
 
         private void cargarAbonados()
@@ -95,11 +93,6 @@ namespace Asada
             }
         }
 
-
-
-
-
-
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -128,7 +121,6 @@ namespace Asada
             }
         }
 
-      
         private void limpiarCampos()
         {
             txtDireccion.Clear();
@@ -136,19 +128,14 @@ namespace Asada
             this.cmbAbonado.SelectedIndex = -1;
             this.cmbTarifa.SelectedIndex = -1;
             this.cmbSector.SelectedIndex = -1;
-
-
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-                 e.Cancel = true;
-                this.limpiarCampos();
-                this.habilitarCampos(true);
-                this.Hide();
-            
-            
-            
+            e.Cancel = true;
+            this.limpiarCampos();
+            this.habilitarCampos(true);
+            this.Hide();
         }
 
         private void DgPrevistas_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -174,6 +161,21 @@ namespace Asada
             limpiarCampos();
         }
 
+        private void prepararFormulario()
+        {
+            this.cargarPrevistas();
+            this.cargarAbonados();
+            this.cargarSectores();
+            this.cargarTarifas();
+        }
+
+        private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (this.IsVisible)
+            {
+                this.prepararFormulario();
+            }
+        }
     }
 }
 

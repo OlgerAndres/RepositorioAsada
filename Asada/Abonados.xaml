@@ -1,31 +1,31 @@
 ﻿<Window x:Class="Asada.Abonados"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Abonados" Height="799" Width="1204" Closing="Window_Closing" ResizeMode="NoResize">
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" IsVisibleChanged="Window_IsVisibleChanged"
+        Title="Abonados" Height="802" Width="1175" Closing="Window_Closing" ResizeMode="NoResize">
     <Grid>
         <Label Content="Nombre" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top"/>
         <Label Content="Primer apellido" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top"/>
         <Label Content="Segundo apellido" HorizontalAlignment="Left" Margin="10,124,0,0" VerticalAlignment="Top"/>
         <Label Content="Cédula" HorizontalAlignment="Left" Margin="10,173,0,0" VerticalAlignment="Top"/>
-        <Label Content="Teléfono" HorizontalAlignment="Left" Margin="10,228,0,0" VerticalAlignment="Top"/>
+        <Label Content="Teléfono" HorizontalAlignment="Left" Margin="361,20,0,0" VerticalAlignment="Top"/>
         <TextBox   HorizontalAlignment="Left" Height="23" Margin="136,30,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="txtSegundoApellido" HorizontalAlignment="Left" Height="23" Margin="136,124,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="136"/>
         <TextBox x:Name="txtCedula" HorizontalAlignment="Left" Height="23" Margin="136,177,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="136"/>
         <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Height="23" Margin="136,30,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="136"/>
-        <TextBox x:Name="txtTelefono" HorizontalAlignment="Left" Height="23" Margin="136,228,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="136"/>
-        <Label Content="Celular" HorizontalAlignment="Left" Margin="10,283,0,0" VerticalAlignment="Top"/>
-        <Label Content="Correo electrónico" HorizontalAlignment="Left" Margin="379,36,0,0" VerticalAlignment="Top"/>
-        <Label Content="Número de abonado" HorizontalAlignment="Left" Margin="379,93,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblCantidad" Content="Cantidad Previstas" HorizontalAlignment="Left" Margin="731,36,0,0" VerticalAlignment="Top" Width="123"/>
-        <Label x:Name="lblCantidadValor" Content="" HorizontalAlignment="Left" Margin="889,36,0,0" VerticalAlignment="Top" Width="123"/>
-        <TextBox   HorizontalAlignment="Left" Height="23" Margin="136,283,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtNumeroAbonado" HorizontalAlignment="Left" Height="23" Margin="505,96,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="138"/>
-        <TextBox x:Name="txtCelular" HorizontalAlignment="Left" Height="23" Margin="136,283,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="136"/>
-        <Label Content="Dirección" HorizontalAlignment="Left" Margin="10,339,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtDireccion" HorizontalAlignment="Left" Height="86" Margin="136,328,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="304"/>
-        <Label Content="Afiliado" HorizontalAlignment="Left" Margin="379,146,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="chbAfiliado" Content="Afiliado" HorizontalAlignment="Left" Margin="440,152,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="379,256,0,0" VerticalAlignment="Top" Width="75" Click="btnAgregar_Click"/>
+        <TextBox x:Name="txtTelefono" HorizontalAlignment="Left" Height="23" Margin="487,20,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="136"/>
+        <Label Content="Celular" HorizontalAlignment="Left" Margin="361,75,0,0" VerticalAlignment="Top"/>
+        <Label Content="Correo electrónico" HorizontalAlignment="Left" Margin="361,127,0,0" VerticalAlignment="Top"/>
+        <Label Content="Número de abonado" HorizontalAlignment="Left" Margin="361,184,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblCantidad" Content="Cantidad Previstas" HorizontalAlignment="Left" Margin="361,240,0,0" VerticalAlignment="Top" Width="123"/>
+        <Label x:Name="lblCantidadValor" Content="" HorizontalAlignment="Left" Margin="500,240,0,0" VerticalAlignment="Top" Width="123"/>
+        <TextBox   HorizontalAlignment="Left" Height="23" Margin="487,75,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtNumeroAbonado" HorizontalAlignment="Left" Height="23" Margin="487,187,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="138"/>
+        <TextBox x:Name="txtCelular" HorizontalAlignment="Left" Height="23" Margin="487,75,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="136"/>
+        <Label Content="Dirección" HorizontalAlignment="Left" Margin="20,297,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtDireccion" HorizontalAlignment="Left" Height="117" Margin="136,297,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="471"/>
+        <Label Content="Afiliado" HorizontalAlignment="Left" Margin="20,230,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chbAfiliado" Content="Afiliado" HorizontalAlignment="Left" Margin="136,240,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="673,371,0,0" VerticalAlignment="Top" Width="75" Click="btnAgregar_Click"/>
         <DataGrid CanUserAddRows="false" x:Name="dgAbonados"  AutoGenerateColumns="False" IsReadOnly="True"
         	HorizontalAlignment="Left" Margin="10,442,0,0" VerticalAlignment="Top" SelectionUnit="FullRow"
         	Height="316" Width="1138" SelectionMode="Single"  Grid.ColumnSpan="2" MouseDoubleClick="dgAbonados_MouseDoubleClick">
@@ -56,13 +56,10 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <TextBox x:Name="txtCorreo" HorizontalAlignment="Left" Height="23" Margin="505,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138"/>
+        <TextBox x:Name="txtCorreo" HorizontalAlignment="Left" Height="23" Margin="487,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138"/>
         <TextBox x:Name="txtPrimerApellido" HorizontalAlignment="Left" Height="23" Margin="136,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="136"/>
-        <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="379,196,0,0" VerticalAlignment="Top" Width="75" Click="btnEliminar_Click"/>
-        <Button x:Name="btnModificar" Content="Modificar" HorizontalAlignment="Left" Margin="505,196,0,0" VerticalAlignment="Top" Width="75" Click="btnModificar_Click"/>
-        <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="505,256,0,0" VerticalAlignment="Top" Width="75" Click="btnCancelar_Click"/>
-
-
-
+        <Button IsEnabled="False" x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="912,371,0,0" VerticalAlignment="Top" Width="75" Click="btnEliminar_Click"/>
+        <Button IsEnabled="False" x:Name="btnModificar" Content="Modificar" HorizontalAlignment="Left" Margin="799,371,0,0" VerticalAlignment="Top" Width="75" Click="btnModificar_Click"/>
+        <Button Visibility="Hidden" x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="1025,371,0,0" VerticalAlignment="Top" Width="75" Click="btnCancelar_Click"/>
     </Grid>
 </Window>

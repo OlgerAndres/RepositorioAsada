@@ -27,7 +27,6 @@ namespace Asada
         public Usuarios()
         {
             InitializeComponent();
-            this.cargarUsuarios();
         }
 
         private void cargarUsuarios()
@@ -103,6 +102,19 @@ namespace Asada
         private void dgUsuarios_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             this.claveVisible = string.Empty;
+        }
+
+        private void prepararFormulario()
+        {
+            this.cargarUsuarios();
+        }
+
+        private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (this.IsVisible)
+            {
+                this.prepararFormulario();
+            }
         }
     }
 }

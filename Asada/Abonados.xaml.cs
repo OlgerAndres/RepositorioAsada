@@ -26,7 +26,6 @@ namespace Asada
         public Abonados()
         {
             InitializeComponent();
-            this.cargarAbonados();
         }
 
         private void habilitarCampos(bool bandera)
@@ -35,11 +34,14 @@ namespace Asada
             this.btnAgregar.IsEnabled = bandera;
             this.btnModificar.IsEnabled = !bandera;
             this.btnEliminar.IsEnabled = !bandera;
+
+            this.btnCancelar.Visibility = (bandera) ?
+                System.Windows.Visibility.Hidden :
+                System.Windows.Visibility.Visible;
         }
 
         private void cargarAbonados()
         {
-           
             this.dgAbonados.ItemsSource = this.abonados.listar();
         }
 
@@ -74,8 +76,6 @@ namespace Asada
             this.lblCantidadValor.Content =""; 
         }
 
-        
-        
         private void btnModificar_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -140,6 +140,19 @@ namespace Asada
         {
             this.habilitarCampos(true);
             limpiarCampos();
+        }
+
+        private void prepararFormulario()
+        {
+            this.cargarAbonados();
+        }
+
+        private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (this.IsVisible)
+            {
+                this.prepararFormulario();
+            }
         }
     }
 }
