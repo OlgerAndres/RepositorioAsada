@@ -8,8 +8,8 @@
         <Label Content="Precio" HorizontalAlignment="Left" Margin="298,31,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.368,0.423"/>
         <TextBox x:Name="txtPrecio" HorizontalAlignment="Left" Height="23" Margin="375,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
         <Button x:Name="btnAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="30,99,0,0" VerticalAlignment="Top" Width="75" Click="btnAgregar_Click"/>
-        <Button IsEnabled="False" x:Name="btnModificar" Content="Modificar" HorizontalAlignment="Left" Margin="198,99,0,0" VerticalAlignment="Top" Width="75" Click="btnModificar_Click"/>
-        <Button IsEnabled="False" x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="375,99,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2" Click="btnEliminar_Click" />
+        <Button IsEnabled="False" x:Name="btnModificar" Content="Modificar" HorizontalAlignment="Left" Margin="142,99,0,0" VerticalAlignment="Top" Width="75" Click="btnModificar_Click"/>
+        <Button IsEnabled="False" x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="266,99,0,0" VerticalAlignment="Top" Width="75" Click="btnEliminar_Click" />
         <DataGrid CanUserAddRows="false" x:Name="DgTarifas"  AutoGenerateColumns="False"
         	HorizontalAlignment="Left" Margin="30,154,0,0" VerticalAlignment="Top" SelectionMode="Single"
         	Height="315" Width="465" IsReadOnly="True" SelectionUnit="FullRow" MouseDoubleClick="DgTarifas_MouseDoubleClick" Grid.ColumnSpan="2">
@@ -19,5 +19,6 @@
                 <DataGridTextColumn Binding="{Binding Precio, Mode=TwoWay}" Header="Precio" Width="100" />
             </DataGrid.Columns>
         </DataGrid>
+        <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="398,99,0,0" VerticalAlignment="Top" Width="75" Click="btnCancelar_Click"/>
     </Grid>
 </Window>

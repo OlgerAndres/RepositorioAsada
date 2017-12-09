@@ -28,5 +28,6 @@
                 <DataGridTextColumn Binding="{Binding FolioReal, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"  Header="Folio real" Width="100" />
             </DataGrid.Columns>
         </DataGrid>
+        <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="656,361,0,0" VerticalAlignment="Top" Width="75" Click="btnCancelar_Click"/>
     </Grid>
 </Window>

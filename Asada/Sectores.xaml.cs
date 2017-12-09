@@ -61,8 +61,10 @@ namespace Asada
                 this.cargarSectores();
                 this.txtSector.Clear();
 
-            }catch(Exception){
-                MessageBox.Show("Error,intentelo de nuevo", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+            }catch(Exception ex){
+
+
+                MessageBox.Show("Error,intentelo de nuevo. (" + ex.GetBaseException().Message + ")", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -76,8 +78,10 @@ namespace Asada
                 this.cargarSectores();
                 this.limpiarCampos();
                 this.habilitarCampos(true);
-            }catch(Exception){
-                MessageBox.Show("Error,intentelo de nuevo", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+            }catch(Exception ex){
+
+
+                MessageBox.Show("Error,intentelo de nuevo. (" + ex.GetBaseException().Message + ")", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -90,8 +94,10 @@ namespace Asada
                 this.cargarSectores();
                 this.limpiarCampos();
                 this.habilitarCampos(true);
-            }catch(Exception){
-                MessageBox.Show("Error,intentelo de nuevo", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+            }catch(Exception ex){
+
+
+                MessageBox.Show("Error,intentelo de nuevo. (" + ex.GetBaseException().Message + ")", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -105,14 +111,20 @@ namespace Asada
 
         private void DgSectores_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            try
+            this.actualSector = this.DgSectores.CurrentItem as Sector;
+            if (null == this.actualSector)
             {
-                this.actualSector = this.DgSectores.CurrentItem as Sector;
-                this.txtSector.Text = this.actualSector.Descripcion;
-                this.habilitarCampos(false);
-            }catch(Exception){
-                MessageBox.Show("Error,intentelo de nuevo", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
             }
+            this.actualSector = this.DgSectores.CurrentItem as Sector;
+            this.txtSector.Text = this.actualSector.Descripcion;
+            this.habilitarCampos(false);
+        }
+
+        private void btnCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            this.habilitarCampos(true);
+            limpiarCampos();
         }
     }
 }

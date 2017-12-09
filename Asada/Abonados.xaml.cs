@@ -55,22 +55,23 @@ namespace Asada
                 this.abonados.agregar(this.txtNombre.Text, this.txtPrimerApellido.Text, this.txtSegundoApellido.Text, this.txtCedula.Text, this.txtTelefono.Text, this.txtCelular.Text, this.txtDireccion.Text, this.txtCorreo.Text, this.txtNumeroAbonado.Text, this.chbAfiliado.IsChecked.Value);
                 this.cargarAbonados();
                 this.limpiarCampos();
-            }catch(Exception){
-                MessageBox.Show("Error,intentelo de nuevo","ERROR",MessageBoxButton.OK,MessageBoxImage.Error); 
+            }catch(Exception ex){
+                MessageBox.Show("Error,intentelo de nuevo. (" + ex.GetBaseException().Message + ")", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
         private void limpiarCampos()
         {
-            txtNombre.Clear();
-            txtPrimerApellido.Clear();
-            txtSegundoApellido.Clear();
-            txtCedula.Clear();
-            txtTelefono.Clear();
-            txtCelular.Clear();
-            txtDireccion.Clear();
-            txtCorreo.Clear();
-            txtNumeroAbonado.Clear();
+            this.txtNombre.Clear();
+            this.txtPrimerApellido.Clear();
+            this.txtSegundoApellido.Clear();
+            this.txtCedula.Clear();
+            this.txtTelefono.Clear();
+            this.txtCelular.Clear();
+            this.txtDireccion.Clear();
+            this.txtCorreo.Clear();
+            this.txtNumeroAbonado.Clear();
+            this.lblCantidadValor.Content =""; 
         }
 
         
@@ -85,8 +86,8 @@ namespace Asada
                 this.limpiarCampos();
                 this.habilitarCampos(true);
 
-            }catch(Exception){
-                MessageBox.Show("Error,intentelo de nuevo", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error); 
+            }catch(Exception ex){
+                MessageBox.Show("Error,intentelo de nuevo. (" + ex.GetBaseException().Message + ")", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -101,8 +102,8 @@ namespace Asada
                 this.limpiarCampos();
                 this.habilitarCampos(true);
 
-            }catch(Exception){
-                MessageBox.Show("Error,intentelo de nuevo", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error); 
+            }catch(Exception ex){
+                MessageBox.Show("Error,intentelo de nuevo. (" + ex.GetBaseException().Message + ")", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -133,6 +134,12 @@ namespace Asada
             this.chbAfiliado.IsChecked = this.abonadoActual.Afiliado;
             this.lblCantidadValor.Content = (new AccionesPrevistas()).cantidadPrevistasPorIdAbonado(this.abonadoActual.Id);
             this.habilitarCampos(false);
+        }
+
+        private void btnCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            this.habilitarCampos(true);
+            limpiarCampos();
         }
     }
 }

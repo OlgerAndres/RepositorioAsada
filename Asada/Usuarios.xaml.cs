@@ -44,8 +44,8 @@ namespace Asada
                 this.usuarios.actualizar(usuario.Id, usuario.Nombre, clave);
                 MessageBox.Show("Usuario actualizado");
                 this.cargarUsuarios();
-            }catch(Exception){
-                MessageBox.Show("Error,intentelo de nuevo", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+            }catch(Exception ex){
+                MessageBox.Show("Error,intentelo de nuevo. (" + ex.GetBaseException().Message + ")", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -57,8 +57,8 @@ namespace Asada
                 this.usuarios.borrar(usuario.Id);
                 MessageBox.Show("Usuario eliminado");
                 this.cargarUsuarios();
-            }catch(Exception){
-                MessageBox.Show("Error,intentelo de nuevo", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+            }catch(Exception ex){
+                MessageBox.Show("Error,intentelo de nuevo. (" + ex.GetBaseException().Message + ")", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -75,8 +75,8 @@ namespace Asada
                 MessageBox.Show("Usuario agragado");
                 this.cargarUsuarios();
 
-            }catch(Exception){
-                MessageBox.Show("Error,intentelo de nuevo", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+            }catch(Exception ex){
+                MessageBox.Show("Error,intentelo de nuevo. (" + ex.GetBaseException().Message + ")", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

@@ -109,8 +109,8 @@ namespace Asada
                 this.cargarPrevistas();
                 this.limpiarCampos();
                 this.habilitarCampos(true);
-            }catch(Exception){
-                MessageBox.Show("Error,intentelo de nuevo", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+            }catch(Exception ex){
+                MessageBox.Show("Error,intentelo de nuevo. (" + ex.GetBaseException().Message + ")", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -123,8 +123,8 @@ namespace Asada
                 this.cargarPrevistas();
                 this.limpiarCampos();
                 this.habilitarCampos(true);
-            }catch(Exception){
-                MessageBox.Show("Error,intentelo de nuevo", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+            }catch(Exception ex){
+                MessageBox.Show("Error,intentelo de nuevo. (" + ex.GetBaseException().Message + ")", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -134,6 +134,9 @@ namespace Asada
             txtDireccion.Clear();
             txtFolio.Clear();
             this.cmbAbonado.SelectedIndex = -1;
+            this.cmbTarifa.SelectedIndex = -1;
+            this.cmbSector.SelectedIndex = -1;
+
 
         }
 
@@ -151,12 +154,24 @@ namespace Asada
         private void DgPrevistas_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             this.actualPrevista = this.DgPrevistas.CurrentItem as Prevista;
+            if (null == this.actualPrevista)
+            {
+                return;
+            }
+            this.actualPrevista = this.DgPrevistas.CurrentItem as Prevista;
             this.cmbAbonado.SelectedValue = Convert.ToInt32(this.actualPrevista.IdAbonado);
             this.cmbTarifa.SelectedValue = Convert.ToInt32(this.actualPrevista.IdTarifa);
             this.cmbSector.SelectedValue = Convert.ToInt32(this.actualPrevista.IdSector);
             this.txtDireccion.Text = this.actualPrevista.Direccion;
             this.txtFolio.Text = this.actualPrevista.FolioReal;
             this.habilitarCampos(false);
+           
+        }
+
+        private void btnCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            this.habilitarCampos(true);
+            limpiarCampos();
         }
 
     }

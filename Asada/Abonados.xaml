@@ -25,7 +25,7 @@
         <TextBox x:Name="txtDireccion" HorizontalAlignment="Left" Height="86" Margin="136,328,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="304"/>
         <Label Content="Afiliado" HorizontalAlignment="Left" Margin="379,146,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="chbAfiliado" Content="Afiliado" HorizontalAlignment="Left" Margin="440,152,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="453,248,0,0" VerticalAlignment="Top" Width="75" Click="btnAgregar_Click"/>
+        <Button x:Name="btnAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="379,256,0,0" VerticalAlignment="Top" Width="75" Click="btnAgregar_Click"/>
         <DataGrid CanUserAddRows="false" x:Name="dgAbonados"  AutoGenerateColumns="False" 
         	HorizontalAlignment="Left" Margin="10,442,0,0" VerticalAlignment="Top"
         	Height="316" Width="1138" SelectionMode="Single"  Grid.ColumnSpan="2" MouseDoubleClick="dgAbonados_MouseDoubleClick">
@@ -59,7 +59,8 @@
         <TextBox x:Name="txtCorreo" HorizontalAlignment="Left" Height="23" Margin="505,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138"/>
         <TextBox x:Name="txtPrimerApellido" HorizontalAlignment="Left" Height="23" Margin="136,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="136"/>
         <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="379,196,0,0" VerticalAlignment="Top" Width="75" Click="btnEliminar_Click"/>
-        <Button x:Name="btnModificar" Content="Modificar" HorizontalAlignment="Left" Margin="524,196,0,0" VerticalAlignment="Top" Width="75" Click="btnModificar_Click"/>
+        <Button x:Name="btnModificar" Content="Modificar" HorizontalAlignment="Left" Margin="505,196,0,0" VerticalAlignment="Top" Width="75" Click="btnModificar_Click"/>
+        <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="505,256,0,0" VerticalAlignment="Top" Width="75" Click="btnCancelar_Click"/>
 
 
 

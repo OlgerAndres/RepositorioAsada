@@ -63,8 +63,8 @@ namespace Asada
                 this.cargarTarifas();
                 this.limpiarCampos();
 
-            }catch(Exception){
-                MessageBox.Show("Error,intentelo de nuevo", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+            }catch(Exception ex){
+                MessageBox.Show("Error,intentelo de nuevo. (" + ex.GetBaseException().Message + ")", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -77,22 +77,23 @@ namespace Asada
                 this.cargarTarifas();
                 this.limpiarCampos();
                 this.habilitarCampos(true);
-            }catch(Exception){
-             MessageBox.Show("Error,intentelo de nuevo", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+            }catch(Exception ex){
+                MessageBox.Show("Error,intentelo de nuevo. (" + ex.GetBaseException().Message + ")", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
         private void DgTarifas_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            try
+            this.tarifaActual = this.DgTarifas.CurrentItem as Tarifa;
+            if (null == this.tarifaActual)
             {
+                return;
+            }
                 this.tarifaActual = this.DgTarifas.CurrentItem as Tarifa;
                 this.txtDescripcion.Text = this.tarifaActual.Descripcion;
                 this.txtPrecio.Text = this.tarifaActual.Precio.ToString();
                 this.habilitarCampos(false);
-            }catch(Exception){
-                MessageBox.Show("Error,intentelo de nuevo", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+           
         }
 
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
@@ -104,8 +105,8 @@ namespace Asada
                 this.cargarTarifas();
                 this.limpiarCampos();
                 this.habilitarCampos(true);
-            }catch(Exception){
-              MessageBox.Show("Error,intentelo de nuevo", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+            }catch(Exception ex){
+                MessageBox.Show("Error,intentelo de nuevo. (" + ex.GetBaseException().Message + ")", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -115,6 +116,13 @@ namespace Asada
             limpiarCampos();
             this.habilitarCampos(true);
             this.Hide();
+        }
+
+        private void btnCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            this.habilitarCampos(true);
+            limpiarCampos();
+           
         }
     }
 }
