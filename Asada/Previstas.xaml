@@ -18,14 +18,14 @@
         <Button IsEnabled="False" x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="509,346,0,0" VerticalAlignment="Top" Width="75" Click="btnEliminar_Click"/>
         <DataGrid CanUserAddRows="false" x:Name="DgPrevistas"  AutoGenerateColumns="False" IsReadOnly="True"
         	HorizontalAlignment="Left" Margin="35,420,0,0" VerticalAlignment="Top" SelectionUnit="FullRow"
-        	Height="200" Width="654" SelectionMode="Single"  MouseDoubleClick="DgPrevistas_MouseDoubleClick">
+        	Height="200" Width="654" SelectionMode="Single"  MouseDoubleClick="DgPrevistas_MouseDoubleClick" >
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Id}" IsReadOnly="True" Header="Id" Width="100"/>
-                <DataGridTextColumn Binding="{Binding IdAbonado, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" Header="Abonado" Width="100" />
-                <DataGridTextColumn Binding="{Binding IdTarifa, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"  Header="Tarifa" Width="100" />
-                <DataGridTextColumn Binding="{Binding IdSector, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"  Header="Sector" Width="110" />
-                <DataGridTextColumn Binding="{Binding Direccion, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"  Header="Dirección" Width="100" />
-                <DataGridTextColumn Binding="{Binding FolioReal, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"  Header="Folio real" Width="100" />
+                <DataGridTextColumn Binding="{Binding  Id}" IsReadOnly="True" Header="Id" Width="100"/>
+                <DataGridTextColumn Binding="{Binding Abonado.NumeroAbonado, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" Header="Abonado" Selector.IsSelected="True"   Width="100" />
+                <DataGridTextColumn Binding="{Binding Tarifa.Descripcion,    Mode=TwoWay, UpdateSourceTrigger=LostFocus}" Header="Tarifa"  Selector.IsSelected="True"   Width="100" />
+                <DataGridTextColumn Binding="{Binding Sector.Descripcion,    Mode=TwoWay, UpdateSourceTrigger=LostFocus}" Header="Sector"  Selector.IsSelected="True"   Width="110" />
+                <DataGridTextColumn Binding="{Binding Direccion, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" Header="Dirección"   Width="100" />
+                <DataGridTextColumn Binding="{Binding FolioReal, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" Header="Folio real" Width="100" />
             </DataGrid.Columns>
         </DataGrid>
         <Button Visibility="Hidden" x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="600,346,0,0" VerticalAlignment="Top" Width="75" Click="btnCancelar_Click"/>
