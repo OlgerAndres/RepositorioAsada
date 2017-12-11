@@ -7,6 +7,8 @@
         mc:Ignorable="d"
         Title="ReportePrevistas" Height="389.362" Width="592.553">
     <Grid>
-
+        <WindowsFormsHost HorizontalAlignment="Left" Height="339" Margin="10,10,0,0" VerticalAlignment="Top" Width="565">
+            
+        </WindowsFormsHost>
     </Grid>
 </Window>
