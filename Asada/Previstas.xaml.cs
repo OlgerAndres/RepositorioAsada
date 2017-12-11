@@ -51,7 +51,7 @@ namespace Asada
         private void cargarAbonados()
         {
             this.cmbAbonado.ItemsSource = this.abonados.listar();
-            this.cmbAbonado.DisplayMemberPath ="NumeroAbonado";
+            this.cmbAbonado.DisplayMemberPath = "NombreCompleto";
             this.cmbAbonado.SelectedValuePath = "Id";
             
         }

@@ -31,6 +31,7 @@ namespace Datos
         public string Correo { get; set; }
         public string NumeroAbonado { get; set; }
         public bool Afiliado { get; set; }
+        public string NombreCompleto { get { return string.Format("{0} {1} {2}", Nombre, PrimerApellido, SegundoApellido); } }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Prevista> Previstas { get; set; }
