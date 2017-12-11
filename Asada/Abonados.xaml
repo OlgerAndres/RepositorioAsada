@@ -25,7 +25,9 @@
         <TextBox x:Name="txtDireccion" HorizontalAlignment="Left" Height="117" Margin="136,297,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="471"/>
         <Label Content="Afiliado" HorizontalAlignment="Left" Margin="20,230,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="chbAfiliado" Content="Afiliado" HorizontalAlignment="Left" Margin="136,240,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="673,371,0,0" VerticalAlignment="Top" Width="75" Click="btnAgregar_Click"/>
+        <Button x:Name="btnAgregar" HorizontalAlignment="Left" Margin="917,201,0,0" VerticalAlignment="Top" Width="105" Click="btnAgregar_Click" Height="68">
+            <Image Source="E:\Documents\Visual Studio 2012\Projects\Asada\Asada\Imagenes\create-128.png" Height="50" Width="95"/>
+        </Button>
         <DataGrid CanUserAddRows="false" x:Name="dgAbonados"  AutoGenerateColumns="False" IsReadOnly="True"
         	HorizontalAlignment="Left" Margin="10,442,0,0" VerticalAlignment="Top" SelectionUnit="FullRow"
         	Height="316" Width="1138" SelectionMode="Single"  Grid.ColumnSpan="2" MouseDoubleClick="dgAbonados_MouseDoubleClick">
@@ -58,8 +60,14 @@
         </DataGrid>
         <TextBox x:Name="txtCorreo" HorizontalAlignment="Left" Height="23" Margin="487,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138"/>
         <TextBox x:Name="txtPrimerApellido" HorizontalAlignment="Left" Height="23" Margin="136,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="136"/>
-        <Button IsEnabled="False" x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="912,371,0,0" VerticalAlignment="Top" Width="75" Click="btnEliminar_Click"/>
-        <Button IsEnabled="False" x:Name="btnModificar" Content="Modificar" HorizontalAlignment="Left" Margin="799,371,0,0" VerticalAlignment="Top" Width="75" Click="btnModificar_Click"/>
-        <Button Visibility="Hidden" x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="1025,371,0,0" VerticalAlignment="Top" Width="75" Click="btnCancelar_Click"/>
+        <Button IsEnabled="False" x:Name="btnEliminar" HorizontalAlignment="Left" Margin="750,310,0,0" VerticalAlignment="Top" Width="105" Click="btnEliminar_Click" Height="68">
+            <Image Source="E:\Documents\Visual Studio 2012\Projects\Asada\Asada\Imagenes\erase-128.png" Height="65" Width="105"/>
+        </Button>
+        <Button IsEnabled="False" x:Name="btnModificar" HorizontalAlignment="Left" Margin="750,199,0,0" VerticalAlignment="Top" Width="105" Click="btnModificar_Click" Height="68">
+            <Image Source="E:\Documents\Visual Studio 2012\Projects\Asada\Asada\Imagenes\update-128.png" Height="60" Width="105"/>
+        </Button>
+        <Button Visibility="Hidden" x:Name="btnCancelar" HorizontalAlignment="Left" Margin="917,310,0,0" VerticalAlignment="Top" Width="105" Click="btnCancelar_Click" Height="68">
+            <Image Source="E:\Documents\Visual Studio 2012\Projects\Asada\Asada\Imagenes\close-128.png" Height="58" Width="95"/>
+        </Button>
     </Grid>
 </Window>

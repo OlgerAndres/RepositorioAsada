@@ -13,9 +13,15 @@
         <TextBox x:Name="txtDireccion" HorizontalAlignment="Left" Height="94" Margin="96,216,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="309"/>
         <Label Content="Folio real" HorizontalAlignment="Left" Margin="13,342,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtFolio" HorizontalAlignment="Left" Height="23" Margin="96,342,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143"/>
-        <Button x:Name="btnAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="310,346,0,0" VerticalAlignment="Top" Width="75" Click="btnAgregar_Click"/>
-        <Button IsEnabled="False" x:Name="btnModificar" Content="Modificar" HorizontalAlignment="Left" Margin="406,346,0,0" VerticalAlignment="Top" Width="75" Click="btnModificar_Click"/>
-        <Button IsEnabled="False" x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="509,346,0,0" VerticalAlignment="Top" Width="75" Click="btnEliminar_Click"/>
+        <Button x:Name="btnAgregar" HorizontalAlignment="Left" Margin="439,212,0,0" VerticalAlignment="Top" Width="105" Click="btnAgregar_Click" Height="68">
+            <Image Source="E:\Documents\Visual Studio 2012\Projects\Asada\Asada\Imagenes\create-128.png" Height="63" Width="105"/>
+        </Button>
+        <Button IsEnabled="False" x:Name="btnModificar" HorizontalAlignment="Left" Margin="439,318,0,0" VerticalAlignment="Top" Width="105" Click="btnModificar_Click" Height="68">
+            <Image Source="E:\Documents\Visual Studio 2012\Projects\Asada\Asada\Imagenes\update-128.png" Height="63" Width="105"/>
+        </Button>
+        <Button IsEnabled="False" x:Name="btnEliminar" HorizontalAlignment="Left" Margin="569,318,0,0" VerticalAlignment="Top" Width="105" Click="btnEliminar_Click" Height="68">
+            <Image Source="E:\Documents\Visual Studio 2012\Projects\Asada\Asada\Imagenes\erase-128.png" Height="58" Width="95"/>
+        </Button>
         <DataGrid CanUserAddRows="false" x:Name="DgPrevistas"  AutoGenerateColumns="False" IsReadOnly="True"
         	HorizontalAlignment="Left" Margin="13,420,0,0" VerticalAlignment="Top" SelectionUnit="FullRow"
         	Height="200" Width="696" SelectionMode="Single"  MouseDoubleClick="DgPrevistas_MouseDoubleClick" >
@@ -28,6 +34,9 @@
                 <DataGridTextColumn Binding="{Binding FolioReal, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" Header="Folio real" Width="100" />
             </DataGrid.Columns>
         </DataGrid>
-        <Button Visibility="Hidden" x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="600,346,0,0" VerticalAlignment="Top" Width="75" Click="btnCancelar_Click"/>
+        <Button Visibility="Hidden" x:Name="btnCancelar" HorizontalAlignment="Left" Margin="569,212,0,0" VerticalAlignment="Top" Width="105" Click="btnCancelar_Click" Height="68">
+            <Image Source="E:\Documents\Visual Studio 2012\Projects\Asada\Asada\Imagenes\close-128.png" Height="58" Width="95"/>
+        </Button>
+
     </Grid>
 </Window>

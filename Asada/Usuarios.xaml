@@ -7,7 +7,9 @@
         <TextBox x:Name="txtUsuario" HorizontalAlignment="Left" Height="23" Margin="320,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Label Content="Clave" HorizontalAlignment="Left" Margin="246,35,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.89,-0.819"/>
         <PasswordBox x:Name="txtClave" HorizontalAlignment="Left" Height="19" Margin="65,40,0,0" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="btnAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="484,37,0,0" VerticalAlignment="Top" Width="75" Click="btnAgregar_Click" RenderTransformOrigin="-1.293,3.955"/>
+        <Button x:Name="btnAgregar" HorizontalAlignment="Left" Margin="485,14,0,0" VerticalAlignment="Top" Width="95" Click="btnAgregar_Click" RenderTransformOrigin="-1.293,3.955" Height="68">
+            <Image Source="E:\Documents\Visual Studio 2012\Projects\Asada\Asada\Imagenes\create-128.png" Height="58" Width="85"/>
+        </Button>
         <DataGrid CanUserAddRows="false" x:Name="dgUsuarios"  AutoGenerateColumns="False" 
                   HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top"
                   Height="305" Width="785" SelectionMode="Single" SelectionUnit="FullRow" SelectionChanged="dgUsuarios_SelectionChanged">
@@ -39,5 +41,6 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
+
     </Grid>
 </Window>
