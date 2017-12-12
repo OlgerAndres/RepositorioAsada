@@ -227,6 +227,19 @@
   <ItemGroup>
     <Resource Include="Imagenes\user_access-128.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\admin-ajax.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\abonad.png" />
+    <Resource Include="Imagenes\previst.png" />
+    <Resource Include="Imagenes\profile.png" />
+    <Resource Include="Imagenes\sector.png" />
+    <Resource Include="Imagenes\tarif.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\report.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

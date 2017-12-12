@@ -1,18 +1,18 @@
 ﻿<Window x:Class="Asada.Usuarios"  
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" IsVisibleChanged="Window_IsVisibleChanged"
-        Title="Usuarios" Height="448" Width="840" ResizeMode="NoResize" Closing="Window_Closing">
+        Title="Usuarios" Height="448" Width="840" ResizeMode="NoResize" Closing="Window_Closing" Icon="Imagenes/admin-ajax.jpg">
     <Grid>
-        <Label Content="Usuario" HorizontalAlignment="Left" Margin="10,33,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.529,0.549"/>
-        <TextBox x:Name="txtUsuario" HorizontalAlignment="Left" Height="23" Margin="320,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Clave" HorizontalAlignment="Left" Margin="246,35,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.89,-0.819"/>
-        <PasswordBox x:Name="txtClave" HorizontalAlignment="Left" Height="19" Margin="65,40,0,0" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="btnAgregar" HorizontalAlignment="Left" Margin="485,14,0,0" VerticalAlignment="Top" Width="95" Click="btnAgregar_Click" RenderTransformOrigin="-1.293,3.955" Height="68">
-            <Image Source="E:\Documents\Visual Studio 2012\Projects\Asada\Asada\Imagenes\create-128.png" Height="58" Width="85"/>
+        <Label Content="Usuario" HorizontalAlignment="Left" Margin="10,33,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.529,0.549" FontFamily="Lucida Calligraphy" FontSize="16"/>
+        <TextBox x:Name="txtUsuario" HorizontalAlignment="Left" Height="23" Margin="320,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Arial" FontSize="16"/>
+        <Label Content="Clave" HorizontalAlignment="Left" Margin="246,35,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.89,-0.819" FontFamily="Lucida Calligraphy" FontSize="16"/>
+        <PasswordBox x:Name="txtClave" HorizontalAlignment="Left" Height="19" Margin="94,40,0,0" VerticalAlignment="Top" Width="120" FontFamily="Arial"/>
+        <Button x:Name="btnAgregar" HorizontalAlignment="Left" Margin="485,14,0,0" VerticalAlignment="Top" Width="75" Click="btnAgregar_Click" RenderTransformOrigin="-1.293,3.955" Height="68">
+            <Image Source="E:\Documents\Visual Studio 2012\Projects\Asada\Asada\Imagenes\create-128.png" Height="58" Width="75"/>
         </Button>
         <DataGrid CanUserAddRows="false" x:Name="dgUsuarios"  AutoGenerateColumns="False" 
                   HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top"
-                  Height="305" Width="785" SelectionMode="Single" SelectionUnit="FullRow" SelectionChanged="dgUsuarios_SelectionChanged">
+                  Height="305" Width="785" SelectionMode="Single" SelectionUnit="FullRow" SelectionChanged="dgUsuarios_SelectionChanged" FontFamily="Arial" FontSize="16">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Path=Id}" IsReadOnly="True" Header="Id" Width="100"/>
                 <DataGridTextColumn Binding="{Binding Path=Nombre, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" Header="Nombre" Width="200" />

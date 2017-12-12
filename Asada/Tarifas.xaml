@@ -1,14 +1,14 @@
 ﻿<Window x:Class="Asada.Tarifas"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" IsVisibleChanged="Window_IsVisibleChanged"
-        Title="Tarifas" Height="583.194" Width="675.313" Closing="Window_Closing" ResizeMode="NoResize">
+        Title="Tarifas" Height="583.194" Width="675.313" Closing="Window_Closing" ResizeMode="NoResize" Icon="Imagenes/admin-ajax.jpg">
     <Grid>
-        <Label Content="Tipo de tarifa" HorizontalAlignment="Left" Margin="25,28,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtDescripcion" HorizontalAlignment="Left" Height="23" Margin="132,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
-        <Label Content="Precio" HorizontalAlignment="Left" Margin="298,31,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.368,0.423"/>
-        <TextBox x:Name="txtPrecio" HorizontalAlignment="Left" Height="23" Margin="375,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
-        <Button x:Name="btnAgregar" HorizontalAlignment="Left" Margin="60,96,0,0" VerticalAlignment="Top" Width="106" Click="btnAgregar_Click" Height="68">
-            <Image Source="E:\Documents\Visual Studio 2012\Projects\Asada\Asada\Imagenes\create-128.png" RenderTransformOrigin="0.5,0.5" Height="56" Width="102">
+        <Label Content="Tipo de tarifa" HorizontalAlignment="Left" Margin="25,28,0,0" VerticalAlignment="Top" FontFamily="Lucida Calligraphy" FontSize="16"/>
+        <TextBox x:Name="txtDescripcion" HorizontalAlignment="Left" Height="23" Margin="172,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Arial" FontSize="16" />
+        <Label Content="Precio" HorizontalAlignment="Left" Margin="341,31,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.368,0.423" FontFamily="Lucida Calligraphy" FontSize="16"/>
+        <TextBox x:Name="txtPrecio" HorizontalAlignment="Left" Height="23" Margin="424,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Arial" FontSize="16"/>
+        <Button x:Name="btnAgregar" HorizontalAlignment="Left" Margin="60,96,0,0" VerticalAlignment="Top" Width="75" Click="btnAgregar_Click" Height="68">
+            <Image Source="E:\Documents\Visual Studio 2012\Projects\Asada\Asada\Imagenes\create-128.png" RenderTransformOrigin="0.5,0.5" Height="56" Width="71">
                 <Image.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -19,23 +19,23 @@
                 </Image.RenderTransform>
             </Image>
         </Button>
-        <Button IsEnabled="False" x:Name="btnModificar" HorizontalAlignment="Left" Margin="214,96,0,0" VerticalAlignment="Top" Width="105" Click="btnModificar_Click" Height="68">
-            <Image Source="E:\Documents\Visual Studio 2012\Projects\Asada\Asada\Imagenes\update-128.png" Height="60" Width="105"/>
+        <Button IsEnabled="False" x:Name="btnModificar" HorizontalAlignment="Left" Margin="187,96,0,0" VerticalAlignment="Top" Width="75" Click="btnModificar_Click" Height="68">
+            <Image Source="E:\Documents\Visual Studio 2012\Projects\Asada\Asada\Imagenes\update-128.png" Height="60" Width="75"/>
         </Button>
-        <Button IsEnabled="False" x:Name="btnEliminar" HorizontalAlignment="Left" Margin="371,96,0,0" VerticalAlignment="Top" Width="105" Click="btnEliminar_Click" Height="68" >
-            <Image Source="E:\Documents\Visual Studio 2012\Projects\Asada\Asada\Imagenes\erase-128.png" Height="63" Width="105"/>
+        <Button IsEnabled="False" x:Name="btnEliminar" HorizontalAlignment="Left" Margin="322,96,0,0" VerticalAlignment="Top" Width="75" Click="btnEliminar_Click" Height="68" >
+            <Image Source="E:\Documents\Visual Studio 2012\Projects\Asada\Asada\Imagenes\erase-128.png" Height="63" Width="75"/>
         </Button>
         <DataGrid CanUserAddRows="false" x:Name="DgTarifas"  AutoGenerateColumns="False"
         	HorizontalAlignment="Left" Margin="101,209,0,0" VerticalAlignment="Top" SelectionMode="Single"
-        	Height="315" Width="465" IsReadOnly="True" SelectionUnit="FullRow" MouseDoubleClick="DgTarifas_MouseDoubleClick">
+        	Height="315" Width="465" IsReadOnly="True" SelectionUnit="FullRow" MouseDoubleClick="DgTarifas_MouseDoubleClick" FontFamily="Arial" FontSize="16">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Id, Mode=TwoWay}" Header="Id" Width="100"/>
                 <DataGridTextColumn Binding="{Binding Descripcion, Mode=TwoWay}" Header="Descripción" Width="100" />
                 <DataGridTextColumn Binding="{Binding Precio, Mode=TwoWay}" Header="Precio" Width="100" />
             </DataGrid.Columns>
         </DataGrid>
-        <Button Visibility="Hidden" x:Name="btnCancelar" HorizontalAlignment="Left" Margin="511,96,0,0" VerticalAlignment="Top" Width="105" Click="btnCancelar_Click" Height="68">
-            <Image Source="E:\Documents\Visual Studio 2012\Projects\Asada\Asada\Imagenes\close-128.png" Height="58" Width="105"/>
+        <Button Visibility="Hidden" x:Name="btnCancelar" HorizontalAlignment="Left" Margin="448,96,0,0" VerticalAlignment="Top" Width="75" Click="btnCancelar_Click" Height="68">
+            <Image Source="E:\Documents\Visual Studio 2012\Projects\Asada\Asada\Imagenes\close-128.png" Height="58" Width="75"/>
         </Button>
     </Grid>
 </Window>
