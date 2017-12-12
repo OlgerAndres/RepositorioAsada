@@ -19,6 +19,8 @@ namespace Asada
     /// </summary>
     public partial class Reportes : Window
     {
+        private ReportePrevistas reportePrevistas = new ReportePrevistas();
+
         public Reportes()
         {
             InitializeComponent();
@@ -28,6 +30,11 @@ namespace Asada
         {
             e.Cancel = true;
             this.Hide();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.reportePrevistas.Show();
         }
     }
 }
