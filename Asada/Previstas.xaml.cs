@@ -27,6 +27,8 @@ namespace Asada
         private IServiciosTarifas tarifas = new AccionesTarifas();
         private Prevista actualPrevista=null;
 
+        private ReportePrevistas rpt = new ReportePrevistas();
+
         public Previstas()
         {
             InitializeComponent();
@@ -175,6 +177,14 @@ namespace Asada
             {
                 this.prepararFormulario();
             }
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+
+            //ReportePrevistas rpt = new Asada.ReportePrevistas();
+            this.rpt.Show();
+
         }
     }
 }

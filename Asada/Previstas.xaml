@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" IsVisibleChanged="Window_IsVisibleChanged"
         Title="Previstas" Height="676" Width="725" Closing="Window_Closing" ResizeMode="NoResize" Icon="Imagenes/admin-ajax.jpg">
     <Grid>
+<<<<<<< Updated upstream
         <Label Content="Abonado" HorizontalAlignment="Left" Margin="30,27,0,0" VerticalAlignment="Top" FontFamily="Lucida Calligraphy" FontSize="16"/>
         <Label Content="Tarifa" HorizontalAlignment="Left" Margin="46,86,0,0" VerticalAlignment="Top" FontFamily="Lucida Calligraphy" FontSize="16"/>
         <Label Content="Sector" HorizontalAlignment="Left" Margin="46,144,0,0" VerticalAlignment="Top" FontFamily="Lucida Calligraphy" FontSize="16"/>
@@ -21,6 +22,26 @@
         </Button>
         <Button IsEnabled="False" x:Name="btnEliminar" HorizontalAlignment="Left" Margin="569,318,0,0" VerticalAlignment="Top" Width="75" Click="btnEliminar_Click" Height="68">
             <Image Source="E:\Documents\Visual Studio 2012\Projects\Asada\Asada\Imagenes\erase-128.png" Height="58" Width="75"/>
+=======
+        <Label Content="Abonado" HorizontalAlignment="Left" Margin="10,27,0,0" VerticalAlignment="Top"/>
+        <Label Content="Tarifa" HorizontalAlignment="Left" Margin="10,88,0,0" VerticalAlignment="Top"/>
+        <Label Content="Sector" HorizontalAlignment="Left" Margin="10,144,0,0" VerticalAlignment="Top"/>
+        <Label Content="Dirección" HorizontalAlignment="Left" Margin="11,212,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cmbAbonado" HorizontalAlignment="Left" Margin="96,27,0,0" VerticalAlignment="Top" Width="143"/>
+        <ComboBox x:Name="cmbTarifa" HorizontalAlignment="Left" Margin="96,88,0,0" VerticalAlignment="Top" Width="143"/>
+        <ComboBox x:Name="cmbSector" HorizontalAlignment="Left" Margin="96,148,0,0" VerticalAlignment="Top" Width="143"/>
+        <TextBox x:Name="txtDireccion" HorizontalAlignment="Left" Height="94" Margin="96,216,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="309"/>
+        <Label Content="Folio real" HorizontalAlignment="Left" Margin="13,342,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtFolio" HorizontalAlignment="Left" Height="23" Margin="96,342,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143"/>
+        <Button x:Name="btnAgregar" HorizontalAlignment="Left" Margin="439,212,0,0" VerticalAlignment="Top" Width="105" Click="btnAgregar_Click" Height="68">
+            <Image Source="C:\Users\David Montero\Documents\Visual Studio 2015\Projects\RepositorioAsada\Asada\Imagenes\create-128.png" Height="63" Width="105"/>
+        </Button>
+        <Button IsEnabled="False" x:Name="btnModificar" HorizontalAlignment="Left" Margin="439,318,0,0" VerticalAlignment="Top" Width="105" Click="btnModificar_Click" Height="68">
+            <Image Source="C:\Users\David Montero\Documents\Visual Studio 2015\Projects\RepositorioAsada\Asada\Imagenes\update-128.png" Height="63" Width="105"/>
+        </Button>
+        <Button IsEnabled="False" x:Name="btnEliminar" HorizontalAlignment="Left" Margin="569,318,0,0" VerticalAlignment="Top" Width="105" Click="btnEliminar_Click" Height="68">
+            <Image Source="C:\Users\David Montero\Documents\Visual Studio 2015\Projects\RepositorioAsada\Asada\Imagenes\erase-128.png" Height="58" Width="95"/>
+>>>>>>> Stashed changes
         </Button>
         <DataGrid CanUserAddRows="false" x:Name="DgPrevistas"  AutoGenerateColumns="False" IsReadOnly="True"
         	HorizontalAlignment="Left" Margin="13,420,0,0" VerticalAlignment="Top" SelectionUnit="FullRow"
@@ -34,9 +55,15 @@
                 <DataGridTextColumn Binding="{Binding FolioReal, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" Header="Folio real" Width="100" />
             </DataGrid.Columns>
         </DataGrid>
+<<<<<<< Updated upstream
         <Button Visibility="Hidden" x:Name="btnCancelar" HorizontalAlignment="Left" Margin="569,212,0,0" VerticalAlignment="Top" Width="75" Click="btnCancelar_Click" Height="68">
             <Image Source="E:\Documents\Visual Studio 2012\Projects\Asada\Asada\Imagenes\close-128.png" Height="58" Width="95"/>
+=======
+        <Button Visibility="Hidden" x:Name="btnCancelar" HorizontalAlignment="Left" Margin="569,212,0,0" VerticalAlignment="Top" Width="105" Click="btnCancelar_Click" Height="68">
+            <Image Source="C:\Users\David Montero\Documents\Visual Studio 2015\Projects\RepositorioAsada\Asada\Imagenes\close-128.png" Height="58" Width="95"/>
+>>>>>>> Stashed changes
         </Button>
+        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="439,112,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
 
     </Grid>
 </Window>
