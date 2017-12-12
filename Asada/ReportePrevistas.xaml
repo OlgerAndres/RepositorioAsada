@@ -12,7 +12,7 @@
     </Window.Resources>
     <Grid DataContext="{StaticResource previstaViewSource}">
 
-        <Viewer:CrystalReportsViewer HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="383" Width="718" Loaded="CrystalReportsViewer_Loaded">
+        <!--<Viewer:CrystalReportsViewer HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="383" Width="718" Loaded="CrystalReportsViewer_Loaded">-->
             <DataGrid x:Name="previstaDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="10" RowDetailsVisibilityMode="VisibleWhenSelected">
                 <DataGrid.Columns>
                     <DataGridTextColumn x:Name="direccionColumn" Binding="{Binding Direccion}" Header="Direccion" Width="SizeToHeader"/>
@@ -23,7 +23,7 @@
                     <DataGridTextColumn x:Name="idTarifaColumn" Binding="{Binding IdTarifa}" Header="Id Tarifa" Width="SizeToHeader"/>
                 </DataGrid.Columns>
             </DataGrid>
-        </Viewer:CrystalReportsViewer>
+        <!--</Viewer:CrystalReportsViewer>-->
 
     </Grid>
 </Window>

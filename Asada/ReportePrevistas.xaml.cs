@@ -40,7 +40,7 @@ namespace Asada
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
 
-            System.Windows.Data.CollectionViewSource previstaViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("previstaViewSource")));
+            //System.Windows.Data.CollectionViewSource previstaViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("previstaViewSource")));
             // Cargar datos estableciendo la propiedad CollectionViewSource.Source:
             // previstaViewSource.Source = [origen de datos genérico]
         }
