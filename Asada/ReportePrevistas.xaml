@@ -2,10 +2,12 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
-        Title="ReportePrevistas" Height="377" Width="752" Closing="Window_Closing">
+        Title="ReportePrevistas" Height="403.624" Width="752" Closing="Window_Closing" Loaded="Window_Loaded">
     <Grid>
-        <WindowsFormsHost HorizontalAlignment="Left" Height="327" Margin="10,10,0,0" VerticalAlignment="Top" Width="724">
+        <WindowsFormsHost HorizontalAlignment="Left" Height="323" Margin="10,41,0,0" VerticalAlignment="Top" Width="724">
             <rv:ReportViewer x:Name="_reportViewer" Load="_reportViewer_Load"/>
         </WindowsFormsHost>
+        <Label Content="SINPE" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblSINPE" Content="" HorizontalAlignment="Left" Margin="88,10,0,0" VerticalAlignment="Top" Width="189" />
     </Grid>
 </Window>

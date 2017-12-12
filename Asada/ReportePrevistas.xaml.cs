@@ -58,5 +58,10 @@ namespace Asada
             e.Cancel = true;
             this.Hide();
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.lblSINPE.Content = Asada.Properties.Settings.Default.SINPE.ToString();
+        }
     }
 }
