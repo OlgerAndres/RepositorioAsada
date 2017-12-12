@@ -1,7 +1,7 @@
 ﻿<Window x:Class="Asada.ASADAS"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="ASADAS" Height="637.806" Width="631.059" Closing="OnWindowClosing" ResizeMode="NoResize" Icon="Imagenes/admin-ajax.jpg">
+        Title="ASADAS" Height="637.806" Width="631.059" Closing="OnWindowClosing" ResizeMode="NoResize" Icon="Imagenes/admin-ajax.jpg" WindowStartupLocation="CenterScreen">
     <Grid>
         <Button x:Name="btnUsuarios" HorizontalAlignment="Left" Margin="104,214,0,0" VerticalAlignment="Top" Width="69" Click="btnUsuarios_Click" Height="67">
             <Image Source="Imagenes\profile.png" Height="65" Width="69"/>
