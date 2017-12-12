@@ -25,6 +25,7 @@ namespace Asada
         private Sectores sectores = new Sectores();
         private Tarifas tarifas = new Tarifas();
         private Usuarios usuarios = new Usuarios();
+        private Reportes reportes = new Reportes();
 
         public ASADAS()
         {
@@ -59,6 +60,11 @@ namespace Asada
         private void btnSectores_Click(object sender, RoutedEventArgs e)
         {
             this.sectores.Show();
+        }
+
+        private void BtnReportes_Click(object sender, RoutedEventArgs e)
+        {
+            this.reportes.Show();
         }
     }
 }

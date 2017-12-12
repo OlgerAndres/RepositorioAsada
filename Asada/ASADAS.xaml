@@ -19,7 +19,7 @@
             <Image Source="Imagenes\sector.png" Height="57" Width="65"/>
         </Button>
         <Label Content="Sistema de ASADAS" HorizontalAlignment="Left" Margin="222,65,0,0" VerticalAlignment="Top" FontFamily="Lucida Calligraphy" FontSize="16"/>
-        <Button x:Name="BtnReportes" HorizontalAlignment="Left" Margin="445,413,0,0" VerticalAlignment="Top" Width="75" Height="67">
+        <Button x:Name="BtnReportes" HorizontalAlignment="Left" Margin="445,413,0,0" VerticalAlignment="Top" Width="75" Height="67" Click="BtnReportes_Click">
             <Image Source="Imagenes\report.png" Height="67" Width="65"/>
         </Button>
         <Label Content="Usuarios" HorizontalAlignment="Left" Margin="108,161,0,0" VerticalAlignment="Top" FontFamily="Lucida Calligraphy" FontSize="16"/>
