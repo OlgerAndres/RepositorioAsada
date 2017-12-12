@@ -21,8 +21,8 @@ namespace Datos
         public string Direccion { get; set; }
         public string FolioReal { get; set; }
     
-        public virtual Abonado Abonado { get; set; }
-        public virtual Sector Sectore { get; set; }
-        public virtual Tarifa Tarifa { get; set; }
+        public Abonado Abonado { get; set; }
+        public Sector Sectore { get; set; }
+        public Tarifa Tarifa { get; set; }
     }
 }
