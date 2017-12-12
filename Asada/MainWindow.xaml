@@ -11,7 +11,7 @@
         <Label Content="Clave" HorizontalAlignment="Left" Margin="141,132,0,0" VerticalAlignment="Top" FontFamily="Lucida Calligraphy" FontSize="16"/>
         <PasswordBox x:Name="txtClave" HorizontalAlignment="Left" Margin="255,132,0,0" VerticalAlignment="Top" RenderTransformOrigin="5.1,-0.15" Width="160" Height="24" FontFamily="Arial"/>
         <Button HorizontalAlignment="Left" Margin="218,205,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1" Height="67" >
-            <Image Source="E:\Documents\Visual Studio 2012\Projects\Asada\Asada\Imagenes\user_access-128.png" Height="57" Width="75"/>
+            <Image Source="Imagenes\user_access-128.png" Height="57" Width="75"/>
         </Button>
 
     </Grid>

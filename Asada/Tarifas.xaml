@@ -8,7 +8,7 @@
         <Label Content="Precio" HorizontalAlignment="Left" Margin="341,31,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.368,0.423" FontFamily="Lucida Calligraphy" FontSize="16"/>
         <TextBox x:Name="txtPrecio" HorizontalAlignment="Left" Height="23" Margin="424,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Arial" FontSize="16"/>
         <Button x:Name="btnAgregar" HorizontalAlignment="Left" Margin="60,96,0,0" VerticalAlignment="Top" Width="75" Click="btnAgregar_Click" Height="68">
-            <Image Source="E:\Documents\Visual Studio 2012\Projects\Asada\Asada\Imagenes\create-128.png" RenderTransformOrigin="0.5,0.5" Height="56" Width="71">
+            <Image Source="Imagenes\create-128.png" RenderTransformOrigin="0.5,0.5" Height="56" Width="71">
                 <Image.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -20,10 +20,10 @@
             </Image>
         </Button>
         <Button IsEnabled="False" x:Name="btnModificar" HorizontalAlignment="Left" Margin="187,96,0,0" VerticalAlignment="Top" Width="75" Click="btnModificar_Click" Height="68">
-            <Image Source="E:\Documents\Visual Studio 2012\Projects\Asada\Asada\Imagenes\update-128.png" Height="60" Width="75"/>
+            <Image Source="Imagenes\update-128.png" Height="60" Width="75"/>
         </Button>
         <Button IsEnabled="False" x:Name="btnEliminar" HorizontalAlignment="Left" Margin="322,96,0,0" VerticalAlignment="Top" Width="75" Click="btnEliminar_Click" Height="68" >
-            <Image Source="E:\Documents\Visual Studio 2012\Projects\Asada\Asada\Imagenes\erase-128.png" Height="63" Width="75"/>
+            <Image Source="Imagenes\erase-128.png" Height="63" Width="75"/>
         </Button>
         <DataGrid CanUserAddRows="false" x:Name="DgTarifas"  AutoGenerateColumns="False"
         	HorizontalAlignment="Left" Margin="101,209,0,0" VerticalAlignment="Top" SelectionMode="Single"
@@ -35,7 +35,7 @@
             </DataGrid.Columns>
         </DataGrid>
         <Button Visibility="Hidden" x:Name="btnCancelar" HorizontalAlignment="Left" Margin="448,96,0,0" VerticalAlignment="Top" Width="75" Click="btnCancelar_Click" Height="68">
-            <Image Source="E:\Documents\Visual Studio 2012\Projects\Asada\Asada\Imagenes\close-128.png" Height="58" Width="75"/>
+            <Image Source="Imagenes\close-128.png" Height="58" Width="75"/>
         </Button>
     </Grid>
 </Window>

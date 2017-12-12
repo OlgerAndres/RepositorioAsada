@@ -7,20 +7,20 @@
             <Image Source="E:\Documents\Visual Studio 2012\Projects\Asada\Asada\Imagenes\profile.png" Height="65" Width="69"/>
         </Button>
         <Button x:Name="btnAbonados" HorizontalAlignment="Left" Margin="272,214,0,0" VerticalAlignment="Top" Width="75" Click="btnAbonados_Click" Height="67">
-            <Image Source="E:\Documents\Visual Studio 2012\Projects\Asada\Asada\Imagenes\abonad.png" Height="57" Width="65"/>
+            <Image Source="Imagenes\abonad.png" Height="57" Width="65"/>
         </Button>
         <Button x:Name="btnPrevistas" HorizontalAlignment="Left" Margin="104,413,0,0" VerticalAlignment="Top" Width="75" Click="btnPrevistas_Click" Height="67">
-            <Image Source="E:\Documents\Visual Studio 2012\Projects\Asada\Asada\Imagenes\previst.png" Height="67" Width="75"/>
+            <Image Source="Imagenes\previst.png" Height="67" Width="75"/>
         </Button>
         <Button x:Name="btnTarifas" HorizontalAlignment="Left" Margin="445,214,0,0" VerticalAlignment="Top" Width="75" Click="btnTarifas_Click" Height="67">
-            <Image Source="E:\Documents\Visual Studio 2012\Projects\Asada\Asada\Imagenes\tarif.png" Height="67" Width="75"/>
+            <Image Source="Imagenes\tarif.png" Height="67" Width="75"/>
         </Button>
         <Button x:Name="btnSectores" HorizontalAlignment="Left" Margin="272,413,0,0" VerticalAlignment="Top" Width="75" Click="btnSectores_Click" Height="67">
-            <Image Source="E:\Documents\Visual Studio 2012\Projects\Asada\Asada\Imagenes\sector.png" Height="57" Width="65"/>
+            <Image Source="Imagenes\sector.png" Height="57" Width="65"/>
         </Button>
         <Label Content="Sistema de ASADAS" HorizontalAlignment="Left" Margin="222,65,0,0" VerticalAlignment="Top" FontFamily="Lucida Calligraphy" FontSize="16"/>
         <Button x:Name="BtnReportes" HorizontalAlignment="Left" Margin="445,413,0,0" VerticalAlignment="Top" Width="75" Height="67">
-            <Image Source="E:\Documents\Visual Studio 2012\Projects\Asada\Asada\Imagenes\report.png" Height="67" Width="65"/>
+            <Image Source="Imagenes\report.png" Height="67" Width="65"/>
         </Button>
         <Label Content="Usuarios" HorizontalAlignment="Left" Margin="108,161,0,0" VerticalAlignment="Top" FontFamily="Lucida Calligraphy" FontSize="16"/>
         <Label Content="Tarifas" HorizontalAlignment="Left" Margin="445,161,0,0" VerticalAlignment="Top" FontFamily="Lucida Calligraphy" FontSize="16"/>
