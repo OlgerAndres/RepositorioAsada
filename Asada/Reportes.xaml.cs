@@ -20,6 +20,7 @@ namespace Asada
     public partial class Reportes : Window
     {
         private ReportePrevistas reportePrevistas = new ReportePrevistas();
+        private ReporteAbonados reporteAbonados = new ReporteAbonados();
 
         public Reportes()
         {
@@ -35,6 +36,11 @@ namespace Asada
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.reportePrevistas.Show();
+        }
+
+        private void btnAbonados_Click(object sender, RoutedEventArgs e)
+        {
+            this.reporteAbonados.Show();
         }
     }
 }

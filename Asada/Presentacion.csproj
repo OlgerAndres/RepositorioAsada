@@ -95,6 +95,9 @@
     <Compile Include="ASADAS.xaml.cs">
       <DependentUpon>ASADAS.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ReporteAbonados.xaml.cs">
+      <DependentUpon>ReporteAbonados.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Reportes.xaml.cs">
       <DependentUpon>Reportes.xaml</DependentUpon>
     </Compile>
@@ -136,6 +139,10 @@
     <Page Include="Previstas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ReporteAbonados.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Reportes.xaml">
       <SubType>Designer</SubType>

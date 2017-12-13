@@ -7,7 +7,7 @@
            xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
         
         mc:Ignorable="d"
-        Title="Reporte de Abonados" Height="403.624" Width="752" Closing="Window_Closing" Loaded="Window_Loaded">
+        Title="Reporte de Abonados" Height="403.624" Width="752" Closing="Window_Closing" Loaded="Window_Loaded" Icon="Imagenes/admin-ajax.jpg">
 
     <Grid>
 
