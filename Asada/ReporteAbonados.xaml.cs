@@ -49,7 +49,7 @@ namespace Asada
             this._reportViewer2.LocalReport.DataSources.Add(dataSource);
 
             this._reportViewer2.LocalReport.DataSources.Add(reportDataSource1);
-            this._reportViewer2.LocalReport.ReportEmbeddedResource = "Asada.Report1.rdlc";
+            this._reportViewer2.LocalReport.ReportEmbeddedResource = "Asada.ReporteAbonados.rdlc";
 
             _reportViewer2.RefreshReport();
             _isReportViewerLoaded = true;
