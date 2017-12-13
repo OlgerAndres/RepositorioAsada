@@ -13,6 +13,7 @@
         <AssociationConnector Association="ASADAModel.FK_Previstas_Abonados" />
         <AssociationConnector Association="ASADAModel.FK_Previstas_Sectores" />
         <AssociationConnector Association="ASADAModel.FK_Previstas_Tarifas" />
+        <EntityTypeShape EntityType="ASADAModel.PrevistaVista" Width="1.5" PointX="3.375" PointY="6.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

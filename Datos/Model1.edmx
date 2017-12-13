@@ -55,6 +55,30 @@
           <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Clave" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ASADA.dbo.PrevistaVista' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="PrevistaVista">
+          <Key>
+            <PropertyRef Name="Nombre" />
+            <PropertyRef Name="Primer apellido" />
+            <PropertyRef Name="Segundo apellido" />
+            <PropertyRef Name="Cédula" />
+            <PropertyRef Name="Sector" />
+            <PropertyRef Name="Tarifa" />
+            <PropertyRef Name="Precio" />
+            <PropertyRef Name="Dirección" />
+            <PropertyRef Name="Folio real" />
+          </Key>
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Primer apellido" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Segundo apellido" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Cédula" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sector" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Tarifa" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Precio" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Dirección" Type="nvarchar" MaxLength="225" Nullable="false" />
+          <Property Name="Folio real" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <Association Name="FK_Previstas_Abonados">
           <End Role="Abonados" Type="Self.Abonados" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -103,6 +127,19 @@
           <EntitySet Name="Sectores" EntityType="Self.Sectores" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tarifas" EntityType="Self.Tarifas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PrevistaVista" EntityType="Self.PrevistaVista" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [PrevistaVista].[Nombre] AS [Nombre], 
+    [PrevistaVista].[Primer apellido] AS [Primer apellido], 
+    [PrevistaVista].[Segundo apellido] AS [Segundo apellido], 
+    [PrevistaVista].[Cédula] AS [Cédula], 
+    [PrevistaVista].[Sector] AS [Sector], 
+    [PrevistaVista].[Tarifa] AS [Tarifa], 
+    [PrevistaVista].[Precio] AS [Precio], 
+    [PrevistaVista].[Dirección] AS [Dirección], 
+    [PrevistaVista].[Folio real] AS [Folio real]
+    FROM [dbo].[PrevistaVista] AS [PrevistaVista]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_Previstas_Abonados" Association="Self.FK_Previstas_Abonados">
             <End Role="Abonados" EntitySet="Abonados" />
             <End Role="Previstas" EntitySet="Previstas" />
@@ -138,6 +175,7 @@
             <End Role="Tarifa" EntitySet="Tarifas" />
             <End Role="Prevista" EntitySet="Previstas" />
           </AssociationSet>
+          <EntitySet Name="PrevistaVistas" EntityType="ASADAModel.PrevistaVista" />
           </EntityContainer>
         <EntityType Name="Abonado">
           <Key>
@@ -237,6 +275,28 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="PrevistaVista">
+          <Key>
+            <PropertyRef Name="Nombre" />
+            <PropertyRef Name="Primer_apellido" />
+            <PropertyRef Name="Segundo_apellido" />
+            <PropertyRef Name="Cédula" />
+            <PropertyRef Name="Sector" />
+            <PropertyRef Name="Tarifa" />
+            <PropertyRef Name="Precio" />
+            <PropertyRef Name="Dirección" />
+            <PropertyRef Name="Folio_real" />
+          </Key>
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Primer_apellido" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Segundo_apellido" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cédula" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sector" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tarifa" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Precio" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="Dirección" Type="String" Nullable="false" MaxLength="225" FixedLength="false" Unicode="true" />
+          <Property Name="Folio_real" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -295,6 +355,21 @@
                 <ScalarProperty Name="IdTarifa" ColumnName="IdTarifa" />
                 <ScalarProperty Name="IdAbonado" ColumnName="IdAbonado" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PrevistaVistas">
+            <EntityTypeMapping TypeName="ASADAModel.PrevistaVista">
+              <MappingFragment StoreEntitySet="PrevistaVista">
+                <ScalarProperty Name="Folio_real" ColumnName="Folio real" />
+                <ScalarProperty Name="Dirección" ColumnName="Dirección" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Tarifa" ColumnName="Tarifa" />
+                <ScalarProperty Name="Sector" ColumnName="Sector" />
+                <ScalarProperty Name="Cédula" ColumnName="Cédula" />
+                <ScalarProperty Name="Segundo_apellido" ColumnName="Segundo apellido" />
+                <ScalarProperty Name="Primer_apellido" ColumnName="Primer apellido" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

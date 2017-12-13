@@ -12,17 +12,16 @@ namespace Datos
     using System;
     using System.Collections.Generic;
     
-    public partial class Prevista
+    public partial class PrevistaVista
     {
-        public int Id { get; set; }
-        public int IdAbonado { get; set; }
-        public int IdTarifa { get; set; }
-        public int IdSector { get; set; }
-        public string Direccion { get; set; }
-        public string FolioReal { get; set; }
-    
-        public virtual Abonado Abonado { get; set; }
-        public virtual Sector Sectore { get; set; }
-        public virtual Tarifa Tarifa { get; set; }
+        public string Nombre { get; set; }
+        public string Primer_apellido { get; set; }
+        public string Segundo_apellido { get; set; }
+        public string Cédula { get; set; }
+        public string Sector { get; set; }
+        public string Tarifa { get; set; }
+        public decimal Precio { get; set; }
+        public string Dirección { get; set; }
+        public string Folio_real { get; set; }
     }
 }

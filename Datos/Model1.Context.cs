@@ -30,5 +30,6 @@ namespace Datos
         public virtual DbSet<Tarifa> Tarifas { get; set; }
         public virtual DbSet<Usuario> Usuarios { get; set; }
         public virtual DbSet<Prevista> Previstas { get; set; }
+        public virtual DbSet<PrevistaVista> PrevistaVistas { get; set; }
     }
 }
