@@ -4,10 +4,10 @@
         Title="Reportes" Height="300" Width="510" Closing="Window_Closing" WindowStartupLocation="CenterScreen" Icon="Imagenes/admin-ajax.jpg">
     <Grid>
         <Button HorizontalAlignment="Left" Margin="103,104,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" Height="67">
-            <Image Source="E:\Documents\Visual Studio 2012\Projects\Asada\Asada\Imagenes\Reporting.png" Height="67" Width="75"/>
+            <Image Source="Imagenes\Reporting.png" Height="67" Width="75"/>
         </Button>
         <Button x:Name="btnAbonados" HorizontalAlignment="Left" Margin="319,104,0,0" VerticalAlignment="Top" Width="75" Height="67">
-            <Image Source="E:\Documents\Visual Studio 2012\Projects\Asada\Asada\Imagenes\Reporting.png" Height="67" Width="75"/>
+            <Image Source="Imagenes\Reporting.png" Height="67" Width="75"/>
         </Button>
         <Label Content="Previstas" HorizontalAlignment="Left" Margin="92,67,0,0" VerticalAlignment="Top" Width="97" FontFamily="Lucida Calligraphy" FontSize="16"/>
         <Label Content="Abonados" HorizontalAlignment="Left" Margin="307,67,0,0" VerticalAlignment="Top" Width="98" FontFamily="Lucida Calligraphy" FontSize="16"/>

@@ -179,11 +179,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Report1.rdlc" />
+    <EmbeddedResource Include="ReportePrevistaVista.rdlc" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Datos.Abonado.datasource" />
     <None Include="Properties\DataSources\Datos.ASADAEntidades.datasource" />
     <None Include="Properties\DataSources\Datos.Prevista.datasource" />
+    <None Include="Properties\DataSources\Datos.PrevistaVista.datasource" />
     <None Include="Properties\DataSources\Datos.Sector.datasource" />
     <None Include="Properties\DataSources\Datos.Tarifa.datasource" />
     <None Include="Properties\DataSources\Datos.Usuario.datasource" />

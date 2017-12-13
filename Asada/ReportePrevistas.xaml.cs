@@ -37,20 +37,14 @@ namespace Asada
                 return;
             }
 
+            Microsoft.Reporting.WinForms.ReportDataSource dataSource = new ReportDataSource("DataSet1", new ASADAEntidades().PrevistaVistas.ToList());
+
             this._reportViewer.ProcessingMode = Microsoft.Reporting.WinForms.ProcessingMode.Local;
-            AccionesPrevistas previstas = new AccionesPrevistas();
-
-            Microsoft.Reporting.WinForms.ReportDataSource dataSource = new ReportDataSource("DataSet1", previstas.listar());
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-
             this._reportViewer.LocalReport.DataSources.Clear();
             this._reportViewer.LocalReport.DataSources.Add(dataSource);
-
-            this._reportViewer.LocalReport.DataSources.Add(reportDataSource1);
-            this._reportViewer.LocalReport.ReportEmbeddedResource = "Asada.Report1.rdlc";
-
-            _reportViewer.RefreshReport();
-            _isReportViewerLoaded = true;
+            this._reportViewer.LocalReport.ReportEmbeddedResource = "Asada.ReportePrevistaVista.rdlc";
+            this._reportViewer.RefreshReport();
+            this._isReportViewerLoaded = true;
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
