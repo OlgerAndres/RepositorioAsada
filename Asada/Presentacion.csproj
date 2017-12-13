@@ -179,6 +179,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReporteAbonados.rdlc" />
     <EmbeddedResource Include="ReportePrevistaVista.rdlc" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Datos.Abonado.datasource" />
