@@ -21,7 +21,7 @@ namespace Logica
     {
         public List<Prevista> listar()
         {
-            return this.contexto.Previstas.ToList();
+            return this.contexto.Previstas.Include("Abonado").Include("Sectore").Include("Tarifa").ToList();
         }
 
         public Prevista encontrarPorId(int Id)
