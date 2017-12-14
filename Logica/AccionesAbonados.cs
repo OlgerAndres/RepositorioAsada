@@ -7,6 +7,7 @@ using Datos;
 
 namespace Logica
 {
+    //Atributos de la clase de abonados
     public interface IServiciosAbonados
     {
         List<Abonado> listar();
@@ -18,17 +19,17 @@ namespace Logica
 
     public class AccionesAbonados : AccionesEntidades, IServiciosAbonados
     {
-
+        //Metodo de obtener todos 
         public List<Abonado> listar()
         {
             return this.contexto.Abonados.ToList();
         }
-
+        //Encotrar por aboanado
         public Abonado encontrarPorId(int Id)
         {
             return this.contexto.Abonados.Where(a => a.Id == Id).FirstOrDefault();
         }
-
+        //Meotodo de agregar un abonado
         public void agregar(string Nombre, string PrimerApellido, string SegundoApellido, string Cedula, string Telefono, string Celular, string Direccion, string Correo, string NumberoAbonado, bool Afiliado)
         {
             this.contexto.Abonados.Add(new Abonado 
@@ -46,7 +47,7 @@ namespace Logica
             });
             this.contexto.SaveChanges();
         }
-
+        //Metodo de actualizar un abonado
         public void actualizar(int Id, string Nombre, string PrimerApellido, string SegundoApellido, string Cedula, string Telefono, string Celular, string Direccion, string Correo, string NumberoAbonado, bool Afiliado)
         {
             Abonado abonado = this.encontrarPorId(Id);
@@ -62,7 +63,7 @@ namespace Logica
             abonado.Afiliado = Afiliado;
             this.contexto.SaveChanges();
         }
-
+        //Metodo de borrar un abonado
         public void borrar(int Id)
         {
             this.contexto.Abonados.Remove(this.encontrarPorId(Id));

@@ -22,6 +22,7 @@ namespace Asada
     /// </summary>
     public partial class MainWindow : Window
     {
+        //Implementacion de los atributos de la clase de usuarios
         private IServiciosUsuarios usuarios = new AccionesUsuarios();
 
         public MainWindow()
@@ -29,6 +30,7 @@ namespace Asada
             InitializeComponent();
         }
 
+        //Botón de iniciar la sesión 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             try{

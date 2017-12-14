@@ -23,13 +23,13 @@ namespace Asada
     public partial class ReportePrevistas : Window
     {
         private bool _isReportViewerLoaded;
-
+        //Inicializa el reporte de previstas
         public ReportePrevistas()
         {
             InitializeComponent();
             this._reportViewer.Load += _reportViewer_Load;
         }
-
+        //Método para cargar  el reporte desde una lista de previstas
         private void _reportViewer_Load(object sender, EventArgs e)
         {
             if (_isReportViewerLoaded)
@@ -47,12 +47,13 @@ namespace Asada
             this._isReportViewerLoaded = true;
         }
 
+        //Método de cerrar la ventana y ocultarla
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             e.Cancel = true;
             this.Hide();
         }
-
+        //Muestra el  número de cuenta de la ASADA
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             this.lblSINPE.Content = Asada.Properties.Settings.Default.SINPE.ToString();

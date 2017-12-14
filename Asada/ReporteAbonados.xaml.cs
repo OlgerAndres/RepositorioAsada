@@ -23,13 +23,13 @@ namespace Asada
     public partial class ReporteAbonados : Window
     {
         private bool _isReportViewerLoaded;
-
+        //Inicializa el reporte de abonados
         public ReporteAbonados()
         {
             InitializeComponent();
             this._reportViewer2.Load += _reportViewer2_Load;
         }
-
+        //Método para cargar  el reporte desde una lista de abonados
         private void _reportViewer2_Load(object sender, EventArgs e)
         {
 
@@ -57,7 +57,7 @@ namespace Asada
         }
 
 
-
+        //Método de cerrar la ventana y ocultarla
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             e.Cancel = true;

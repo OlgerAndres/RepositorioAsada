@@ -19,6 +19,7 @@ namespace Asada
     /// </summary>
     public partial class Reportes : Window
     {
+        //Implementación de las  clases de lógica
         private ReportePrevistas reportePrevistas = new ReportePrevistas();
         private ReporteAbonados reporteAbonados = new ReporteAbonados();
 
@@ -26,18 +27,18 @@ namespace Asada
         {
             InitializeComponent();
         }
-
+        //Método de cerrar la ventana y la mantiene oculta
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             e.Cancel = true;
             this.Hide();
         }
-
+        //Botón para visualizar reporte por previstas
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.reportePrevistas.Show();
         }
-
+        //Botón para visualizar reporte por abonados
         private void btnAbonados_Click(object sender, RoutedEventArgs e)
         {
             this.reporteAbonados.Show();

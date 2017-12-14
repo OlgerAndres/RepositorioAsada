@@ -7,6 +7,7 @@ using Datos;
 
 namespace Logica
 {
+    //Atributos de la clase de usuarios
     public interface IServiciosUsuarios
     {
         bool iniciarSession(string UsuarioNombre, string clave, out Usuario usuario);
@@ -20,7 +21,7 @@ namespace Logica
 
     public class AccionesUsuarios : AccionesEntidades, IServiciosUsuarios
     {
-
+        //Método de iniciar la sesión 
         public bool iniciarSession(string UsuarioNombre, string clave, out Usuario usuario)
         {
             string encriptada = this.encriptarClave(clave);
@@ -29,7 +30,7 @@ namespace Logica
                 .FirstOrDefault(u => u.Nombre.Equals(UsuarioNombre) && u.Clave.Equals(encriptada));
             return usuario != null;
         }
-
+        //Método para encriptar la clave del usuario
         public string encriptarClave(string clave)
         {
             System.Security.Cryptography.MD5 md5 = System.Security.Cryptography.MD5.Create();
@@ -41,17 +42,17 @@ namespace Logica
             }
             return strConstructor.ToString();
         }
-
+        //Método para obtener todos
         public List<Usuario> listar()
         {
             return this.contexto.Usuarios.ToList();
         }
-
+        //Método  en encontrar
         public Usuario encontrarPorId(int Id)
         {
             return this.contexto.Usuarios.Where(u => u.Id == Id).FirstOrDefault();
         }
-
+        //Método de agregar un usuario
         public void agregar(string UsuarioNombre, string Clave)
         {
             this.contexto.Usuarios.Add(new Usuario
@@ -61,7 +62,7 @@ namespace Logica
             });
             this.contexto.SaveChanges();
         }
-
+        //Método de actualizar  usuarios
         public void actualizar(int Id, string UsuarioNombre, string Clave)
         {
             Usuario usuario = this.encontrarPorId(Id);
@@ -72,7 +73,7 @@ namespace Logica
             }
             this.contexto.SaveChanges();
         }
-
+        //Método de borrar un usuario
         public void borrar(int Id)
         {
             this.contexto.Usuarios.Remove(this.encontrarPorId(Id));

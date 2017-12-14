@@ -20,6 +20,7 @@ namespace Asada
     /// </summary>
     public partial class Abonados : Window
     {
+        //Implementación de las clases de lógica
         private IServiciosAbonados abonados = new AccionesAbonados();
         private Abonado abonadoActual = null;
 
@@ -27,7 +28,7 @@ namespace Asada
         {
             InitializeComponent();
         }
-
+        //Método de habilitar los botones del formulario
         private void habilitarCampos(bool bandera)
         {
             this.dgAbonados.IsEnabled = bandera;
@@ -39,12 +40,13 @@ namespace Asada
                 System.Windows.Visibility.Hidden :
                 System.Windows.Visibility.Visible;
         }
-
+        //Método para visualizar los abonados
         private void cargarAbonados()
         {
             this.dgAbonados.ItemsSource = this.abonados.listar();
         }
 
+        //Botón de agregar un nuevo abonado
         private void btnAgregar_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -55,13 +57,14 @@ namespace Asada
                     return;
                 }
                 this.abonados.agregar(this.txtNombre.Text, this.txtPrimerApellido.Text, this.txtSegundoApellido.Text, this.txtCedula.Text, this.txtTelefono.Text, this.txtCelular.Text, this.txtDireccion.Text, this.txtCorreo.Text, this.txtNumeroAbonado.Text, this.chbAfiliado.IsChecked.Value);
+                MessageBox.Show("Abonado agregado", "Información", MessageBoxButton.OK);
                 this.cargarAbonados();
                 this.limpiarCampos();
             }catch(Exception ex){
                 MessageBox.Show("Error,intentelo de nuevo. (" + ex.GetBaseException().Message + ")", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
+        //Método de limpiar los campos del formulario
         private void limpiarCampos()
         {
             this.txtNombre.Clear();
@@ -75,13 +78,13 @@ namespace Asada
             this.txtNumeroAbonado.Clear();
             this.lblCantidadValor.Content =""; 
         }
-
+        //Botón para modificar un abonado
         private void btnModificar_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 this.abonados.actualizar(this.abonadoActual.Id, this.txtNombre.Text, this.txtPrimerApellido.Text, this.txtSegundoApellido.Text, this.txtCedula.Text, this.txtTelefono.Text, this.txtCelular.Text, this.txtDireccion.Text, this.txtCorreo.Text, this.txtNumeroAbonado.Text, this.chbAfiliado.IsChecked.Value);
-                MessageBox.Show("Abonado actualizado");
+                MessageBox.Show("Abonado actualizado", "Información", MessageBoxButton.OK);
                 this.cargarAbonados();
                 this.limpiarCampos();
                 this.habilitarCampos(true);
@@ -90,14 +93,14 @@ namespace Asada
                 MessageBox.Show("Error,intentelo de nuevo. (" + ex.GetBaseException().Message + ")", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
+        //Método de eliminar un abonado
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
             try
             {
 
                 this.abonados.borrar(this.abonadoActual.Id);
-                MessageBox.Show("Abonado eliminado");
+                MessageBox.Show("Abonado eliminado", "Información", MessageBoxButton.OK);
                 this.cargarAbonados();
                 this.limpiarCampos();
                 this.habilitarCampos(true);
@@ -106,7 +109,7 @@ namespace Asada
                 MessageBox.Show("Error,intentelo de nuevo. (" + ex.GetBaseException().Message + ")", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
+        //Método para cerrar la ventana del formulario,además de limpiar los campos y habilitar los botones
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             e.Cancel = true;
@@ -114,7 +117,7 @@ namespace Asada
             this.habilitarCampos(true);
             this.Hide();
         }
-
+        //Evento del datagrid para seleccionar un abonado
         private void dgAbonados_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             this.abonadoActual = this.dgAbonados.CurrentItem as Abonado;
@@ -135,18 +138,18 @@ namespace Asada
             this.lblCantidadValor.Content = (new AccionesPrevistas()).cantidadPrevistasPorIdAbonado(this.abonadoActual.Id);
             this.habilitarCampos(false);
         }
-
+        //Botón de cancelar acciones
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
         {
             this.habilitarCampos(true);
             limpiarCampos();
         }
-
+        //Prepara el formulario,cada vez que se carga
         private void prepararFormulario()
         {
             this.cargarAbonados();
         }
-
+        //Muestra el  datagrid del formulario, cuando se abre la ventana
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (this.IsVisible)
