@@ -240,7 +240,6 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Imagenes\close-128.png" />
     <Resource Include="Imagenes\create-128.png" />
     <Resource Include="Imagenes\erase-128.png" />
     <Resource Include="Imagenes\update-128.png" />
@@ -269,6 +268,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Imagenes\help-browser-128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\Denied.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

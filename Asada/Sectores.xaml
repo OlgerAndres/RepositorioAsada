@@ -23,7 +23,7 @@
             </DataGrid.Columns>
         </DataGrid>
         <Button Visibility="Hidden" x:Name="btnCancelar" HorizontalAlignment="Left" Margin="442,114,0,0" VerticalAlignment="Top" Width="65" Click="btnCancelar_Click" Height="65">
-            <Image Source="Imagenes\close-128.png" Height="58" Width="65"/>
+            <Image Source="Imagenes\Denied.png" Height="57" Width="63"/>
         </Button>
     </Grid>
 </Window>

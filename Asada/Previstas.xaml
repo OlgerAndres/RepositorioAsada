@@ -23,7 +23,7 @@
         <Button IsEnabled="False" x:Name="btnEliminar" HorizontalAlignment="Left" Margin="569,318,0,0" VerticalAlignment="Top" Width="65" Click="btnEliminar_Click" Height="65">
             <Image Source="Imagenes\erase-128.png" Height="58" Width="65"/>
         </Button>
-        
+
         <DataGrid CanUserAddRows="false" x:Name="DgPrevistas"  AutoGenerateColumns="False" IsReadOnly="True"
         	HorizontalAlignment="Left" Margin="13,420,0,0" VerticalAlignment="Top" SelectionUnit="FullRow"
         	Height="200" Width="696" SelectionMode="Single"  MouseDoubleClick="DgPrevistas_MouseDoubleClick" FontFamily="Arial" FontSize="16" >
@@ -38,9 +38,7 @@
         </DataGrid>
 
         <Button Visibility="Hidden" x:Name="btnCancelar" HorizontalAlignment="Left" Margin="569,212,0,0" VerticalAlignment="Top" Width="65" Click="btnCancelar_Click" Height="65">
-            <Image Source="Imagenes\close-128.png" Height="58" Width="65"/>
-
+            <Image Source="Imagenes\Denied.png" Height="55" Width="55"/>
         </Button>
-
     </Grid>
 </Window>

@@ -65,7 +65,7 @@
             <Image Source="Imagenes\update-128.png" Height="55" Width="65"/>
         </Button>
         <Button Visibility="Hidden" x:Name="btnCancelar" HorizontalAlignment="Left" Margin="1012,343,0,0" VerticalAlignment="Top" Width="65" Click="btnCancelar_Click" Height="65">
-            <Image Source="Imagenes\close-128.png" Height="58" Width="65"/>
+            <Image Source="Imagenes\Denied.png" Height="55" Width="55"/>
         </Button>
     </Grid>
 </Window>

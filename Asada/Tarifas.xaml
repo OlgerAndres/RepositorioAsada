@@ -34,8 +34,8 @@
                 <DataGridTextColumn Binding="{Binding Precio, Mode=TwoWay}" Header="Precio" Width="100" />
             </DataGrid.Columns>
         </DataGrid>
-        <Button Visibility="Hidden" x:Name="btnCancelar" HorizontalAlignment="Left" Margin="448,96,0,0" VerticalAlignment="Top" Width="65" Click="btnCancelar_Click" Height="65">
-            <Image Source="Imagenes\close-128.png" Height="58" Width="65"/>
+        <Button Visibility="Hidden" x:Name="btnCancelar" HorizontalAlignment="Left" Margin="440,96,0,0" VerticalAlignment="Top" Width="65" Click="btnCancelar_Click" Height="65">
+            <Image Source="Imagenes\Denied.png" Height="55" Width="55"/>
         </Button>
     </Grid>
 </Window>
