@@ -7,8 +7,8 @@
         <TextBox x:Name="txtUsuario" HorizontalAlignment="Left" Height="23" Margin="320,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Arial" FontSize="16"/>
         <Label Content="Clave" HorizontalAlignment="Left" Margin="246,35,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.89,-0.819" FontFamily="Lucida Calligraphy" FontSize="16"/>
         <PasswordBox x:Name="txtClave" HorizontalAlignment="Left" Height="19" Margin="94,40,0,0" VerticalAlignment="Top" Width="120" FontFamily="Arial"/>
-        <Button x:Name="btnAgregar" HorizontalAlignment="Left" Margin="485,14,0,0" VerticalAlignment="Top" Width="75" Click="btnAgregar_Click" RenderTransformOrigin="-1.293,3.955" Height="68">
-            <Image Source="Imagenes\create-128.png" Height="58" Width="75"/>
+        <Button x:Name="btnAgregar" HorizontalAlignment="Left" Margin="485,14,0,0" VerticalAlignment="Top" Width="65" Click="btnAgregar_Click" RenderTransformOrigin="-1.293,3.955" Height="65">
+            <Image Source="Imagenes\create-128.png" Height="58" Width="65"/>
         </Button>
         <DataGrid CanUserAddRows="false" x:Name="dgUsuarios"  AutoGenerateColumns="False" 
                   HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top"

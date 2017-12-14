@@ -11,17 +11,17 @@
         <ComboBox x:Name="cmbAbonado" HorizontalAlignment="Left" Margin="132,27,0,0" VerticalAlignment="Top" Width="143" FontFamily="Arial" FontSize="16"/>
         <ComboBox x:Name="cmbTarifa" HorizontalAlignment="Left" Margin="132,88,0,0" VerticalAlignment="Top" Width="143" FontFamily="Arial" FontSize="16"/>
         <ComboBox x:Name="cmbSector" HorizontalAlignment="Left" Margin="132,146,0,0" VerticalAlignment="Top" Width="143" FontFamily="Arial" FontSize="16"/>
-        <TextBox x:Name="txtDireccion" HorizontalAlignment="Left" Height="64" Margin="132,216,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="254" FontFamily="Arial" FontSize="16"/>
+        <TextBox x:Name="txtDireccion" HorizontalAlignment="Left" Height="64" Margin="132,216,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="202" FontFamily="Arial" FontSize="16"/>
         <Label Content="Folio real" HorizontalAlignment="Left" Margin="13,318,0,0" VerticalAlignment="Top" FontFamily="Lucida Calligraphy" FontSize="16"/>
         <TextBox x:Name="txtFolio" HorizontalAlignment="Left" Height="23" Margin="132,318,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" FontFamily="Arial" FontSize="16"/>
-        <Button x:Name="btnAgregar" HorizontalAlignment="Left" Margin="439,212,0,0" VerticalAlignment="Top" Width="75" Click="btnAgregar_Click" Height="67">
-            <Image Source="Imagenes\create-128.png" Height="63" Width="75"/>
+        <Button x:Name="btnAgregar" HorizontalAlignment="Left" Margin="439,212,0,0" VerticalAlignment="Top" Width="65" Click="btnAgregar_Click" Height="65">
+            <Image Source="Imagenes\create-128.png" Height="63" Width="65"/>
         </Button>
-        <Button IsEnabled="False" x:Name="btnModificar" HorizontalAlignment="Left" Margin="439,318,0,0" VerticalAlignment="Top" Width="75" Click="btnModificar_Click" Height="68">
-            <Image Source="Imagenes\update-128.png" Height="63" Width="75"/>
+        <Button IsEnabled="False" x:Name="btnModificar" HorizontalAlignment="Left" Margin="439,318,0,0" VerticalAlignment="Top" Width="65" Click="btnModificar_Click" Height="65">
+            <Image Source="Imagenes\update-128.png" Height="63" Width="65"/>
         </Button>
-        <Button IsEnabled="False" x:Name="btnEliminar" HorizontalAlignment="Left" Margin="569,318,0,0" VerticalAlignment="Top" Width="75" Click="btnEliminar_Click" Height="68">
-            <Image Source="Imagenes\erase-128.png" Height="58" Width="75"/>
+        <Button IsEnabled="False" x:Name="btnEliminar" HorizontalAlignment="Left" Margin="569,318,0,0" VerticalAlignment="Top" Width="65" Click="btnEliminar_Click" Height="65">
+            <Image Source="Imagenes\erase-128.png" Height="58" Width="65"/>
         </Button>
         
         <DataGrid CanUserAddRows="false" x:Name="DgPrevistas"  AutoGenerateColumns="False" IsReadOnly="True"
@@ -37,8 +37,8 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <Button Visibility="Hidden" x:Name="btnCancelar" HorizontalAlignment="Left" Margin="569,212,0,0" VerticalAlignment="Top" Width="75" Click="btnCancelar_Click" Height="68">
-            <Image Source="Imagenes\close-128.png" Height="58" Width="95"/>
+        <Button Visibility="Hidden" x:Name="btnCancelar" HorizontalAlignment="Left" Margin="569,212,0,0" VerticalAlignment="Top" Width="65" Click="btnCancelar_Click" Height="65">
+            <Image Source="Imagenes\close-128.png" Height="58" Width="65"/>
 
         </Button>
 

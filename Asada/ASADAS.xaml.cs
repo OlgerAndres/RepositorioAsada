@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Diagnostics;
 
 namespace Asada
 {
@@ -65,6 +66,11 @@ namespace Asada
         private void BtnReportes_Click(object sender, RoutedEventArgs e)
         {
             this.reportes.Show();
+        }
+
+        private void btnAyuda_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(@"https://drive.google.com/file/d/15gOUqmPpvVmJrT0smUW_mjpllH-CbyZK/view?usp=sharing");
         }
     }
 }

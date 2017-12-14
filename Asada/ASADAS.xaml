@@ -28,6 +28,8 @@
         <Label Content="Previstas" HorizontalAlignment="Left" Margin="104,362,0,0" VerticalAlignment="Top" FontFamily="Lucida Calligraphy" FontSize="16"/>
         <Label Content="Sectores" HorizontalAlignment="Left" Margin="261,362,0,0" VerticalAlignment="Top" FontFamily="Lucida Calligraphy" FontSize="16"/>
         <Label Content="Reportes" HorizontalAlignment="Left" Margin="445,362,0,0" VerticalAlignment="Top" FontFamily="Lucida Calligraphy" FontSize="16"/>
-
+        <Button x:Name="btnAyuda" HorizontalAlignment="Left" Margin="537,30,0,0" VerticalAlignment="Top" Width="56" Height="44" Click="btnAyuda_Click">
+            <Image Source="Imagenes\help-browser-128.png" Height="34" Width="46"/>
+        </Button>
     </Grid>
 </Window>
