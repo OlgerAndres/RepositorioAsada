@@ -40,14 +40,17 @@ namespace Asada
                     ASADAS asadas = new ASADAS();
                     asadas.Show();
                     this.Close();
+
                 }
                 else
                 {
-                    MessageBox.Show("No se pudo iniciar sesion [Verifique usuario/clave]");
+                  MessageBox.Show("Usuario o  Clave incorrectas. Intente de nuevo");
                 }
-        }catch(Exception){
-            MessageBox.Show("Error,intentelo de nuevo", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+                
+        }catch(Exception ex){
+            MessageBox.Show("Error,intentelo de nuevo. (" + ex.GetBaseException().Message + ")", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
         }
+
             }
     
         }
